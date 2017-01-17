@@ -1,0 +1,33 @@
+@charset "utf-8";
+body{background:#fbfbfb;color:#333;font:12px/1.8 Tahoma,Verdana,Arial,Helvetica,sans-serif;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td,img{margin:0;padding:0;list-style:none outside none;}
+img{border:none;margin:0;padding:0;vertical-align:top;}
+
+em{font-style:normal;}
+table,td{border:0;padding:0;border-collapse:collapse; border-spacing:0;}
+
+
+
+/******************超文本链接*****************/
+h2,h3,h4{font-size:16px;}
+a{text-decoration:none;}a:hover{text-decoration:underline;cursor:pointer;}
+
+/*清除浮动*/
+.clear{clear:both;height:0px;}
+.clearfix {zoom:1;clear:both;}
+.clearfix:after {content: ".";display: block;height: 0;clear: both;visibility: hidden;}
+
+
+/******************主体*****************/
+.logo{background:url(../images/bg.png);height:86px;padding:30px 0 0 20%;}
+.banner{background:#023c82 url(../images/banner.jpg) no-repeat center 0;height:255px;}
+.banner02{background:#022c6b url(../images/banner02.jpg) no-repeat center 0;height:255px;}
+.main{margin:0 auto;width:950px;}
+.main h1,.article h2,.main h3{color:#336699;font-family: 'Arial','Microsoft Yahei';font-weight:normal;line-height:1.6em;margin: 1.8em 0 0.8em;}
+.main h1{font-size:24px;text-align:center;}
+.article h2{background:#eee;padding:5px;text-shadow: 1px 1px 0 white;}
+.main p,.main li {font-size:14px;margin:0.8em 0;text-indent:2em;}
+
+
+/*版权*/
+.footer{border-top:1px solid #e1e1e1;color:#666;text-align:center;margin:50px auto 10px;padding-top:15px;}
