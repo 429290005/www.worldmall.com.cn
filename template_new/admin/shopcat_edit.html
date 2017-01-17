@@ -1,0 +1,83 @@
+{#include file="admin/pageheader.html"#}
+<!-- <script>
+        var editor;
+			KindEditor.ready(function(K) {
+				editor = K.create('textarea[id="content"]', {
+					allowFileManager : true,
+					pasteType : 2,
+					newlineTag : this.value,
+					filterMode : true,
+					urlType : 'domain'
+				});
+			});
+</script> -->
+<h1>
+<span class="action-span1"><a href="#">修改地址</a> </span>
+<span class="action-span"><a href="{#spUrl c=shopcat a=index#}">地址</a></span>
+</h1>
+<div class="main-div">
+<form method="post" action="{#spUrl c=shopcat a=update#}" name="theForm"  onsubmit="return validate()" enctype="multipart/form-data">
+<table cellspacing="1" cellpadding="3" width="100%">
+  <tr>
+    <td class="label">地址名称</td>
+    <td><input type="text" name="catename" maxlength="60" size = "30" value="{#$cat.catename#}"/>&nbsp;<font color="#FF0000">*</font></td>
+  </tr>
+
+  <tr>
+    <td class="label">上级分类</td>
+    <td>
+      <select name="pid" >
+        <option value="0">顶级分类</option>
+        {#foreach item=cat_sel from=$cat_select#}
+        	<option value="{#$cat_sel.id#}" {#if $cat_sel.id==$cat.pid#} selected="selected" {#/if#} style="padding-left:{#$cat_sel.level*20#}px">{#$cat_sel.catename#}</option>
+        {#/foreach#}
+      </select>
+    </td>
+  </tr>
+
+<!--   <tr>
+    <td class="label">价格:</td>
+    <td>
+      <input type="text" name='price' value="{#$cat.price#}" size="15" />
+    </td>
+  </tr> -->
+
+  <tr>
+    <td class="label">排序:</td>
+    <td>
+      <input type="text" name='sort_id' size="15"  value="{#$cat.sort_id#}"/>
+    </td>
+  </tr>
+ <tr style="display:none">
+    <td class="label">分类图片:</td>
+    <td>
+      <input type="file" name="upfile"/> 最佳图片大小为348*177px
+    </td>
+  </tr>
+<tr style="display:none">
+    <td class="label">图片显示:</td>
+    <td>
+      <img src="uploads/sm_shopcat/{#$cat.upfile#}"/>
+    </td>
+  </tr>
+	<tr style="display:none">
+        <td class="label">链接:</td>
+        <td><input type="text" name='short' value="{#$cat.short#}" size="50" /><font color="#FF0000"></font></td>
+  </tr>
+<tr style="display:none">
+        <td class="label">分类介绍</td>
+        <td><textarea id="content" name="content" cols="100" rows="8" style="width:700px;height:300px;">{#$cat.content#}</textarea></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><br />
+      <input type="hidden" name="id" value="{#$cat.id#}" />
+      <input type="submit" class="button" value="提交" />
+      <input type="reset" class="button" value="重置" />
+	 
+      
+    </td>
+  </tr>
+</table>
+</form>
+</div>
+{#include file="admin/pagefooter.html"#}

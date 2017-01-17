@@ -1,0 +1,51 @@
+{#include file="admin/pageheader.html"#}
+<h1>
+<span class="action-span1"><a href="#">查看管理员</a> </span>
+<span class="action-span"><a href="{#spUrl c=users a=index#}">管理员列表</a></span>
+</h1>
+<div class="main-div">
+<form method="post" action="{#spUrl c=users a=insert#}" name="theForm"  onsubmit="return validate()">
+<table cellspacing="1" cellpadding="3" width="100%">
+  <tr>
+    <td class="label">用户名</td>
+    <td>
+      <input type="username" name="username" value="{#$detail.username#}"/>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">密码</td>
+    <td>
+      <input type="text" name="password" value="{#$detail.pass#}"/>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">栏目管理:</td>
+    <td>
+    	<!-- <input type="checkbox" name="menuflag[]" value="10001" {#if strpos($detail.menuflag,"10001") !== false#} checked="checked" {#/if#}/>首页 -->
+		<!-- <input type="checkbox" name="menuflag[]" value="10002" {#if strpos($detail.menuflag,"10002") !== false#} checked="checked" {#/if#}/>专题图片 -->
+		<!-- <input type="checkbox" name="menuflag[]" value="10003" {#if strpos($detail.menuflag,"10003") !== false#} checked="checked" {#/if#}/>图片管理 -->
+		<!-- <input type="checkbox" name="menuflag[]" value="10004" {#if strpos($detail.menuflag,"10004") !== false#} checked="checked" {#/if#}/>留言列表 -->
+		<!-- <input type="checkbox" name="menuflag[]" value="10011" {#if strpos($detail.menuflag,"10011") !== false#} checked="checked" {#/if#}/>订购列表 -->
+		
+		
+		{#foreach item=article_cat from=$articlecat#}
+			<input type="checkbox" name="menuflag[]" value="{#$article_cat.id#}" {#if strpos($detail.menuflag,"{#$article_cat.id#}") !== false#} checked="checked" {#/if#}/>{#$article_cat.catename#}
+		{#/foreach#}
+		<!-- <input type="checkbox" name="menuflag[]" value="10005" {#if strpos($detail.menuflag,"10005") !== false#} checked="checked" {#/if#}/>招聘管理 -->
+		<!-- <input type="checkbox" name="menuflag[]" value="10010" {#if strpos($detail.menuflag,"10010") !== false#} checked="checked" {#/if#}/>产品管理 -->
+		<!-- <input type="checkbox" name="menuflag[]" value="10006" {#if strpos($detail.menuflag,"10006") !== false#} checked="checked" {#/if#}/>分类管理 -->
+		<!-- <input type="checkbox" name="menuflag[]" value="10007" {#if strpos($detail.menuflag,"10007") !== false#} checked="checked" {#/if#}/>文章管理 -->
+		<input type="checkbox" name="menuflag[]" value="10008" {#if strpos($detail.menuflag,"10008") !== false#} checked="checked" {#/if#}/>管理员管理
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><br />
+      <input type="hidden" name="id" value="{#$detail.id#}" />
+      <input type="submit" class="button" value="提交" />
+      <input type="reset" class="button" value="重置" />
+    </td>
+  </tr>
+</table>
+</form>
+</div>
+{#include file="admin/pagefooter.html"#}

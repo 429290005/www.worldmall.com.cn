@@ -1,0 +1,27 @@
+{#include file="admin/pageheader.html"#}
+<div class="tab-div">
+  <!-- tab bar -->
+  <div id="tabbar-div">
+    <p>
+      {#foreach from=$group_list item=group name="bar_group"#}<span class="{#if $smarty.foreach.bar_group.iteration eq 1#}tab-front{#else#}tab-back{#/if#}" id="{#$group.code#}-tab">{#$group.name#}</span>{#/foreach#}
+    </p>
+  </div>
+  <!-- tab body -->
+  <div id="tabbody-div">
+    <form enctype="multipart/form-data" name="theForm" action="{#spUrl c=config a=update#}" method="post">
+    {#foreach from=$group_list item=group name="body_group"#}
+    <table width="90%" id="{#$group.code#}-table" {#if $smarty.foreach.body_group.iteration neq 1#}style="display:none"{#/if#}>
+      {#foreach from=$group.vars item=var key=key#}
+      	{#include file="admin/config_form.html"#}
+      {#/foreach#}
+    </table>
+    {#/foreach#}
+
+    <div class="button-div">
+      <input name="submit" type="submit" value="提交" class="button" />
+      <input name="reset" type="reset" value="重置" class="button" />
+    </div>
+    </form>
+  </div>
+</div>
+{#include file="admin/pagefooter.html"#}

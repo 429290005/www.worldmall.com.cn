@@ -1,0 +1,40 @@
+<div class="LeftPart">
+    	<div class="Title">
+    	  <h2>{#$ctitle#}</h2>
+    	</div>
+        <div class="Content">
+        	<ul class="TextList">
+				{#foreach item=cat from=$cats#}
+				
+				
+            	<li onClick="switchs('content',{#$cat.id#})"><a href="{#spUrl c=news a=baogao id=$cat.id tid=$smarty.get.tid sid=$smarty.get.sid#}">{#$cat.catename#}</a>
+                	<!-- <ul id="content{#$cat.id#}" class="Textxt" style="display:none;">
+						{#foreach item=type_list from=$types#}
+
+                    	<li><a href="{#spUrl c=news a=baogao id=$cat.id pid=$cat.id tid=$type_list.id sid=$smarty.get.sid#}">{#$type_list.catename#}</a></li>
+						
+						{#/foreach#}
+                    </ul> -->
+                </li>
+				
+				{#/foreach#}
+            </ul>
+        </div>
+        <div class="Bottom"></div>
+        <div class="Title2"></div>
+        <div class="Content2">
+        	<ul class="TextList3">
+            	{#foreach item=zt_all from=$ztall#}
+            	<li><a href="{#spUrl c=news a=zhuanti id=$zt_all.id#}">{#$zt_all.catename#}</a></li>
+				{#/foreach#}
+            </ul>
+        </div>
+        <div class="Title3"></div>
+        <div class="Content3">
+        	<ul class="TextList4">
+			{#foreach item=year_list from=$year#}
+            	<li><a href="{#spUrl c=news a=baogao id=$smarty.get.pid pid=$smarty.get.pid sid=$year_list.id tid=$smarty.get.tid#}">{#$year_list.catename#}</a>|</li>
+			{#/foreach#}
+            </ul>
+        </div>
+     </div>

@@ -1,0 +1,105 @@
+{#include file="admin/pageheader.html"#}
+<script type="text/javascript" src="lib/swfupload/swfupload.js"></script>
+<script type="text/javascript" src="themes/admin/js/fileprogress.js"></script>
+<script type="text/javascript" src="themes/admin/js/handlers.js"></script>
+<script type="text/javascript">
+		var swfu;
+
+		window.onload = function () {
+			swfu = new SWFUpload({
+				// Backend settings
+				upload_url: "modules/admin/upload.php",
+				file_post_name: "Filedata",
+
+				// Flash file settings
+				file_size_limit : "2 MB",
+				file_types : "*.*",			// or you could use something like: "*.doc;*.wpd;*.pdf",
+				file_types_description : "All Files",
+				file_upload_limit : 0,
+				file_queue_limit : 1,
+
+				// Event handler settings
+				swfupload_loaded_handler : swfUploadLoaded,
+				
+				file_dialog_start_handler: fileDialogStart,
+				file_queued_handler : fileQueued,
+				file_queue_error_handler : fileQueueError,
+				file_dialog_complete_handler : fileDialogComplete,
+				
+				//upload_start_handler : uploadStart,	// I could do some client/JavaScript validation here, but I don't need to.
+				swfupload_preload_handler : preLoad,
+				swfupload_load_failed_handler : loadFailed,
+				upload_progress_handler : uploadProgress,
+				upload_error_handler : uploadError,
+				upload_success_handler : uploadSuccess,
+				upload_complete_handler : uploadComplete,
+
+				// Button Settings
+				button_image_url : "themes/admin/images/XPButtonUploadText_61x22.png",
+				button_placeholder_id : "spanButtonPlaceholder",
+				button_width: 61,
+				button_height: 22,
+				
+				// Flash Settings
+				flash_url : "lib/swfupload/swfupload.swf",
+				flash9_url : "lib/swfupload/swfupload_fp9.swf",
+
+				custom_settings : {
+					progress_target : "fsUploadProgress",
+					upload_successful : false
+				},
+				
+				// Debug settings
+				debug: false
+			});
+
+		};
+	</script>
+<h1>
+<span class="action-span1"><a href="#">添加文件</a> </span>
+<span class="action-span"><a href="{#spUrl c=download a=index#}">文件列表</a></span>
+</h1>
+<div class="main-div">
+<form id="form1" action="{#spUrl c=download a=insert#}" enctype="multipart/form-data" method="post">
+<table cellspacing="1" cellpadding="3" width="100%">
+  <tr>
+    <td class="label">文件名称:</td>
+    <td>
+      	<input type="text" name='title' size="15"  value=""/>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">下载该文件所需的密码:</td>
+    <td>
+		<input type="text" value="" name="password"/><font color="red">提示：密码为空时即下载时不需要密码，否则密码为该文本框中的值</font>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">文件上传:</td>
+    <td>
+      <div>
+          <div>
+              <input type="text" id="txtFileName" name="Filedata" disabled="true" style="border: solid 1px; background-color: #FFFFFF;" />
+              <span id="spanButtonPlaceholder"></span>
+              (2 MB max)
+          </div>
+          <div class="flash" id="fsUploadProgress">
+          </div>
+          <div id="aa"></div>
+          <input type="hidden" name="hidFileID" id="hidFileID" value="" />
+          <input type="hidden" name="upfile" id="upfile" value="" />
+
+      </div>
+    <font color="red">文件名必须是以英文或者数字命名</font></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><br />
+      <input  id="btnSubmit" type="submit" class="button" value="提交"/>
+      <input type="reset" class="button" value="重置" />
+      
+    </td>
+  </tr>
+</table>
+</form>
+</div>
+{#include file="admin/pagefooter.html"#}

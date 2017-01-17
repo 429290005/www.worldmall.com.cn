@@ -1,0 +1,62 @@
+{#include file="header.html"#}
+<link rel="stylesheet" type="text/css" href="{#$basepath#}themes/index/images/css.css" media="all" />
+<script type="text/javascript">
+  $(document).ready(function(){
+      $("#nav>ul>li:not(.clear)").click(function(){
+          alert(li[0]);
+        })
+    });
+</script> 
+<div class="wrap_con"> 
+    <div class="content_full">
+      <div class="content">
+        <div class="clear1"></div>
+        <div class="banr1"><img width="992" src="{#$basepath#}themes/index/images/index22_18.jpg" /></div>
+        <div class="clear1"></div>
+        <div class="content_left">
+          <div class="top5"></div>
+          <div class="keyword"> 
+           <h4>{#$nowcat.catename#}</h4> 
+          </div>
+
+
+           <!--    <div class="box_T gai">
+                <p>{#$nowcat.catename#}</p>
+                <div class="postion"> 首页 > {#$nowcat.catename#} </div>
+              </div> -->
+              <div class="box_C">
+        
+        {#foreach item=news_list from=$news name="newa"#}
+        {#if $smarty.foreach.newa.iteration==1#}
+                <ul>
+                  <li style="background:#f7f7f7; border-bottom:1px solid #b2b2b2;">
+                    <div class="iw">
+                      <div class="aimg"> <a href="{#$basepath#}{#$smarty.get.id#}/detail/{#$news_list.id#}">{#if $news_list.upfile!=""#}<img src="{#$basepath#}uploads/sm_article/{#$news_list.upfile#}"  width="118" height="119"/>{#else#}<img src="{#$basepath#}themes/index/images/nopic.gif"  width="118" height="119" align="left"/>{#/if#}</a> </div>
+                      <div class="p1"> <b><a href="{#$basepath#}{#$smarty.get.id#}/detail/{#$news_list.id#}">{#$news_list.title#}</a></b><br />
+                        <span>{#$news_list.short|mb_substr:0:100#}......<a href="{#$basepath#}{#$smarty.get.id#}/detail/{#$news_list.id#}" class="red">【详细内容】</a></span> </div>
+                    </div>
+                  </li>
+                </ul>
+                <div class="clearfix"></div>
+                <div class="top10"></div>
+                <ul class="ul3">
+         {#else#} 
+                  <li><a href="{#$basepath#}{#$smarty.get.id#}/detail/{#$news_list.id#}">{#$news_list.title#}</a><span>{#$news_list.add_time|date_format:"%Y-%m-%d"#}</span></li>
+          {#/if#}
+          {#/foreach#} 
+          
+                </ul>
+                <div class="clearfix"></div>
+                <div class="page"> {#pager pager=$pager myclass="yahoo2" c="news" a="index" id=$smarty.request.id pid=$smarty.request.pid offset=5#} </div>
+              </div>
+       
+        </div><div class="top5"></div>
+        {#include file="right.html"#}
+        {#include file="link.html"#}
+      </div>
+
+  </div>
+  <!--6--> 
+  
+  <!--footer-->
+{#include file="footer.html"#}

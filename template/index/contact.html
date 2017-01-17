@@ -1,0 +1,115 @@
+{#include file="header.html"#}
+<style type="text/css">
+.footer ul {
+    padding-top: 21px;
+}
+</style>
+<div class="top_flash1">
+  <div class="menu">
+    <object id="FlashID" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="984" height="119">
+      <param name="movie" value="menu.swf" />
+      <param name="quality" value="high" />
+      <param name="wmode" value="transparent" />
+      <param name="swfversion" value="6.0.65.0" />
+      <!-- 此 param 标签提示使用 Flash Player 6.0 r65 和更高版本的用户下载最新版本的 Flash Player。如果您不想让用户看到该提示，请将其删除。 -->
+      <param name="expressinstall" value="Scripts/expressInstall.swf" />
+      <!-- 下一个对象标签用于非 IE 浏览器。所以使用 IECC 将其从 IE 隐藏。 -->
+      <!--[if !IE]>-->
+      <object type="application/x-shockwave-flash" data="menu.swf" width="984" height="119">
+        <!--<![endif]-->
+        <param name="quality" value="high" />
+        <param name="wmode" value="transparent" />
+        <param name="swfversion" value="6.0.65.0" />
+        <param name="expressinstall" value="Scripts/expressInstall.swf" />
+        <!-- 浏览器将以下替代内容显示给使用 Flash Player 6.0 和更低版本的用户。 -->
+        <div>
+          <h4>此页面上的内容需要较新版本的 Adobe Flash Player。</h4>
+          <p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="获取 Adobe Flash Player" width="112" height="33" /></a></p>
+        </div>
+        <!--[if !IE]>-->
+      </object>
+      <!--<![endif]-->
+    </object>
+  </div>
+  <div class="t1"><img src="themes/index/images/t3.png" /></div>
+</div>
+<link rel="stylesheet" type="text/css" href="themes/index/images/css.css" media="all" />
+<!--banner-->    
+    <div class="banner">
+    	<a href="{#$pageimg.link#}"><img src="uploads/banner/{#$pageimg.upfile#}" width="990" height="236"/></a>
+    </div>
+<!--content-->    
+	<div class="content_full">
+        <div class="content">
+            <div class="content_left">
+            	<div class="box contentL_box">
+                	<div class="box_T">
+                    	<p>
+                        	<b>在线留言</b>
+                        </p>
+                    </div>
+                    
+                    <div class="box_C">
+                    	<div class="m_left">
+<div id="menu">
+
+<h3 onclick=pro_click(1) ><a href="{#spUrl c=guestbook a=index#}" onfocus=this.blur();  id="hov_1">在线留言</a></h3>
+ 
+<h3 onclick=pro_click(2) ><a href="{#spUrl c=info a=contact id=1098 pid=1#}" id="hov_2"  onfocus=this.blur(); {#if $smarty.get.id==1098#}class="hover"{#/if#}>人才招聘</a></h3>
+
+<h3 onclick=pro_click(3) ><a href="{#spUrl c=info a=contact id=1099 pid=1#}" id="hov_3"  onfocus=this.blur(); {#if $smarty.get.id==1099#}class="hover"{#/if#}>公司地址</a></h3>
+
+<h3 onclick=pro_click(4) ><a href="{#spUrl c=info a=contact id=1101 pid=1#}" id="hov_4"  onfocus=this.blur(); {#if $smarty.get.id==1101#}class="hover"{#/if#}>关于我们</a></h3>
+
+<SCRIPT>
+
+$(document).ready(function() {
+$("#olid_1:last").show();
+});
+
+    function pro_click(id){
+        for(var i=1;i<=10;i++){
+             $("#olid_"+i).hide();
+			 $("#hov_"+i).removeClass("hover");
+        }
+             $("#olid_"+id).slideToggle();
+		     $("#hov_"+id).addClass("hover");
+    }
+</SCRIPT>
+
+ </div>
+
+</div>
+                    </div>
+                    <div class="box_B"></div>
+                </div>
+            </div>
+            <div class="content_right news">
+            	<div class=" box content_right_title">
+                	<div class="box_T">
+                    	<b>联系我们<a>Contact Us</a></b>
+                        <span class="font12">当前位置：首页 > 联系我们 > <a>在线留言</a></span>
+                    </div>
+                </div>
+            	<div class="box contentR_box">
+                	
+                    
+                    <div class="box_C" style="line-height:22px;padding:20px;">
+					
+						
+                    	
+						{#$row.content#}
+						
+						{#if $smarty.get.id==1099#}
+							<iframe src="map.html" width="707" height="560"></iframe>
+						{#/if#}
+                    </div>
+					
+					
+					
+                </div>
+				<div style="clear:both"></div>
+            </div>       
+        </div>
+    </div>
+{#include file="footer.html"#}

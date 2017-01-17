@@ -1,0 +1,83 @@
+{#include file="admin/pageheader.html"#}
+<script type="text/javascript">
+$(function(){
+	$('#list-table').tableHover(); 
+})
+</script>
+
+
+<h1>
+<span class="action-span1"><a href="#">qq群列表</a> </span>
+<span class="action-span"><a href="{#spUrl c=qq a=addpage nid=$smarty.get.nid#}">添加qq群</a></span>
+</h1>
+
+<form method="post" action="{#spUrl c=qq a=batch#}" name="listForm">
+<!-- start ad position list -->
+<div class="list-div" id="listDiv">
+
+<table width="100%" cellspacing="1" cellpadding="2" id="list-table" class="table">
+  <tr>
+    <th><input type="checkbox" onclick='selectAll(this,"checkboxes")'/>编号</th>
+    <th>qq群</th>
+    <th>管理员</th>
+    <!-- <th>排序</th> -->
+    <!-- <th>是否显示</th> -->
+    <th>操作</th>
+  </tr>
+  {#foreach item=qq_list from=$rows#}
+  <tr>
+    <td width="80"><input type="checkbox" name="checkboxs[]" value="{#$qq_list.id#}">{#$qq_list.id#}</td>
+    <td align="center">&nbsp;&nbsp;&nbsp;{#$qq_list.title#}</td>
+    <td align="center">{#$qq_list.qqheader#}</td>
+    <!-- <td align="center">{#$qq_list.sort_id#}</td> -->
+    <!-- <td align="center">{#if $qq_list.is_open==0#}<img src="themes/admin/images/no.gif" />{#else#}<img src="themes/admin/images/yes.gif" />{#/if#}</td> -->
+    <td align="center">
+    <span>
+      <!--<a title="查看" target="_blank"><img width="16" height="16" border="0" src="themes/admin/images/icon_view.gif"></a>&nbsp;-->
+      <a title="编辑" href="{#spUrl c=qq a=editpage id=$qq_list.id nid=$qq_list.nid#}"><img width="16" height="16" border="0" src="themes/admin/images/icon_edit.gif"></a>&nbsp;
+      <a title="移除" href="{#spUrl c=qq a=delete id=$qq_list.id nid=$smarty.get.nid#}"><img width="16" height="16" border="0" src="themes/admin/images/icon_drop.gif"></a></span>
+     </td>
+  </tr>
+  {#/foreach#}
+  <tr>
+  	<td colspan="7" height="30" bgcolor="#80BDCB" id="pager">
+ 		{#if $pager#}  
+            共有{#$pager.total_count#}条信息,共有{#$pager.total_page#}页(每页{#$pager.page_size#}条信息):  
+            <!--在当前页不是第一页的时候,显示前页和上一页-->  
+            {#if $pager.current_page != $pager.first_page#}  
+                <a href="{#spUrl c=qq a=index page=$pager.first_page#}">前页</a> |  
+                <a href="{#spUrl c=qq a=index page=$pager.prev_page#}">上一页</a> |  
+            {#/if#}  
+            <!--开始循环页码,同时如果循环到当前页则不显示链接-->  
+            {#foreach from=$pager.all_pages item=thepage#}  
+                {#if $thepage != $pager.current_page#}  
+                     <a href="{#spUrl c=qq a=index page=$thepage#}">{#$thepage#}</a>  
+                {#else#}  
+                     <b>{#$thepage#}</b>  
+                {#/if#}  
+            {#/foreach#}  
+            <!--在当前页不是最后一页的时候,显示下一页和后页-->  
+            {#if $pager.current_page != $pager.last_page#} |  
+                <a href="{#spUrl c=qq a=index page=$pager.next_page#}">下一页</a> |  
+                <a href="{#spUrl c=qq a=index page=$pager.last_page#}">后页</a>  
+            {#/if#}  
+        {#/if#}
+    </td>
+  </tr>
+</table>
+<div>
+  <select name="type">
+    <option value="">请选择...</option>
+    <option value="button_remove">批量删除</option>
+    <option value="button_hide">批量隐藏</option>
+    <option value="button_show">批量显示</option>
+  </select>
+  <input type="hidden" name="{#$smarty.get.nid#}"/>
+  <input type="submit" class="button" name="btnSubmit" id="btnSubmit" value="确定">
+</div>
+
+</div>
+</form>
+
+
+{#include file="admin/pagefooter.html"#}

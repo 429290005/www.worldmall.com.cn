@@ -1,0 +1,82 @@
+{#include file="admin/pageheader.html"#}
+<script>
+        KE.show({
+                id : 'content',
+				resizeMode : 0
+        });
+</script>
+<h1>
+<span class="action-span1"><a href="#">修改qq群</a> </span>
+<span class="action-span"><a href="{#spUrl c=qq a=index nid=$smarty.get.nid#}">qq群列表</a></span>
+</h1>
+<div class="main-div">
+<form method="post" action="{#spUrl c=qq a=update#}" name="theForm"  onsubmit="return validate()" enctype="multipart/form-data">
+<table cellspacing="1" cellpadding="3" width="100%">
+  <tr>
+    <td class="label">群名称</td>
+    <td><input type="text" name="title" value="{#$detail.title#}" size = "60"/>&nbsp;<font color="#FF0000">*</font></td>
+  </tr>
+  
+  
+  <tr>
+    <td class="label">所属分类</td>
+    <td>
+		<select name="pid">
+		{#foreach item=cat_list from=$catlist#}
+			<option value="{#$cat_list.id#}" {#if $detail.pid==$cat_list.id#} selected="selected" {#/if#}>{#$cat_list.catename#}</option>
+		{#/foreach#}
+		</select>
+	</td>
+  </tr>
+  
+  
+  <tr>
+    <td class="label">群号码</td>
+    <td><input type="text" name="link" value="{#$detail.linkurl#}" size = "60"/>&nbsp;<font color="#FF0000">*</font></td>
+  </tr>
+  
+  
+  <tr>
+    <td class="label">省会长/负责人邮箱</td>
+    <td><input type="text" name="qqheader" value="{#$detail.qqheader#}" size = "60"/>&nbsp;<font color="#FF0000">*</font></td>
+  </tr>
+  
+  <tr>
+    <td class="label">建会时间</td>
+    <td><input type="text" name="creattime" value="{#$detail.creattime#}" size = "60"/>&nbsp;<font color="#FF0000">*</font></td>
+  </tr>
+  
+  
+
+  
+  
+  
+  
+  
+  <tr>
+    <td class="label">群图标:</td>
+    <td>
+      <input type="file" name="upfile"/>40px*40px
+    </td>
+  </tr>
+  <tr>
+    <td class="label">排序:</td>
+    <td>
+      <input type="text" name='sort_id' value="{#$detail.sort_id#}" size="15" />
+    </td>
+  </tr>
+  
+  
+  <tr>
+    <td colspan="2" align="center"><br />
+   	  <input type="hidden" name="id" value="{#$detail.id#}" />
+      <input type="hidden" name="nid" value="{#$smarty.get.nid#}" />
+      <input type="submit" class="button" value="提交" />
+      <input type="reset" class="button" value="重置" />
+      
+    </td>
+  </tr>
+</table>
+</form>
+</div>
+{#include file="admin/pagefooter.html"#}

@@ -1,0 +1,37 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^shouye/?$  index.php [L]
+RewriteRule ^liuyanban/?$  index.php?c=guestbook&a=index [L]
+
+RewriteRule ^wangzhanditu/?$  index.php/?c=info&a=webmap [L]
+
+RewriteRule ^guanyuwomen/?$  index.php?c=info&a=index&id=1104&pid=50 [L]
+
+RewriteRule ^(.*)/detail/([0-9]+)/?$  index.php?c=news&a=detail&id=$2&pid=$1 [L]
+
+RewriteRule ^(.*)/([0-9]+)/?$  index.php?c=news&a=index&id=$1&pid=$2 [L]
+
+RewriteRule ^(.*)/([0-9]+)/([0-9]+)/?$  index.php?c=news&a=index&id=$1&pid=$2&page=$3 [L]
+
+
+
+RewriteRule ^product.html/?$  index.php?c=product&a=index [L]
+
+RewriteRule ^jiance.html/?$  index.php?c=product&a=jiance [L]
+
+RewriteRule ^info-([0-9]+).html/?$  index.php?c=info&a=index&id=$1 [L]
+
+RewriteRule ^guestbook.html/?$  index.php?c=guestbook&a=index [L]
+
+RewriteRule ^news-([0-9]+).html/?$  index.php?c=news&a=show&id=$1 [L]
+
+RewriteRule ^product-([0-9]+)-([0-9]+).html/?$  index.php?c=product&a=show&id=$1&pid=$2 [L]
+
+RewriteRule ^product-([0-9]+).html/?$  index.php?c=product&a=index&id=$1 [L]
+
+RewriteRule ^product-([0-9]+)_([0-9]+).html/?$  index.php?c=product&a=index&id=$1&page=$2 [L]
+
+RewriteRule ^survey/?$ index.php/?c=survey&a=index [L]
+
+
+</IfModule>

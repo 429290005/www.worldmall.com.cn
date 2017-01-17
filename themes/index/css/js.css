@@ -1,0 +1,36 @@
+@charset "utf-8";
+/* CSS Document */
+
+.roll{ width:988px; height:147px; background:#f0f0f0; margin:0 auto}
+.roll dt{ width:37px; float:left; background:url(../images/icon.jpg) no-repeat; height:147px;}
+.roll dd{ width:951px; float:left}
+.roll dd ul{width:951px;}
+.roll dd li{ width:171px; float:left; margin-left:16px; display:inline; color:#333; text-align:center; line-height:25px; margin-top:6px;height: 140px;overflow:hidden;}
+.roll dd li a{color:#333}
+.roll dd li a:hover{color:#333}
+
+
+
+.focal_P{
+	width:989px;  
+	height:259px;
+	position:relative; 
+	float:left; }
+	#frame2{
+	width:680px;
+	height:419px;
+	position:absolute;
+	top:0;
+	left:0px;
+}
+#btn2{
+	position:absolute;
+	right:6px; bottom:6px; 
+}
+#img2 a{position:absolute;left:0px;top:0px; display:none;}
+
+#btn2 span{cursor:pointer; color:#fff; float:left;line-height:20px; height:20px;/* background:#fff;*/text-align:center;width:21px;margin:4px 6px 0 0;display:inline;
+}
+*html #btn2 span a{color:#fff; background:#fff; display:block}
+#btn2 span.hov{ background:url(images/a-hover.gif) no-repeat 3px 0; color:#fff}
+*html #btn2 span.hov{color:#fff; background:red; display:block}

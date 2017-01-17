@@ -1,0 +1,237 @@
+{#include file="header.html"#}
+<link rel="stylesheet" type="text/css" href="themes/index/images/css.css" media="all" />
+<style type="text/css">
+.footer ul {
+    padding-top: 21px;
+}
+</style>
+<!--banner-->    
+    <div class="banner">
+    	<a><img src="themes/index/images/news2_16.gif" /></a>
+    </div>
+	<style type="text/css">
+.text-input{
+	border:1px solid #cccccc;
+	height:22px;
+	line-height:22px;
+	margin-right:5px;
+}
+.area-input{
+	border:1px solid #cccccc;
+	height:150px;
+	line-height:22px;
+}
+#guestbooktable td{
+	padding:3px;
+}
+#saveForm{
+	background:url('themes/index/images/gif-0004.gif') no-repeat;
+	height:24px;
+	width:66px;
+	border:none;
+}
+.lasttips{color:#ff0000;}
+
+</style>
+<script type="text/javascript" src="themes/index/js/utils.js"></script>
+<!--content-->    
+	<div class="content_full">
+        <div class="content">
+            <div class="content_left">
+            	            	<div class="box contentL_box">
+                	<div class="box_T">
+                    	<p>
+                        	<b>产品展示</b>
+                        </p>
+                    </div>
+                    
+                    <div class="box_C">
+                    	<div class="m_left">
+<div id="menu">
+
+{#foreach item=cat_list from=$catlist key=k#}
+ <h3 onclick=pro_click({#$k#}) ><a href="{#spUrl c=product a=index id=$cat_list.id#}" onfocus=this.blur();  {#if $smarty.get.id==$cat_list.id#}  class="hover" {#/if#} id="hov_1">{#$cat_list.catename#}</a></h3>
+ {#/foreach#}
+<SCRIPT>
+
+$(document).ready(function() {
+$("#olid_1:last").show();
+});
+
+    function pro_click(id){
+        for(var i=1;i<=10;i++){
+             $("#olid_"+i).hide();
+			 $("#hov_"+i).removeClass("hover");
+        }
+             $("#olid_"+id).slideToggle();
+		     $("#hov_"+id).addClass("hover");
+    }
+</SCRIPT>
+
+ </div>
+
+</div>
+                    </div>
+                    <div class="box_B"></div>
+                </div>
+            </div>
+            <div class="content_right news">
+            	<div class=" box content_right_title">
+                	<div class="box_T">
+                    	<b>产品展示<a>Contact Us</a></b>
+                        <span class="font12">当前位置：首页 > 产品展示 > <a href="{#spUrl c=product a=index id=$cat.id#}">{#$cat.catename#}</a></span>
+                    </div>
+                </div>
+            	<div class="box contentR_box">
+                	
+                    
+                    <div class="box_C" style="line-height:22px;">
+					
+						<div class="protagcon" id="protag2" style="line-height: 18px;font-size:12px;">
+                			<div style="margin-top:10px;">
+				<span><!-- 尊敬的客户：您好！欢迎您对绵绵细语提出宝贵意见和建议，请填写以下反馈表，感谢您对绵绵细语的支持！ --></span><br/><br/>
+                         <form id="formID" class="formular" method="post" action="{#spUrl c=guestbook a=dingyueadd#}" onSubmit="return submitMsgBoard(this)">
+								<table id="guestbooktable" cellspacing=0 cellpadding=0>
+                                    <tr>    
+                                        <td><span>您的姓名 : </span></td>
+                                        <td><input value="" class="text-input" type="text" name="username" id="username"/><span id="usernametips" class="lasttips">*</span>
+										</td>
+									</tr>
+									<tr>
+										<td>
+                                            <span>联系电话 : </span></td>
+                                        <td><input value="" class="text-input" type="text" name="phone" id="phone" /><span id="phonetips" class="lasttips">*</span></td>
+									</tr>
+									<tr>
+										<td>
+                                            <span>联系地址 : </span></td>
+                                        <td><input value="" class="text-input" type="text" name="address" id="address" /><span id="addresstips" class="lasttips">*</span></td>
+									</tr>
+									<tr>
+										<td>	
+                                            <span>电子邮箱 : </span></td>
+                                            <td><input value="" class="text-input" type="text" name="email" id="email"/><span id="emailtips" class="lasttips">*</span></td>
+										</td>
+									</tr>
+									<tr>
+										<td>
+                                            <span>公司名称 : </span></td>
+                                        <td><input value="" class="text-input" type="text" name="company" id="company"/><span id="phonetips" class="lasttips"></span></td>
+									</tr>
+									<tr>
+										<td>
+                                            <span>产品名称 : </span></td>
+                                        <td><input value="{#$productname#}" class="text-input" type="text" name="" id="product" disabled="true"/><span id="phonetips" class="lasttips">*</span></td>
+									</tr>
+									<tr>
+										<td>
+                                            <span>订购数量 : </span></td>
+                                        <td><input value="" class="text-input" type="text" name="num" id="num"/><span id="phonetips" class="lasttips">*</span></td>
+									</tr>
+									<tr>
+										<td>
+                                            <span style="float:left;width:60px;">其他要求 : </span> 
+</td>											
+                                            <td><textarea cols="62" rows="8" class="area-input" value="" name="content" id="content2"></textarea><br/>
+											<span id="content" class="lasttips">*</span>
+										</td>
+									</tr>
+									<tr>
+										<td></td>
+										<td><span id="contenttips" class="lasttips"></span></td>
+									</tr>
+									<tr>
+										<td class="last"></td><td class="last">
+											
+                                    <input type="hidden" value="{#$smarty.get.id#}" name="id"/>
+									<input type="hidden" value="{#$productname#}" name="product"/>
+									
+                                    <input id="saveForm" type="submit" value=""/>
+									</td>
+									</table>
+                                </form>
+                            </div>
+				</div>
+						
+                    </div>
+					
+					
+					
+                </div>
+				<div style="clear:both"></div>
+            </div>       
+        </div>
+    </div>
+	<script type="text/javascript">
+	/**
+         * 提交留言信息
+        */
+        function submitMsgBoard(frm)
+        {
+            var msg = new Object;
+
+             msg.username    = frm.elements['username'].value;
+			 msg.phone       = frm.elements['phone'].value;
+			 msg.address     = frm.elements['address'].value;
+			 msg.email       = frm.elements['email'].value;
+			 msg.product     = frm.elements['product'].value;
+			 msg.content     = frm.elements['content'].value;
+			 msg.num         = frm.elements['num'].value;
+			 
+
+            var msg_err = '';
+
+			if (msg.username.length == 0)
+            {
+                msg_err += '姓名不能为空' + '\n';
+			}
+			if (msg.phone.length == 0)
+            {
+                msg_err += '电话不能为空' + '\n';
+            }
+			if (msg.address.length == 0)
+            {
+                msg_err += '地址不能为空' + '\n';
+            }
+			if (msg.num.length>0)
+            {
+				if (!(Utils.isNumber(msg.num)))
+               {
+                  msg_err += '订购数量必须为数字'+'\n';
+                }
+                
+            }else{
+				msg_err += '订购数量不能为空' + '\n';
+			}
+			
+            if (msg.email.length > 0)
+            {
+               if (!(Utils.isEmail(msg.email)))
+               {
+                  msg_err += '邮箱格式错误'+'\n';
+                }
+             }
+             else
+             {
+                  msg_err += '邮箱不能为空' + '\n';
+             }
+			 
+			 if (msg.content.length == 0)
+            {
+                msg_err += '其他要求不能为空' + '\n';
+            }
+            
+
+            if (msg_err.length > 0)
+            {
+                alert(msg_err);
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        
+	</script>
+{#include file="footer.html"#}

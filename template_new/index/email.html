@@ -1,0 +1,99 @@
+{#include file="header.html"#}
+<link rel="stylesheet" type="text/css" href="themes/index/images/css.css" media="all" />
+<style type="text/css">
+.footer ul {
+    padding-top: 21px;
+}
+</style>
+<style type="text/css">
+#mainzuanti .RightPart .Titlelan {
+    background: url("themes/index/images/ny_100.gif") no-repeat scroll 0 0 transparent;
+    float: right;
+    height: 31px;
+    width: 1000px;
+}
+#mainzuanti .RightPart .Contentlan .ddWrap {
+    float: left;
+    height: auto;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    width: 978px;
+}
+#mainzuanti .RightPart .Contentlan {
+    border-bottom: 1px solid #CDD9E7;
+    border-left: 1px solid #CDD9E7;
+    border-right: 1px solid #CDD9E7;
+    float: left;
+    height: auto !important;
+    min-height: 622px;
+    overflow: visible;
+    width: 998px;
+}
+#mainzuanti .RightPart {
+    float: right;
+    width: 1000px;
+}
+</style>
+
+<script type="text/javascript">
+var current_content;
+function switchs(name,n){
+  if(current_content){
+     $('#' + current_content).slideToggle();
+
+  }
+  $('#' + name + n).slideToggle();
+  current_content = name + n;
+
+	}
+
+</script>
+<script type="text/javascript" src="themes/index/js/guestbook.js"></script>
+<div class=" holder" id="mainzuanti">
+
+	 
+	 
+    <div class="RightPart">
+    	<div class="Titlelan">
+        	<h2>邮件订阅</h2>
+        	<p>当前位置<a href="{#spUrl c=main a=index#}">网站首页</a>><a href="{#spUrl c=info a=email#}">E-mail接收登记</a></p>
+        </div>
+        <div class="Contentlan">
+          <div class="ddWrap">
+		   <form id="formID" class="formular" method="post" action="{#spUrl c=guestbook a=add#}" onsubmit="return chk_guestbook()">
+            <table cellspacing="1" cellpadding="0" border="0" width="100%" align="center" class="joinus_info">		
+            					
+		            <tbody><tr>
+                    <td height="72" align="center" style="color:#06438B; font-size:14px; font-weight:bold;" class="STYLE2" colspan="2">* 请填写您要登记的相关资料 *</td>
+                  </tr>
+		            <tr>
+                    <td height="22" width="35%" align="right" style="color:#06438B;">姓&nbsp;&nbsp;&nbsp;&nbsp;名：</td>
+                    <td width="65%" align="left">&nbsp;&nbsp;<input type="text" class="join_info"  id="username" onblur="chk_username();" name="username"/>&nbsp; *&nbsp;<span id="usernametips" class="lasttips" style="color:#ff0000"></span></td>
+                  </tr>		
+                  <tr>
+                    <td height="22" align="right" style="color:#06438B;">电子邮箱：</td>
+                    <td align="left">&nbsp;&nbsp;<input type="text" class="join_info" name="email" id="email"  onblur="chk_email()"/>&nbsp; *&nbsp;<span id="emailtips" class="lasttips" style="color:#ff0000"></span></td>
+                  </tr>  
+                  <tr>
+                    <td height="22" align="right" style="color:#06438B;">单位名称：</td>
+                    <td align="left">&nbsp;&nbsp;<input type="text" class="join_info" name="company"/></td>
+                  </tr>    
+                  
+		            <tr>
+                    <td height="22" align="center" style="padding-top:40px;" colspan="2">
+                        <input type="submit" class="btn" id="oldpwd" value="" name="oldpwd">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                         
+                        </td>
+                  </tr>			
+            					
+				             </tbody></table>
+							 </form>
+          </div>
+		  	
+          
+            </div>
+    </div>
+
+    <div class="break"></div>
+</div>
+{#include file="footer.html"#}

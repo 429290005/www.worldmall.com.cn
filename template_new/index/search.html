@@ -1,0 +1,53 @@
+{#include file="header.html"#}
+        <script type="text/javascript">
+	$(document).ready(function(){
+			$("#nav>ul>li:not(.clear)").click(function(){
+					alert(li[0]);
+				})
+		});
+</script> 
+<div class="B_big"> 
+  <!--content-->
+  <div class="white">
+    <div class="content_full">
+      <div class="content">
+        <div class="clear1"></div>
+        <div class="banr1"><img src="{#$basepath#}/themes/index/images/index22_18.jpg" /></div>
+        <div class="clear1"></div>
+        <div class="content_left">
+          <div class="contentL_box mark news">
+            <div class="ibox_1">
+              <div class="box_T gai">
+                <p>文章搜索</p>
+                <div class="postion"> 首页 > 文章搜索 </div>
+              </div>
+              <div class="box_C">
+
+                <div class="">
+                  
+				  <div class="box_C news">
+                    	<ul>
+							{#foreach item=goods_list from=$goodslist#}
+						        <li><a href="{#spUrl c=news a=detail id=$goods_list.id pid=$goods_list.pid#}">{#$goods_list.title#}</a><span>{#$goods_list.add_time|date_format:"%Y-%m-%d"#}</span></li>
+							{#/foreach#}
+                        </ul>
+                        
+                    </div>
+				  
+				  
+				  
+                </div>
+                <div class="clear"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {#include file="right.html"#}
+        {#include file="link.html"#}
+      </div>
+    </div>
+  </div>
+  <!--6--> 
+  
+  <!--footer-->
+{#include file="footer.html"#}

@@ -1,0 +1,67 @@
+{#include file="admin/pageheader.html"#}
+<script>
+        KE.show({
+                id : 'content',
+				resizeMode : 0
+        });
+</script>
+<h1>
+<span class="action-span1"><a href="#">查看订单</a> </span>
+<span class="action-span"><a href="{#spUrl c=order a=index#}">订单列表</a></span>
+</h1>
+<div class="main-div">
+<form method="post" action="{#spUrl c=order a=update#}" name="theForm"  onsubmit="return validate()">
+<table cellspacing="1" cellpadding="3" width="100%">
+  <tr>
+    <td class="label">邮箱:</td>
+    <td>{#$detail.email#}</td>
+  </tr>
+  <tr>
+    <td class="label">用户名:</td>
+    <td>
+      {#$detail.username#}
+    </td>
+  </tr>
+  <tr>
+    <td class="label">密码:</td>
+    <td>
+      {#$detail.pass#}
+    </td>
+  </tr>
+  <tr>
+    <td class="label">注册时间:</td>
+    <td>
+    	{#$detail.addtime|date_format:"%Y-%m-%d"#}
+    </td>
+  </tr>
+  <tr>
+    <td class="label">注册类型:</td>
+    <td>
+    	{#if $detail.usertype==0#}普通订单{#else#}商家{#/if#}
+    </td>
+  </tr>
+  <tr>
+    <td class="label">订单类型:</td>
+    <td>
+    	<input type="radio" name="flag" value="0" {#if $detail.flag==0#} checked="checked" {#/if#}/>普通订单
+        <input type="radio" name="flag" value="1" {#if $detail.flag==1#} checked="checked" {#/if#}/>商家
+    </td>
+  </tr>
+  <tr>
+    <td class="label">名店推荐:</td>
+    <td>
+    	<input type="radio" name="is_open" value="0" {#if $detail.is_open==0#} checked="checked" {#/if#}/>否
+        <input type="radio" name="is_open" value="1" {#if $detail.is_open==1#} checked="checked" {#/if#}/>是
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><br />
+      <input type="hidden" name="id" value="{#$detail.id#}" />
+      <input type="submit" class="button" value="提交" />
+      <input type="reset" class="button" value="重置" />
+    </td>
+  </tr>
+</table>
+</form>
+</div>
+{#include file="admin/pagefooter.html"#}

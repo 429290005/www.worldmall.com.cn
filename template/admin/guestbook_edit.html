@@ -1,0 +1,53 @@
+{#include file="admin/pageheader.html"#}
+<script>
+        var editor;
+			KindEditor.ready(function(K) {
+				
+				editor = K.create('textarea[id="content"]', {
+					allowFileManager : true,
+					pasteType : 2,
+					newlineTag : this.value,
+					filterMode : true,
+					urlType : 'domain'
+					
+				});
+
+			});
+
+</script>
+<h1>
+<span class="action-span1"><a href="#">{#$row.username#}</a> </span>
+
+</h1>
+<div class="main-div">
+<table cellspacing="1" cellpadding="3" width="100%">
+  <tr>
+    <td class="label">用户名:</td>
+    <td>
+    	{#$row.username#}
+    </td>
+  </tr>
+  <tr>
+    <td class="label">内容:</td>
+    <td>{#$row.content#}</td>
+  </tr>
+  <tr>
+	<td class="label">审核:</td>
+	<td>{#if $row.is_show=='0'#}未审核 <a href='{#spUrl c=guestbook a=is_show id=$row.id#}'> 【通过审核】</a>{#else#}已通过审核{#/if#}</td>
+  </tr>
+</table>
+<hr />
+{#foreach item=list from=$rows#}
+新汇豪回复：<span style='color:red'>{#$list.content#}</span> <a href="{#spUrl c=guestbook a=delete id=$list.id#}" onclick="if(confirm('您确认要删除这条记录吗？')){return true}return false;">【移除】</a>
+<hr />
+{#/foreach#}
+<form action='{#spUrl c=guestbook a=add#}' method='post'>
+回复：<br />
+<textarea name='content' rows='3' cols=30''></textarea><br />
+<input type='hidden' name='username' value='新汇豪的回复'/>
+<input type='hidden' name='sid'value='{#$row.id#}'/>
+<input type='submit' name='submit' value='回复'>
+</form>
+
+</div>
+{#include file="admin/pagefooter.html"#}

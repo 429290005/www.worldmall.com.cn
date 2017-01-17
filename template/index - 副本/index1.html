@@ -1,0 +1,273 @@
+{#include file="header.html"#}
+<div class="weixin" style="position:absolute;top:480px;right:50px;"><IMG src="themes/index/images/weixin.png" width="105" height="105"></div>
+<div class="B_big"> 
+  <!--content-->
+  <div class="white">
+    <div class="ibox">
+      <div class="ibanr">
+       <!--<a><img src="{#$basepath#}/themes/index/images/index22_14.png" /></a>--> 
+      
+      <div class="focal_P">
+    
+ <div id=frame2 style="width:989px; height:259px;">
+<div id=img2>
+{#foreach item=banners_list from=$banners#}
+<A href="{#$banners_list.link#}" target=_blank><IMG src="{#$basepath#}/uploads/banner/{#$banners_list.upfile#}" width="989" height="259"></A>
+{#/foreach#}
+</div>
+<div  id=btn2  style=" width:240px;"><!-- background:#333333; -->
+<div style=" width:120px; float:left; height:1px;"></div>{#foreach item=banners_list from=$banners name=bl#}<SPAN style="background:#FCCD05;">{#$smarty.foreach.bl.iteration#}</SPAN>{#/foreach#}
+</div>
+ 
+</div>
+
+<script>
+
+//关键函数：通过控制i ，来显示不通的幻灯片
+function showImg(i) {
+    $("#img2 a")
+    .eq(i).stop(true, true).fadeIn(1200)
+    .siblings("li,a").fadeOut(800);
+  $("#btn2 p")
+    .eq((i)).css("display","block").siblings().css("display","none").siblings("span").css("display","block");
+    $("#btn2 span")
+    .eq(i).addClass("hov")
+    .siblings().removeClass("hov");
+  }
+$(document).ready(function () {
+
+  
+  
+    $("#img2 a").eq(0).show();
+    $("#btn2 span").eq(0).addClass('hov');
+  
+  
+
+    var index = 0;
+    $("#btn2 span").mouseover(function () {
+        index = $("#btn2 span").index(this);
+        showImg(index);
+    });
+    
+    var lenght = $("#img2 a").length;
+    var time = 3000;
+
+    //滑入 停止动画，滑出开始动画.
+    $('#frame2').hover(
+    function () {
+        if (MyTime) {
+            clearInterval(MyTime);
+        }
+    }, function () {
+        MyTime = setInterval(function () {
+            showImg(index)
+            index++;
+            if (index == lenght) { index = 0; }
+        }, time);
+    });
+    //自动开始
+    var MyTime = setInterval(function () {
+        showImg(index)
+        index++;
+        if (index == lenght) { index = 0; }
+    }, time);
+})
+
+</script>
+    </div>
+      
+      </div>
+<div class="clear1"></div>
+      <!--1-->
+      <div class="ibox_L">
+        <div class="ibox_1">
+          <div class="box_T">
+            <p>市场动态</p>
+            <a href="{#$basepath#}shichangdongtai/4" class="aimg" style="color:#B21818" >+更多</a> </div>
+          <div class="box_C">
+      {#foreach item=shichang_list from=$shichang name=shi#}
+      {#if $smarty.foreach.shi.iteration==1#}
+            <div class="ibox_1_L"> <b>{#$shichang_list.title#}</b>
+              <div class="iw">
+                <div class="aimg">{#if $shichang_list.upfile!=""#}<img src="{#$basepath#}/uploads/sm_article/{#$shichang_list.upfile#}" width="120" height="120"/>{#else#}<img src="{#$basepath#}/themes/index/images/nopic.gif"  width="120" height="120" align="left"/>{#/if#}</div>
+                <div class="p1"> {#$shichang_list.short#}......<a href="{#$basepath#}shichangdongtai/detail/{#$shichang_list.id#}" class="red">【详细内容】</a> </div>
+              </div>
+            </div>
+            <div class="ibox_1_R">
+              <ul class="ul1">
+        {#else#}
+                <li><a href="{#$basepath#}shichangdongtai/detail/{#$shichang_list.id#}">{#$shichang_list.title#}</a></li>
+        {#/if#}
+      {#/foreach#}
+      </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ibox_R"> <embed src="http://player.youku.com/player.php/sid/XNjU4NjE5NTky/v.swf" allowFullScreen="true" quality="high" width="336" height="205" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed> </div>
+      <!--2-->
+      <div class="clear1"></div>
+      <div class="banr1"><a href="http://www.zgpjzd.com/shichangdongtai/detail/1325" target='_blank'><img src="themes/index/images/index22_19.jpg" /></a></div>
+      <!--<div class="banr1"><a href={#$basepath#}survey"{#$basepath#}index.php/?c=survey2&a=index" target='_blank'><img src="themes/index/images/index22_18.jpg" /></a></div> -->
+      <!--3-->
+      <div class="clear1"></div>
+      <div class="ibox_L">
+        <div class="ibox_1">
+          <div class="box_T">
+            <p>展会活动</p>
+            <a href="{#$basepath#}zhanhuihuodong/4"  class="aimg" style="color:#B21818;" >+更多</a></div>
+          <div class="clear"></div>
+          <div class="box_C">
+      
+      
+      {#foreach item=huodong_list from=$huodong name=huo#}
+      {#if $smarty.foreach.huo.iteration==1#}
+            <div class="ibox_1_L">
+              <div class='iw'> {#if $huodong_list.upfile!=""#}<img style='float:left; padding-right:20px'src="{#$basepath#}/uploads/sm_article/{#$huodong_list.upfile#}" width="120" height="120"/>{#else#}<img src="{#$basepath#}/themes/index/images/nopic.gif"  width="120" height="120" align="left"/>{#/if#}
+                <div class="p1"> {#$huodong_list.short#}......<a href="{#$basepath#}shichangdongtai/detail/{#$huodong_list.id#}" class="red">【详细内容】</a> </div> </div>
+            </div>
+      
+      
+            <div class="ibox_1_R">
+              <ul class="ul1">
+        {#else#}
+                <li><a href="{#$basepath#}shichangdongtai/detail/{#$huodong_list.id#}">{#$huodong_list.title#}</a></li>
+        {#/if#}
+              
+    {#/foreach#}
+      
+      </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ibox_R">
+        <div class="lidao">
+          <div class="box_T">
+            <p>领导风采</p>
+            <a href="{#$basepath#}lingdaofengcai/4" class="aimg"></a> </div>
+          <div class="box_C">
+      {#foreach item=lingdao_list from=$lingdao#}
+            <div class="iw">
+              <div class="aimg"> {#if $lingdao_list.upfile!=""#}<img src="{#$basepath#}/uploads/sm_article/{#$lingdao_list.upfile#}"  width="94" height="68"/>{#else#}<img src="{#$basepath#}/themes/index/images/nopic3.gif"  width="94" height="68" align="left"/>{#/if#} </div>
+              <div class="p1"> <b>{#$lingdao_list.title#}</b><br />
+                <span>{#$lingdao_list.short#}......<a href="{#$basepath#}lingdaofengcai/detail/{#$lingdao_list.id#}" class="red">【详细内容】</a></span></div>
+            </div>
+            <div class="clear"></div>
+      {#/foreach#}
+          </div>
+        </div>
+      </div>
+      <!--4-->
+      <div class="clear1"></div>
+      <div class="ibox_L">
+        <div class="ibox_1">
+          <div class="box_T">
+            <p>商都通道</p>
+            <a href="{#$basepath#}shangdutongdao/59" class="aimg" style="color:#B21818">+更多</a> </div>
+          <div class="clear"></div>
+          <div class="box_C">
+            <div class="ibox_1_L ibox_l_2L">
+              <ul class="ul1">
+        {#foreach item=shangdu_list from=$shangdu#}
+                <li><a href="{#$basepath#}shangdutongdao/detail/{#$shangdu_list.id#}">{#$shangdu_list.title#}</a></li>
+        {#/foreach#}
+              </ul>
+            </div>
+            <div class="ibox_1_R ibox_1_2R">
+              <ul class="ul2">
+        {#foreach item=shangdu_list2 from=$shangdu name="shang"#}
+        {#if $smarty.foreach.shang.iteration<=6#}
+        
+                <li><a {#if $shangdu_list2.id==1123#}target='_blank' href='http://www.worldmall.cn'{#elseif $shangdu_list2.id==1122#}target='_blank' href='http://www.maoeasy.com'{#else#}href="{#$basepath#}shangdutongdao/detail/{#$shangdu_list2.id#}"{#/if#}>{#if $shangdu_list2.upfile!=""#}<img src="{#$basepath#}/uploads/article/{#$shangdu_list2.upfile#}"  width="115" height="81"/>{#else#}<img src="{#$basepath#}/themes/index/images/nopic3.gif"  width="115" height="81" align="left"/>{#/if#}</a><span>{#$shangdu_list2.title#}</span></li>
+        {#/if#}
+        {#/foreach#}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ibox_R" style='background: url("{#$basepath#}/themes/index/images/contace_img_02.jpg") no-repeat scroll 0 0 transparent;height:249px;width:336px'>
+      
+      <div style='padding:40px 5px 5px 5px;'>
+            <div class="lidao"><div class="box_C"><div class="iw">
+              <div class="aimg"><img src="{#$basepath#}/themes/index/images/index_lxwm_add.jpg"  width="94" height="68" align="left"/></div>
+              <div class="p1" style="width:220px;"> <b>三元里街工商业联合会会长</b><br />
+                <span>日前在广州白云世界皮具贸易中心举办的品牌文化周上，总经理刘浩清向记者表示，希望将来......<a href="{#$basepath#}shichangdongtai/detail/1220" class="red">【详细内容】</a></span></div>
+            </div></div>
+            </div>
+            {#$contact.content#}</div>
+      <div class='clear'></div>
+      </div>
+      <!--5-->
+      <div class="clear1" style="height:24px;"></div>
+      <div class="ibox_2" >
+        <div class="ibox_21" style="margin-right: 11px;">
+          <div class="box_T">
+            <p>行业资讯</p>
+            <a href="{#$basepath#}hangyezixun/4"></a> </div>
+          <div class="box_C">
+      
+      {#foreach item=hangye_list from=$hangye name=han#}
+      {#if $smarty.foreach.han.iteration==1#}
+            <div class="iw">
+              <div class="aimg"> {#if $hangye_list.upfile!=""#}<img src="{#$basepath#}/uploads/sm_article/{#$hangye_list.upfile#}"  width="120" height="90"/>{#else#}<img src="{#$basepath#}/themes/index/images/nopic2.gif"  width="120" height="90" align="left"/>{#/if#} </div>
+              <div class="p1"> <b>{#$hangye_list.title#}</b><br />
+                <span>{#$hangye_list.short#}...<a href="{#$basepath#}hangyezixun/detail/{#$hangye_list.id#}" class="red">[详细]</a></span> </div>
+            </div>
+            <div class="clear"></div>
+            <ul>
+      {#else#}
+              <li><a href="{#$basepath#}hangyezixun/detail/{#$hangye_list.id#}">{#$hangye_list.title#}</a></li>
+            {#/if#}
+      {#/foreach#}
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="ibox_2">
+        <div class="ibox_21">
+          <div class="box_T">
+            <p>新闻中心</p>
+            <a href="{#$basepath#}xinwenzhongxin/4"></a> </div>
+          <div class="box_C">
+           {#foreach item=xinwen_list from=$xinwen name=xin#}
+      {#if $smarty.foreach.xin.iteration==1#}
+            <div class="iw">
+              <div class="aimg"> {#if $xinwen_list.upfile!=""#}<img src="{#$basepath#}/uploads/sm_article/{#$xinwen_list.upfile#}"  width="120" height="90"/>{#else#}<img src="{#$basepath#}/themes/index/images/nopic2.gif"  width="120" height="90" align="left"/>{#/if#} </div>
+              <div class="p1"> <b>{#$xinwen_list.title#}</b><br />
+                <span>{#$xinwen_list.short#}...<a href="{#$basepath#}/xinwenzhongxin/detail/{#$xinwen_list.id#}" class="red">[详细]</a></span> </div>
+            </div>
+            <div class="clear"></div>
+            <ul>
+      {#else#}
+              <li><a href="{#$basepath#}/xinwenzhongxin/detail/{#$xinwen_list.id#}">{#$xinwen_list.title#}</a></li>
+            {#/if#}
+      {#/foreach#}
+          </div>
+        </div>
+      </div>
+      <div class="clear1"></div>
+      <div class="js" style="height:150px;overflow:hidden; ">
+        <div class="roll">
+          <dl>
+            <dt></dt>
+            <dd>
+              <ul class="roll_js">
+        {#foreach item=zuixin_list from=$zuixin#}
+                <li><a href="{#$basepath#}zixinhuodong/detail/{#$zuixin_list.id#}">{#if $zuixin_list.upfile!=""#}<img src="{#$basepath#}/uploads/article/{#$zuixin_list.upfile#}"  width="171" height="118"/>{#else#}<img src="{#$basepath#}/themes/index/images/nopic.gif"  width="171" height="118" align="left"/>{#/if#}</a>{#$zuixin_list.title#}</li>
+        {#/foreach#}  
+              </ul>
+            </dd>
+            <script>
+jMarquee('roll_js', 3, 951, 30)
+</script>
+          </dl>
+        </div>
+      </div>
+      <!--7-->
+      {#include file="link.html"#}
+    </div>
+  </div>
+  <!--6--> 
+{#include file="footer.html"#}

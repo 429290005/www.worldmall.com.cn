@@ -1,0 +1,32 @@
+{#include file="admin/pageheader.html"#}
+<h1>
+<span class="action-span1"><a href="#">添加文件</a> </span>
+<span class="action-span"><a href="{#spUrl c=download a=index#}">文件列表</a></span>
+</h1>
+<div class="main-div">
+<form id="form1" action="{#spUrl c=download a=update#}" enctype="multipart/form-data" method="post">
+<table cellspacing="1" cellpadding="3" width="100%">
+  <tr>
+    <td class="label">文件名称:</td>
+    <td>
+      	<input type="text" name='title' size="15"  value="{#$row.title#}"/>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">需要密码下载:</td>
+    <td>
+      	<input type="text" value="{#$row.password#}" name="password"/>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><br />
+	  <input type="hidden" name="id" value="{#$row.id#}" />
+      <input  id="btnSubmit" type="submit" class="button" value="提交"/>
+      <input type="reset" class="button" value="重置" />
+      
+    </td>
+  </tr>
+</table>
+</form>
+</div>
+{#include file="admin/pagefooter.html"#}

@@ -1,0 +1,61 @@
+{#include file="admin/pageheader.html"#}
+<script>
+        KE.show({
+                id : 'content',
+				resizeMode : 0
+        });
+</script>
+<h1>
+<span class="action-span1"><a href="#">添加图片</a> </span>
+<span class="action-span"><a href="{#spUrl c=pageimg a=index nid=$smarty.get.nid#}">图片列表</a></span>
+</h1>
+<div class="main-div">
+<form method="post" action="{#spUrl c=pageimg a=insert#}" name="theForm"  onsubmit="return validate()" enctype="multipart/form-data">
+<table cellspacing="1" cellpadding="3" width="100%">
+  {#if $smarty.get.nid==2#}
+  <tr>
+    <td class="label">链接</td>
+    <td><input type="text" name="link" size = "60" value="http://"/>&nbsp;<font color="#FF0000">*</font></td>
+  </tr>
+  {#/if#}
+  {#if $smarty.get.nid!=2#}
+  <tr>
+    <td class="label">产品图片:</td>
+    <td>
+      <input type="file" name="upfile"/>{#if $smarty.get.nid eq 1#}990px*348px{#elseif $smarty.get.nid eq 2#}190px*105px{#elseif $smarty.get.nid eq 4#}963px*172px{#else#}1440px*665px{#/if#}
+    </td>
+  </tr>
+  {#/if#}
+  <tr>
+    <td class="label">{#if $smarty.get.nid!=2#}描述:{#else#}名称：{#/if#}</td>
+    <td>
+      <input type="text" name='description' value="" size="80"/>
+    </td>
+  </tr>
+  {#if $smarty.get.nid neq 1 or $smarty.get.nid neq 3#}
+  <tr>
+    <td class="label">排序:</td>
+    <td>
+      <input type="text" name='sort_id' value="50" size="15" />
+    </td>
+  </tr>
+  {#/if#}
+  <tr style="display:none">
+    <td class="label">显示:</td>
+    <td style="display:none">
+      <input type="radio" name="is_open" value="1" checked="checked"/>显示&nbsp;&nbsp;
+      <input type="radio" name="is_open" value="0"/>隐藏
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><br />
+      <input type="hidden" name="nid" value="{#$smarty.get.nid#}" />
+      <input type="submit" class="button" value="提交" />
+      <input type="reset" class="button" value="重置" />
+      
+    </td>
+  </tr>
+</table>
+</form>
+</div>
+{#include file="admin/pagefooter.html"#}

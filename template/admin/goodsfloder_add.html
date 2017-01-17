@@ -1,0 +1,36 @@
+{#include file="admin/pageheader.html"#}
+<script>
+        KE.show({
+                id : 'content',
+				resizeMode : 0
+        });
+</script>
+<h1>
+<span class="action-span1"><a href="#">添加产品文件夹</a> </span>
+<span class="action-span"><a href="{#spUrl c=goodsfloder a=index#}">产品文件夹列表</a></span>
+</h1>
+<div class="main-div">
+<form method="post" action="{#spUrl c=goodsfloder a=insert#}" name="theForm"  onsubmit="return validate()" enctype="multipart/form-data">
+<table cellspacing="1" cellpadding="3" width="100%">
+  <tr>
+    <td class="label">产品文件夹:</td>
+    <td>
+      <input type="file" name="upfile"/>&nbsp;最佳大小为:200px*130px
+    </td>
+  </tr>
+  <tr>
+    <td class="label">排序:</td>
+    <td>
+      <input type="text" name='sort_id' value="50" size="15" />
+    </td>
+  <tr>
+    <td colspan="2" align="center"><br />
+      <input type="hidden" value="{#$pid#}" name="pid"/>
+      <input type="submit" class="button" value="提交" />
+      <input type="reset" class="button" value="重置" />
+    </td>
+  </tr>
+</table>
+</form>
+</div>
+{#include file="admin/pagefooter.html"#}

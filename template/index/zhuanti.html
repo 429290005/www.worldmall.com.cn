@@ -1,0 +1,64 @@
+{#include file="header.html"#}
+<link rel="stylesheet" type="text/css" href="themes/index/themes/index/images/css.css" media="all" />
+<style type="text/css">
+.footer ul {
+    padding-top: 21px;
+}
+</style>
+<style type="text/css">
+#mainzuanti .RightPart .Titlelan h2{
+    color:#034991;
+    width:220px;
+    text-align:left;
+}
+
+</style>
+<div class=" holder" id="mainzuanti">
+    {#include file="zhuanti_left.html"#}
+    <div class="RightPart">
+        <div class="Titlelan" style="background:url(themes/index/images/g2.gif);">
+            <h2>{#$nowcat.catename#}</h2>
+            <p>当前位置<a href="{#spUrl c=main a=index#}">网站首页</a>><a href="{#spUrl c=news a=zhuanti id=27 pid=27#}">专题</a></p>
+        </div>
+        <div class="Contentlan">
+          <div class="BRR">
+              <div class="banner2">{#if $ztbg.upfile!=""#}<img src="uploads/sm_articlecat/{#$ztbg.upfile#}" />{#else#}<img src="themes/index/images/nopic3.gif" />{#/if#}</div>
+<div class="ztbg">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{#$ztbg.content#}...[<a href="{#$ztbg.short#}">详细</a>]
+
+                </div>
+            </div>
+      <div class="ddWrap">
+                <div class="Titledd"><img src="themes/index/images/10.png" /><p><a href="{#spUrl c=news a=zt id=29 pid=$smarty.get.id#}">更多</a></p></div>
+                <ul class="TextList">
+                {#foreach item=baogao_list from=$baogao#}
+                    <li><a href="{#spUrl c=news a=ztdetail id=$baogao_list.id pid=$baogao_list.pid#}">{#$baogao_list.title#}{#$baogao_list.btitle#}</a><span>{#$baogao_list.add_time|date_format:"%Y-%m-%d"#}</span></li>
+                {#/foreach#}
+                </ul>
+          </div>
+            {#if $pingcount>0#}
+            <div class="ddWrap">
+                <div class="Titledd"><img src="themes/index/images/11.png" /><p><a href="{#spUrl c=news a=zt id=30 pid=$smarty.get.id#}">更多</a></p></div>
+                <ul class="TextList2">
+                {#foreach item=pinglun_list from=$pinglun#}
+                    <li><p><a href="{#spUrl c=news a=ztdetail id=$pinglun_list.id pid=$pinglun_list.pid#}">{#$pinglun_list.title#}{#$pinglun_list.btitle#}</a></p>
+                      <span>{#$pinglun_list.short|truncate:120#}[<a href="{#spUrl c=news a=ztdetail id=$pinglun_list.id pid=$pinglun_list.pid#}">详细</a>]</span>                    </li>
+                {#/foreach#}
+                </ul>
+            </div>
+            {#/if#}
+            
+            {#if $xiangcount>0#}
+            <div class="ddWrap">
+                <div class="Titledd"><img src="themes/index/images/12.png" /><p><a href="{#spUrl c=news a=zt id=31 pid=$smarty.get.id#}">更多</a></p></div>
+                <ul class="TextList">
+                    {#foreach item=xiangguan_list from=$xiangguan#}
+                    <li><a href="{#spUrl c=news a=ztdetail id=$xiangguan_list.id pid=$xiangguan_list.pid#}">{#$xiangguan_list.title#}{#$xiangguan_list.btitle#}</a><span>{#$xiangguan_list.add_time|date_format:"%Y-%m-%d"#}</span></li>
+                    {#/foreach#}
+                </ul>
+            </div>
+            {#/if#}
+        </div>
+    </div>
+    <div class="break"></div>
+</div>{#include file="footer.html"#}

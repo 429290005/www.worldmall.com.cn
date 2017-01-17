@@ -1,0 +1,44 @@
+{#include file="admin/pageheader.html"#}
+<script>
+        KE.show({
+                id : 'content',
+				resizeMode : 0
+        });
+</script>
+<h1>
+<span class="action-span1"><a href="#">修改相册图片</a> </span>
+<span class="action-span"><a href="{#spUrl c=goodsimg a=index pid=$smarty.get.pid#}">相册图片列表</a></span>
+</h1>
+<div class="main-div">
+<form method="post" action="{#spUrl c=goodsimg a=update#}" name="theForm"  onsubmit="return validate()" enctype="multipart/form-data">
+<table cellspacing="1" cellpadding="3" width="100%">
+  <tr>
+    <td class="label">相册名称:</td>
+    <td><input type="text" name="title" size = "60" value="{#$cat.title#}"/>&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="label">相册图片图片:</td>
+    <td>
+<!--      {#$cat.upfile#}-->
+      <input type="file" name="upfile"/>&nbsp;最佳大小为:611px*391px{#if $cat.upfile!=""#}<img src="themes/admin/images/yes.gif" />{#else#}<img src="themes/admin/images/no.gif" />{#/if#}
+    </td>
+  </tr>
+  <tr>
+    <td class="label">排序:</td>
+    <td>
+      <input type="text" name='sort_id' size="15"  value="{#$cat.sort_id#}"/>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><br />
+      <input type="hidden" value="{#$smarty.get.pid#}" name="pid"/>
+      <input type="hidden" name="id" value="{#$cat.id#}" />
+      <input type="submit" class="button" value="提交" />
+      <input type="reset" class="button" value="重置" />
+      
+    </td>
+  </tr>
+</table>
+</form>
+</div>
+{#include file="admin/pagefooter.html"#}

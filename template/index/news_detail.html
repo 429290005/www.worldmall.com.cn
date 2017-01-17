@@ -1,0 +1,43 @@
+{#include file="header.html"#}
+        <script type="text/javascript">
+  $(document).ready(function(){
+      $("#nav>ul>li:not(.clear)").click(function(){
+          alert(li[0]);
+        })
+    });
+</script> 
+<div class="wrap_con"> 
+  <!--content-->
+  
+      <div class="content">
+        <div class="clear1"></div>
+        <div class="banr1"><img  width="992" src="{#$basepath#}/themes/index/images/index22_18.jpg" /></div>
+        <div class="clear1"></div>
+        <div class="content_left">
+          <div class="contentL_box mark news">
+            <div class="ibox_1">
+              <div class="top10"></div>
+              <div class="content-c">
+                <div class="p1"><b>{#$row.title#}</b><br/>
+                  <span>{#$row.add_time|date_format:"%Y-%m-%d"#}</span></div>
+
+
+
+
+                <!-- <div class="aimg"><img src="{#$basepath#}/themes/index/images/news_07.jpg" /></div> -->
+                <div class="p2" style="padding:20px;">
+                  {#$row.content#}
+                </div>
+                <div class="clear1"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {#include file="right.html"#}
+        {#include file="link.html"#}
+ 
+  </div>
+  <!--6--> 
+  
+  <!--footer-->
+{#include file="footer.html"#}

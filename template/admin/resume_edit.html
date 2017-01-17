@@ -1,0 +1,352 @@
+{#include file="admin/pageheader.html"#}
+<script>
+        KE.show({
+                id : 'content',
+				resizeMode : 0
+        });
+</script>
+<h1>
+<span class="action-span1"><a href="#">查看简历</a> </span>
+<span class="action-span"><a href="{#spUrl c=resumes a=index#}">简历列表</a></span>
+</h1>
+<div class="main-div">
+<form method="post" action="{#spUrl c=users a=update#}" name="theForm"  onsubmit="return validate()">
+<table cellspacing="1" cellpadding="3" width="100%">
+  <tr>
+    <td class="label">对应应聘文章</td>
+    <td>
+      {#$detail.types#}
+    </td>
+  </tr>
+  <tr>
+    <td class="label">用户名</td>
+    <td>
+      {#$detail.username#}
+    </td>
+  </tr>
+  <tr>
+    <td class="label">性别</td>
+    <td>	
+      {#$detail.sex#}
+    </td>
+  </tr>
+  <tr>
+    <td class="label">出生日期</td>
+    <td>	
+      {#$detail.birth#}
+    </td>
+  </tr>
+  <tr>
+    <td class="label">民族</td>
+    <td>	
+      {#$detail.people#}
+    </td>
+  </tr>
+  <tr>
+    <td class="label">是否应届生</td>
+    <td>	
+      {#$detail.graduates#}
+    </td>
+  </tr>
+  <tr>
+    <td class="label">调整工作地</td>
+    <td>	
+      {#$detail.adjustments#}
+    </td>
+  </tr>
+  <tr>
+    <td class="label">籍贯</td>
+    <td>	
+      {#$detail.birthplace#}
+    </td>
+  </tr>
+  <tr>
+    <td class="label">身份证号码</td>
+    <td>	
+      {#$detail.idnumber#}
+    </td>
+  </tr>
+  <tr>
+    <td class="label">政治面貌</td>
+    <td>	
+      {#$detail.political#}
+    </td>
+  </tr>
+  <tr>
+    <td class="label">婚否</td>
+    <td>	
+      {#$detail.marital#}
+    </td>
+  </tr>
+  <tr>
+    <td class="label">手机号码</td>
+    <td>	
+      {#$detail.cellphone#}
+    </td>
+  </tr>
+  <tr>
+    <td class="label">家庭电话</td>
+    <td>	
+      {#$detail.phone#}
+    </td>
+  </tr>
+  <tr>
+    <td class="label">计算机等级</td>
+    <td>	
+      {#$detail.computer#}
+    </td>
+  </tr>
+  <tr>
+    <td class="label">英语等级</td>
+    <td>	
+      {#$detail.english#}
+    </td>
+  </tr>
+  <tr>
+    <td class="label">QQ号码</td>
+    <td>	
+      {#$detail.qqnumber#}
+    </td>
+  </tr>
+  <tr>
+    <td class="label">电子邮箱</td>
+    <td>	
+      {#$detail.email#}
+    </td>
+  </tr>
+  <tr>
+    <td class="label">兴趣或特长</td>
+    <td>	
+      {#$detail.interest#}
+    </td>
+  </tr>
+  <tr>
+    <td class="label">优点</td>
+    <td>	
+      {#$detail.advantage#}
+    </td>
+  </tr>
+  <tr>
+    <td class="label">缺点</td>
+    <td>	
+      {#$detail.shortcoming#}
+    </td>
+  </tr>
+  <tr>
+    <td class="label">现住址邮编</td>
+    <td>	
+      {#$detail.zip#}
+    </td>
+  </tr>
+  <tr>
+    <td class="label">出生城市</td>
+    <td>	
+      {#$detail.city#}
+    </td>
+  </tr>
+  <tr>
+    <td class="label">户口所在地</td>
+    <td>	
+      {#$detail.residence#}
+    </td>
+  </tr>
+  <tr>
+    <td class="label">其他说明</td>
+    <td>	
+      {#$detail.notes#}
+    </td>
+  </tr>
+  <tr>
+    <td class="label">相片</td>
+    <td>	
+      <img src="uploads/abc/{#$detail.upfile#}"/>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">培训经历或职称</td>
+    <td>	
+      <table style="width:100%;text-align:left;background:#ffffff;" border="0" cellpadding="0" cellspacing="0">
+		<tbody>
+			<tr>
+				<td style="text-align:center;border-left:1px solid #666666;border-top:1px solid #666666;" colspan="2" width="130">
+					<span>日期（月/年）</span><br />
+				</td>
+				<td style="text-align:center;border-left:1px solid #666666;border-top:1px solid #666666;" rowspan="2">
+					学校名称<br />
+				</td>
+				<td style="text-align:center;border-left:1px solid #666666;border-top:1px solid #666666;border-right:1px solid #666666;" rowspan="2">
+					所获证书/所达程度<br />
+				</td>
+			</tr>
+			<tr>
+				<td style="text-align:center;border-left:1px solid #666666;border-top:1px solid #666666;" width="65">
+					由<br />
+				</td>
+				<td style="text-align:center;border-left:1px solid #666666;border-top:1px solid #666666;" width="65">
+					至<br />
+				</td>
+			</tr>
+			<tr>
+				<td style="text-align:center;border-left:1px solid #666666;border-top:1px solid #666666;" width="65">
+					{#$detail.peixun_start_date1#}
+				</td>
+				<td style="text-align:center;border-left:1px solid #666666;border-top:1px solid #666666;">
+					{#$detail.peixun_end_date1#}
+				</td>
+				<td style="text-align:center;border-left:1px solid #666666;border-top:1px solid #666666;" width="65">
+					{#$detail.peixun_school1#}
+					
+				</td>
+				<td style="text-align:center;border-left:1px solid #666666;border-top:1px solid #666666;border-right:1px solid #666666;">
+					{#$detail.peixun_book1#}
+					
+				</td>
+			</tr>
+			<tr>
+				<td style="text-align:center;border-left:1px solid #666666;border-top:1px solid #666666;" width="65">
+					{#$detail.peixun_start_date2#}
+				</td>
+				<td style="text-align:center;border-left:1px solid #666666;border-top:1px solid #666666;">
+					{#$detail.peixun_end_date2#}
+				</td>
+				<td style="text-align:center;border-left:1px solid #666666;border-top:1px solid #666666;" width="65">
+					{#$detail.peixun_school2#}
+				</td>
+				<td style="text-align:center;border-left:1px solid #666666;border-top:1px solid #666666;border-right:1px solid #666666;">
+					{#$detail.peixun_book2#}
+				</td>
+			</tr>
+			<tr>
+				<td style="text-align:center;border-left:1px solid #666666;border-top:1px solid #666666;" width="65">
+					{#$detail.peixun_start_date3#}
+				</td>
+				<td style="text-align:center;border-left:1px solid #666666;border-top:1px solid #666666;">
+					{#$detail.peixun_end_date3#}
+				</td>
+				<td style="text-align:center;border-left:1px solid #666666;border-top:1px solid #666666;" width="65">
+					{#$detail.peixun_school3#}
+				</td>
+				<td style="text-align:center;border-left:1px solid #666666;border-top:1px solid #666666;border-right:1px solid #666666;">
+					{#$detail.peixun_book3#}
+				</td>
+			</tr>
+			<tr>
+				<td style="text-align:center;border-left:1px solid #666666;border-top:1px solid #666666;border-bottom:1px solid #666666;" width="65">
+					{#$detail.peixun_start_date4#}
+				</td>
+				<td style="text-align:center;border-left:1px solid #666666;border-top:1px solid #666666;border-bottom:1px solid #666666;">
+					{#$detail.peixun_end_date4#}
+				</td>
+				<td style="text-align:center;border-left:1px solid #666666;border-top:1px solid #666666;border-bottom:1px solid #666666;" width="65">
+					{#$detail.peixun_school4#}
+				</td>
+				<td style="text-align:center;border-left:1px solid #666666;border-top:1px solid #666666;border-right:1px solid #666666;border-bottom:1px solid #666666;">
+					{#$detail.peixun_book4#}
+				</td>
+			</tr>
+		</tbody>
+	</table>
+    </td>
+  </tr>
+  
+  <tr>
+    <td class="label">过往就业详情</td>
+    <td>	
+      <table style="width:100%;text-align:left;background:#ffffff;" border="0" cellpadding="0" cellspacing="0">
+	<tbody>
+		<tr>
+			<td style="text-align:center;border-left:1px solid #666666;border-top:1px solid #666666;" colspan="2" width="130">
+				<span>日期（月/年）</span>
+			</td>
+			<td style="text-align:center;border-left:1px solid #666666;border-top:1px solid #666666;" rowspan="2">
+				公司名称、地址及电话号码
+			</td>
+			<td style="text-align:center;border-left:1px solid #666666;border-top:1px solid #666666;" rowspan="2">
+				职位
+			</td>
+			<td style="text-align:center;border-left:1px solid #666666;border-top:1px solid #666666;" rowspan="2">
+				薪金
+			</td>
+			<td style="text-align:center;border-left:1px solid #666666;border-top:1px solid #666666;" rowspan="2">
+				离职原因
+			</td>
+		</tr>
+		<tr>
+			<td style="text-align:center;border-left:1px solid #666666;border-top:1px solid #666666;" width="65">
+				由<br />
+			</td>
+			<td style="text-align:center;border-left:1px solid #666666;border-top:1px solid #666666;" width="65">
+				至<br />
+			</td>
+		</tr>
+		<tr>
+			<td style="text-align:center;border-left:1px solid #666666;border-top:1px solid #666666;" width="65">
+				{#$detail.word_start_date1#}
+			</td>
+			<td style="text-align:center;border-left:1px solid #666666;border-top:1px solid #666666;">
+				{#$detail.word_end_date1#}
+			</td>
+			<td style="text-align:center;border-left:1px solid #666666;border-top:1px solid #666666;" width="65">
+				{#$detail.work_company1#}
+			</td>
+			<td style="text-align:center;border-left:1px solid #666666;border-top:1px solid #666666;">
+				{#$detail.work_setup1#}
+			</td>
+			<td style="text-align:center;border-left:1px solid #666666;border-top:1px solid #666666;">
+				{#$detail.work_salary1#}
+			</td>
+			<td style="text-align:center;border-left:1px solid #666666;border-top:1px solid #666666;border-right:1px solid #666666;">
+				{#$detail.work_why1#}
+			</td>
+		</tr>
+		<tr>
+			<td style="text-align:center;border-left:1px solid #666666;border-top:1px solid #666666;" width="65">
+				{#$detail.word_start_date2#}
+			</td>
+			<td style="text-align:center;border-left:1px solid #666666;border-top:1px solid #666666;">
+				{#$detail.word_end_date2#}
+			</td>
+			<td style="text-align:center;border-left:1px solid #666666;border-top:1px solid #666666;" width="65">
+				{#$detail.work_company2#}
+			</td>
+			<td style="text-align:center;border-left:1px solid #666666;border-top:1px solid #666666;">
+				{#$detail.work_setup2#}
+			</td>
+			<td style="text-align:center;border-left:1px solid #666666;border-top:1px solid #666666;">
+				{#$detail.work_salary2#}
+			</td>
+			<td style="text-align:center;border-left:1px solid #666666;border-top:1px solid #666666;border-right:1px solid #666666;">
+				{#$detail.work_why2#}
+			</td>
+		</tr>
+		<tr>
+			<td style="text-align:center;border-left:1px solid #666666;border-top:1px solid #666666;" width="65">
+				{#$detail.word_start_date3#}
+			</td>
+			<td style="text-align:center;border-left:1px solid #666666;border-top:1px solid #666666;">
+				{#$detail.word_end_date3#}
+			</td>
+			<td style="text-align:center;border-left:1px solid #666666;border-top:1px solid #666666;" width="65">
+				{#$detail.work_company3#}
+			</td>
+			<td style="text-align:center;border-left:1px solid #666666;border-top:1px solid #666666;">
+				{#$detail.work_setup3#}
+			</td>
+			<td style="text-align:center;border-left:1px solid #666666;border-top:1px solid #666666;">
+				{#$detail.work_salary3#}
+			</td>
+			<td style="text-align:center;border-left:1px solid #666666;border-top:1px solid #666666;border-right:1px solid #666666;">
+				{#$detail.work_why3#}
+			</td>
+		</tr>
+	</tbody>
+</table>
+    </td>
+  </tr>
+
+  
+
+</table>
+</form>
+</div>
+{#include file="admin/pagefooter.html"#}

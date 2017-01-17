@@ -1,0 +1,54 @@
+{#include file="admin/pageheader.html"#}
+<h1>
+<span class="action-span1"><a href="#">添加调查项</a> </span>
+<span class="action-span"><a href="{#spUrl c=ask a=index pid=$smarty.get.pid#}">调查项列表</a></span>
+</h1>
+<div class="main-div">
+<form method="post" action="{#spUrl c=ask a=insert#}" name="theForm"  onsubmit="return validate()" enctype="multipart/form-data">
+<table cellspacing="1" cellpadding="3" width="100%">
+
+  <tr>
+    <td class="label">调查项名称:</td>
+    <td><input type="text" name="title" size = "60"/>&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="label">所属分类</td>
+    <td>
+      <select name="sid" >
+        <option value="0">顶级分类</option>
+        {#foreach item=cat from=$cat_select#}
+        	<option value="{#$cat.id#}" style="padding-left:{#$cat.level*20#}px">{#$cat.catename#}</option>
+        {#/foreach#}
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">调查项类型:</td>
+    <td>
+		<select name="asktype">
+			<option value="text">文本框</option>
+			<option value="radio">单选</option>
+		</select>
+	</td>
+  </tr>
+  <tr>
+    <td class="label">调查项值:</td>
+    <td><input type="text" name="content" size = "60"/>&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="label">排序:</td>
+    <td>
+      <input type="text" name='sort_id' value="50" size="15" />
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><br />
+      <input type="hidden" value="{#$pid#}" name="pid"/>
+      <input type="submit" class="button" value="提交" />
+      <input type="reset" class="button" value="重置" />
+    </td>
+  </tr>
+</table>
+</form>
+</div>
+{#include file="admin/pagefooter.html"#}

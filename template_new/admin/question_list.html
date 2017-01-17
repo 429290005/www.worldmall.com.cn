@@ -1,0 +1,116 @@
+{#include file="admin/pageheader.html"#}
+<script type="text/javascript">
+$(function(){
+	$('#list-table').tableHover(); 
+})
+</script>
+
+
+<h1>
+<span class="action-span1"><a href="#">调查表列表</a> </span>
+<span class="action-span"><a href="{#spUrl c=question a=addpage#}">添加调查表</a></span>
+</h1>
+<form method="post" action="" name="listForm">
+<!-- start ad position list -->
+<div class="list-div" id="listDiv">
+
+<table width="100%" cellspacing="1" cellpadding="2" id="list-table" class="table">
+  <tr>
+    <th>调查表名称</th>
+    <th>排序</th>
+	<th>所调查的产品</th>
+    <th>操作</th>
+  </tr>
+  {#foreach item=cat from=$rows#}
+	{#if $cat.pid eq 0#}
+	  <tr align="center" class="{#$cat.level#}" id="{#$cat.level#}_{#$cat.cat_id#}">
+		<td align="left" class="first-cell nowrap" valign="center" >
+		  {#if $cat.level neq 0#}
+		  <img src="themes/admin/images/menu_minus.gif" id="icon_{#$cat.level#}_{#$cat.cat_id#}" width="9" height="9" border="0" style="margin-left:{#$cat.level#}em" onclick="rowClicked(this)" />
+		  {#else#}
+		  <img src="themes/admin/images/menu_arrow.gif" width="9" height="9" border="0" style="margin-left:{#$cat.level#}em" />
+		  {#/if#}
+		  <span><a href="{#spUrl c=ask a=index id=$cat.id pid=$cat.id#}">{#$cat.catename|escape#}</a></span>
+		</td>
+		<td width="10%" align="center" class="nowrap" valign="center">{#$cat.sort_id#}</td>
+		<td width="10%" align="center" class="nowrap" valign="center">{#if $cat.upfile#}<img src="uploads/sm_question/{#$cat.upfile#}" width="100"/>{#/if#}</td>
+		<td width="24%" align="right" class="nowrap" valign="center"><a href="{#spUrl c=ask a=show pid=$cat.id#}">查看结果</a>&nbsp;|&nbsp;<a href="{#spUrl c=question a=editpage id=$cat.id#}">编辑</a>&nbsp;|&nbsp;<a href="{#spUrl c=question a=delete id=$cat.id#}" onclick="if(confirm('您确认要删除这条记录吗？')){return true}return false;">移除</a></td>
+	  </tr>
+	{#/if#}
+  {#/foreach#}
+</table>
+
+</div>
+</form>
+
+<script language="JavaScript">
+<!--
+
+var imgPlus = new Image();
+imgPlus.src = "themes/admin/images/menu_plus.gif";
+
+/**
+ * 折叠分类列表
+ */
+function rowClicked(obj)
+{
+   // 当前图像
+  img = obj;
+  // 取得上二级tr>td>img对象
+  obj = obj.parentNode.parentNode;
+  // 整个分类列表表格
+  var tbl = document.getElementById("list-table");
+  // 当前分类级别
+  var lvl = parseInt(obj.className);
+  // 是否找到元素
+  var fnd = false;
+  var Browser = new Object();
+  Browser.isIE = window.ActiveXObject ? true : false;
+  var sub_display = img.src.indexOf('menu_minus.gif') > 0 ? 'none' : (Browser.isIE) ? 'block' : 'table-row' ;
+  // 遍历所有的分类
+  for (i = 0; i < tbl.rows.length; i++)
+  {
+      var row = tbl.rows[i];
+      if (row == obj)
+      {
+          // 找到当前行
+          fnd = true;
+          //document.getElementById('result').innerHTML += 'Find row at ' + i +"<br/>";
+      }
+      else
+      {
+          if (fnd == true)
+          {
+              var cur = parseInt(row.className);
+              var icon = 'icon_' + row.id;
+              if (cur > lvl)
+              {
+                  row.style.display = sub_display;
+                  if (sub_display != 'none')
+                  {
+                      var iconimg = document.getElementById(icon);
+                      iconimg.src = iconimg.src.replace('plus.gif', 'minus.gif');
+                  }
+              }
+              else
+              {
+                  fnd = false;
+                  break;
+              }
+          }
+      }
+  }
+
+  for (i = 0; i < obj.cells[0].childNodes.length; i++)
+  {
+      var imgObj = obj.cells[0].childNodes[i];
+      if (imgObj.tagName == "IMG" && imgObj.src != 'themes/admin/images/menu_arrow.gif')
+      {
+          imgObj.src = (imgObj.src == imgPlus.src) ? 'themes/admin/images/menu_minus.gif' : imgPlus.src;
+      }
+  }
+}
+//-->
+</script>
+
+{#include file="admin/pagefooter.html"#}

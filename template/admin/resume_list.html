@@ -1,0 +1,87 @@
+{#include file="admin/pageheader.html"#}
+<script type="text/javascript">
+$(function(){
+	$('#list-table').tableHover(); 
+})
+</script>
+
+
+<h1>
+<span class="action-span1"><a href="#">简历列表</a> </span>
+<span class="action-span"><!-- <a href="{#spUrl c=resumes a=addpage#}">添加管理员</a> --></span>
+</h1>
+<!-- <div class="form-div">
+  <form action="{#spUrl c=user a=index#}" name="searchForm" method="post" >
+    <img src="themes/admin/images/icon_search.gif" width="26" height="22" border="0" alt="SEARCH" />
+    用户名 <input type="text" name="keyword" id="keyword" />
+    <input type="submit" value="搜索" class="button" />
+  </form>
+</div> -->
+<form method="post" action="{#spUrl c=user a=batch#}" name="listForm">
+<!-- start ad position list -->
+<div class="list-div" id="listDiv">
+
+<table width="100%" cellspacing="1" cellpadding="2" id="list-table" class="table">
+  <tr>
+    <th><!-- <input type="checkbox" onclick='selectAll(this,"checkboxes")'/> -->编号</th>
+    <th>姓名</th>
+	<th>性别</th>
+	<th>出生地</th>
+    <th>操作</th>
+  </tr>
+  {#foreach item=user_list from=$rows#}
+  <tr>
+    <td width="80" align="center"><!-- <input type="checkbox" name="checkboxs[]" value="{#$user_list.id#}"> -->{#$user_list.id#}</td>
+    <td align="center">&nbsp;&nbsp;&nbsp;<strong>{#$user_list.username#}</strong></td>
+	<td align="center">&nbsp;&nbsp;&nbsp;<strong>{#$user_list.sex#}</strong></td>
+	<td align="center">&nbsp;&nbsp;&nbsp;<strong>{#$user_list.birthplace#}</strong></td>
+    <td align="center">
+    <span>
+      <!--<a title="查看" target="_blank"><img width="16" height="16" border="0" src="themes/admin/images/icon_view.gif"></a>&nbsp;-->
+      <a title="编辑" href="{#spUrl c=resumes a=editpage id=$user_list.id#}"><img width="16" height="16" border="0" src="themes/admin/images/icon_edit.gif"></a>&nbsp;
+      <a title="移除" href="{#spUrl c=resumes a=delete id=$user_list.id#}" onclick="if(confirm('您确认要删除这条记录吗？')){return true}return false;"><img width="16" height="16" border="0" src="themes/admin/images/icon_drop.gif"></a></span>
+     </td>
+  </tr>
+  {#/foreach#}
+  <tr>
+  	<td colspan="7" height="30" bgcolor="#80BDCB" id="pager">
+ 		{#if $pager#}  
+            共有{#$pager.total_count#}条信息，共有{#$pager.total_page#}页（每页{#$pager.page_size#}条信息）：  
+            <!--在当前页不是第一页的时候，显示前页和上一页-->  
+            {#if $pager.current_page != $pager.first_page#}  
+                <a href="{#spUrl c=resumes a=index page=$pager.first_page#}">前页</a> |  
+                <a href="{#spUrl c=resumes a=index page=$pager.prev_page#}">上一页</a> |  
+            {#/if#}  
+            <!--开始循环页码，同时如果循环到当前页则不显示链接-->  
+            {#foreach from=$pager.all_pages item=thepage#}  
+                {#if $thepage != $pager.current_page#}  
+                     <a href="{#spUrl c=resumes a=index page=$thepage#}">{#$thepage#}</a>  
+                {#else#}  
+                     <b>{#$thepage#}</b>  
+                {#/if#}  
+            {#/foreach#}  
+            <!--在当前页不是最后一页的时候，显示下一页和后页-->  
+            {#if $pager.current_page != $pager.last_page#} |  
+                <a href="{#spUrl c=resumes a=index page=$pager.next_page#}">下一页</a> |  
+                <a href="{#spUrl c=resumes a=index page=$pager.last_page#}">后页</a>  
+            {#/if#}  
+        {#/if#}
+    </td>
+  </tr>
+</table>
+<div>
+<!--  <select name="type">
+    <option value="">请选择...</option>
+    <option value="button_remove">批量删除</option>
+    <option value="button_hide">批量隐藏</option>
+    <option value="button_show">批量显示</option>
+  </select>
+
+  <input type="submit" class="button" name="btnSubmit" id="btnSubmit" value="确定">-->
+</div>
+
+</div>
+</form>
+
+
+{#include file="admin/pagefooter.html"#}

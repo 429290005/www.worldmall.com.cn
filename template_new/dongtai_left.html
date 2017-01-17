@@ -1,0 +1,36 @@
+<div class="LeftPart">
+    	<div class="Title">
+    	  <h2>工作动态</h2>
+    	</div>
+        <div class="Content">
+        	<ul class="TextList">
+				{#foreach item=cat from=$cats#}
+				
+				
+            	<!-- <li onClick="switchs('content',{#$cat.id#})"><a href="{#spUrl c=info a=index id=$cat.id pid=$cat.pid#}">{#$cat.title#}</a></li> -->
+				
+				{#/foreach#}
+				{#foreach item=bcat_list from=$bcat#}
+					{#if $bcat_list.id==21 or $bcat_list.id==22#}
+						<li onClick="switchs('content',{#$bcat_list.id#})"><a href="#">{#$bcat_list.catename#}</a>
+							<ul id="content{#$bcat_list.id#}" class="Textxt" style="display:none;">
+								{#foreach item=type_lists from=$bcat_list.second#}
+
+								<li><a href="{#spUrl c=info a=index id=$type_lists.id pid=$type_lists.pid#}">{#$type_lists.title#}</a></li>
+								
+								{#/foreach#}
+							</ul>
+						</li>
+					{#else#}
+						{#foreach item=type_lists from=$bcat_list.second#}
+						<li><a href="{#spUrl c=info a=index id=$type_lists.id pid=$type_lists.pid#}">{#$bcat_list.catename#}</a></li>
+						{#/foreach#}
+					{#/if#}
+				{#/foreach#}
+					<li><a href="{#spUrl c=news a=dongtai id=3 pid=3#}">工作动态</a></li>
+            </ul>
+        </div>
+        <div class="Bottom"></div>
+
+
+     </div>

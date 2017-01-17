@@ -1,0 +1,77 @@
+{#include file="header.html"#}
+<style type="text/css">
+.footer ul {
+    padding-top: 21px;
+}
+</style>
+<div class="top_flash1">
+  <div class="menu">
+    <object id="FlashID" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="984" height="119">
+      <param name="movie" value="menu.swf" />
+      <param name="quality" value="high" />
+      <param name="wmode" value="transparent" />
+      <param name="swfversion" value="6.0.65.0" />
+      <!-- 此 param 标签提示使用 Flash Player 6.0 r65 和更高版本的用户下载最新版本的 Flash Player。如果您不想让用户看到该提示，请将其删除。 -->
+      <param name="expressinstall" value="Scripts/expressInstall.swf" />
+      <!-- 下一个对象标签用于非 IE 浏览器。所以使用 IECC 将其从 IE 隐藏。 -->
+      <!--[if !IE]>-->
+      <object type="application/x-shockwave-flash" data="menu.swf" width="984" height="119">
+        <!--<![endif]-->
+        <param name="quality" value="high" />
+        <param name="wmode" value="transparent" />
+        <param name="swfversion" value="6.0.65.0" />
+        <param name="expressinstall" value="Scripts/expressInstall.swf" />
+        <!-- 浏览器将以下替代内容显示给使用 Flash Player 6.0 和更低版本的用户。 -->
+        <div>
+          <h4>此页面上的内容需要较新版本的 Adobe Flash Player。</h4>
+          <p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="获取 Adobe Flash Player" width="112" height="33" /></a></p>
+        </div>
+        <!--[if !IE]>-->
+      </object>
+      <!--<![endif]-->
+    </object>
+  </div>
+  <div class="t1"><img src="themes/index/images/t2.png" /></div>
+</div>
+
+<div class="m_con">
+
+<div class="left_con">
+<div class="left_list yh_font">
+<dl>
+<dt class="about_tit">
+走进沙漠绿洲<br />
+About Us
+</dt>
+{#foreach item=rows_list from=$rows name=rowsb#}
+<dd><a href="{#spUrl c=info a=index id=$rows_list.id pid=$rows_list.pid#}">{#$rows_list.title#}</a></dd>
+{#/foreach#}
+<div class="clear"></div>
+</dl>
+</div>
+<div class=" tel_left"><img src="themes/index/images/tel1.jpg" /></div>
+</div>
+
+<div class="right_con">
+<dl>
+<dt><img src="themes/index/images/r_nav1.jpg"  />
+<div class="r_txt"><a href="./">首页</a> > {#$row.title#}</div>
+</dt>
+<dd>
+
+{#$row.content#}
+
+</dd>
+
+</dl>
+</div>
+<div class="clear"></div>
+
+</div>
+
+<div class="foot_1 footer">
+{#include file="footer.html"#}
+</div>
+
+</body>
+</html>

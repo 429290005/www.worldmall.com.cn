@@ -1,0 +1,53 @@
+{#include file="admin/pageheader.html"#}
+<script>
+        KE.show({
+                id : 'content',
+				resizeMode : 0
+        });
+</script>
+<h1>
+<span class="action-span1"><a href="#">修改属性</a> </span>
+<span class="action-span"><a href="{#spUrl c=goodscolor a=index#}">属性列表</a></span>
+</h1>
+<div class="main-div">
+<form method="post" action="{#spUrl c=goodscolor a=update#}" name="theForm"  onsubmit="return validate()">
+<table cellspacing="1" cellpadding="3" width="100%">
+  <tr>
+    <td class="label">属性名称</td>
+    <td><input type="text" name="catename" maxlength="60" size = "30" value="{#$cat.catename#}"/>&nbsp;<font color="#FF0000">*</font></td>
+  </tr>
+  <tr>
+    <td class="label">上级分类</td>
+    <td>
+      <select name="pid" >
+        <option value="0">顶级分类</option>
+        {#foreach item=cat_sel from=$cat_select#}
+        	<option value="{#$cat_sel.id#}" {#if $cat_sel.id==$cat.pid#} selected="selected" {#/if#} style="padding-left:{#$cat_sel.level*20#}px">{#$cat_sel.catename#}</option>
+        {#/foreach#}
+      </select>
+    </td>
+  </tr>
+<!--   <tr>
+    <td class="label">关联颜色</td>
+    <td>
+      <input type="text" size="50" value="{#$cat.relatecolor#}" name="relatecolor"/> <font color="#FF0000">仅作用于产品颜色，格式为navy,blue,ocean</font>
+    </td>
+  </tr> -->
+  <tr>
+    <td class="label">排序:</td>
+    <td>
+      <input type="text" name='sort_id' size="15"  value="{#$cat.sort_id#}"/>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><br />
+      <input type="hidden" name="id" value="{#$cat.id#}" />
+      <input type="submit" class="button" value="提交" />
+      <input type="reset" class="button" value="重置" />
+      
+    </td>
+  </tr>
+</table>
+</form>
+</div>
+{#include file="admin/pagefooter.html"#}

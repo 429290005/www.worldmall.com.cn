@@ -1,0 +1,94 @@
+{#include file="header.html"#}
+<link rel="stylesheet" type="text/css" href="{#$basepath#}/themes/index/images/css.css" media="all" />
+</script> 
+        <script type="text/javascript">
+	$(document).ready(function(){
+			$("#nav>ul>li:not(.clear)").click(function(){
+					alert(li[0]);
+				})
+		});
+</script> 
+<style>
+.guest_input{border:1px #DEDBDE solid}
+</style>
+
+  <!--content-->
+
+    <div class="wrap_con">
+      <div class="content">
+        <div class="clear1"></div>
+        <div class="banr1"><img width="992" src="{#$basepath#}/themes/index/images/index22_18.jpg" /></div>
+        <div class="clear1"></div>
+        <div class="content_left">
+          <div class="contentL_box mark">
+            <div class="ibox_1">
+              <div class="box_T">
+			  <!-- <div class="box_T gai">
+				<p>留言板</p>
+				<div class="postion"> 首页 > 留言板 </div>
+				</div> -->
+				<div class="top5"></div>
+				<div class="keyword"> 
+       <h4>留言板</h4> 
+      </div>
+                
+                <!-- <a href="#" class="aimg"></a> --> </div>
+              <div class="content-l">
+			  <form action='{#spUrl c=guestbook a=add#}' method='post'>
+                <table>
+					<tr>
+						<td align='right'>用户名：</td>
+						<td><input class='guest_input' type='text' name='username' value='{#$smarty.cookies.username#}'> <font style='color:red'>*</font></td>
+					</tr>
+					<tr>
+						<td align='right'>邮箱：</td>
+						<td><input class='guest_input' type='text' name='email' value='{#$smarty.cookies.email#}'> <font style='color:red'>*</font></td>
+					</tr>
+					<tr>
+						<td align='right'>QQ：</td>
+						<td><input class='guest_input' type='text' name='ICQ' value='{#$smarty.cookies.ICQ#}'></td>
+					</tr>
+					<tr>
+						<td align='right'>内容：</td>
+						<td>
+							<textarea class='guest_input'name='content' rows='5' cols='50'>{#$smarty.cookies.content#}</textarea> <font style='color:red'>*</font>
+						</td>
+					</tr>
+					<tr>
+						<td colspan='2' align='center'><input type='submit' class="btn" value='提交表单' style='background-color:#DEDBDE'></td>
+					</tr>
+				</table>
+				</form>
+				<form>
+				<ul>
+				{#foreach item=list from=$feed#}
+				<li style='border-bottom:3px #DEDBDE solid'>
+					<span>用户名：{#$list.username#}</span> <em style='float:right'>留言时间：{#date('Y-m-d H:i:s',$list.add_time)#}</em>
+					<p style='border-bottom:1px #DEDBDE solid'>{#$list.content#}</p>
+					{#foreach item=row from=$list.re#}
+					<p style='color:red; border-bottom:1px #DEDBDE solid'>新汇豪回复：{#$row.content#}</p>
+					{#/foreach#}
+				</li>
+				{#/foreach#}
+				</ul>
+				{#if $pager#}
+				<div class="page"> {#pager pager=$pager myclass="yahoo2" c="guestbook" a="index"#} </div>
+				{#/if#}
+				</form>
+                <div class="clear1"></div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="top5"></div>
+        {#include file="right.html"#}
+        {#include file="link.html"#}
+      </div>
+
+  <!--6--> 
+ <script type="text/javascript">
+	$(".togglebg li:even").css("background","#f7f7f7");
+</script> 
+  <!--footer-->
+{#include file="footer.html"#}

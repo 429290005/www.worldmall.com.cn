@@ -1,0 +1,78 @@
+{#include file="header.html"#}
+<link rel="stylesheet" type="text/css" href="themes/index/images/css.css" media="all" />
+<script type="text/javascript">
+var current_content;
+function switchs(name,n){
+  if(current_content){
+     $('#' + current_content).slideToggle();
+
+  }
+  $('#' + name + n).slideToggle();
+  current_content = name + n;
+
+	}
+
+</script>
+<div class=" holder" id="mainzuanti">
+	{#include file="bao_left.html"#}
+    <div class="RightPart">
+    	<div class="Titlelan">
+        	<h2>{#$nowcat.catename#}</h2>
+        	<p>当前位置<a href="{#spUrl c=main a=index#}">网站首页</a>><a href="{#spUrl c=news a=baogao id=4#}">民调报告</a>{#if $smarty.request.tid != ""#}&gt;<a href="{#spUrl c=news a=baogao id=$nowcat.id tid=$smarty.request.tid sid=$smarty.request.sid#}">{#$nowcat.catename#}</a>{#/if#}</p>
+        </div>
+        <div class="Contentlan">
+          <div class="ddWrap">
+            <ul class="TextList">
+				{#foreach item=news_list from=$news#}
+           	        <li><a href="{#spUrl c=news a=baogaodetail id=$news_list.id pid=$news_list.pid#}">{#$news_list.title#}{#$news_list.btitle#}</a><span>{#$news_list.add_time|date_format:"%Y-%m-%d"#}</span></li>
+				{#/foreach#}
+            </ul>
+          </div>
+          <div class="jiansuo">
+          	 <form action="{#spUrl c=news a=baogao#}" method="post">
+             	<label>
+                	<input name="keyword" type="text" class="TTse1" {#if $smarty.post.keyword!=""#} value="{#$smarty.post.keyword#}" {#else#}value="关键词输入"{#/if#} onfocus="this.value=''"/>
+                </label>
+                <label>
+				
+                <select name="id" id="select2" class="TTse">
+					{#foreach item=cat from=$cats#}
+						<option value="{#$cat.id#}" {#if $smarty.request.id==$cat.id#} selected=""{#/if#}>{#$cat.catename#}</option>
+					{#/foreach#}
+                </select>
+				
+                </label>
+<!--                  <label>
+                <select name="tid" id="select2" class="TTse">
+					<option value="0">选择地区</option>
+                  {#foreach item=types_list from=$types#}
+                  <option value="{#$types_list.id#}" {#if $smarty.request.tid==$types_list.id#} selected=""{#/if#}>{#$types_list.catename#}</option>
+					{#/foreach#}
+                </select>
+                </label> -->
+                <label>
+                <select name="sid" id="select2" class="TTse">
+					<option value="0">选择年限</option>
+                  {#foreach item=year_list from=$year#}
+                  <option value="{#$year_list.id#}" {#if $smarty.request.sid==$year_list.id#} selected=""{#/if#}>{#$year_list.catename#}</option>
+					{#/foreach#}
+                </select>
+                </label>
+                <label>
+					<input type="hidden" value="{#$pid#}" name="pid" />
+					<input type="hidden" value="{#$tid#}" name="tid" />
+                	<input type="submit" value="" class="jsBTn" />
+                </label>
+          	 </form>
+          </div>
+		  {#pager pager=$pager myclass="own" c="news" a="baogao" id=$smarty.request.id sid=$smarty.request.sid tid=$smarty.request.tid#}	
+          
+            </div>
+    </div>
+	<script type="text/javascript">
+		var id={#$smarty.request.id#};
+		switchs('content',id);
+	</script>
+    <div class="break"></div>
+</div>
+{#include file="footer.html"#}

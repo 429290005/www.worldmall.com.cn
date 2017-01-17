@@ -1,0 +1,119 @@
+{#include file="admin/pageheader.html"#}
+<script>
+        KE.show({
+                id : 'content',
+				resizeMode : 0
+        });
+</script>
+<h1>
+<span class="action-span1"><a href="#">查看会员</a> </span>
+<span class="action-span"><a href="{#spUrl c=member a=index#}">会员列表</a></span>
+</h1>
+<div class="main-div">
+<form method="post" action="{#spUrl c=member a=update#}" name="theForm"  onsubmit="return validate()">
+<table cellspacing="1" cellpadding="3" width="100%">
+  <tr>
+    <td class="label">邮箱:</td>
+    <td>{#$detail.email#}</td>
+  </tr>
+  <tr>
+    <td class="label">用户名:</td>
+    <td>
+      {#$detail.username#}
+    </td>
+  </tr>
+  <tr>
+    <td class="label">密码:</td>
+    <td>
+      {#$detail.password#}
+    </td>
+  </tr>
+  <tr>
+    <td class="label">注册时间:</td>
+    <td>
+    	{#$detail.addtime|date_format:"%Y-%m-%d"#}
+    </td>
+  </tr>
+  <tr>
+    <td class="label">会员类型:</td>
+    <td>
+    	<input type="radio" name="flag" value="0" {#if $detail.flag==0#} checked="checked" {#/if#}/>普通会员
+        <input type="radio" name="flag" value="1" {#if $detail.flag==1#} checked="checked" {#/if#}/>一个月
+		<input type="radio" name="flag" value="2" {#if $detail.flag==2#} checked="checked" {#/if#}/>二个月
+		<input type="radio" name="flag" value="3" {#if $detail.flag==3#} checked="checked" {#/if#}/>三个月
+		<input type="radio" name="flag" value="4" {#if $detail.flag==4#} checked="checked" {#/if#}/>六个月
+    </td>
+  </tr>
+  <tr>
+    <td class="label">截止日期:</td>
+    <td>
+    	{#$detail.endtime|date_format:"%Y-%m-%d"#}
+    </td>
+  </tr>
+  <tr>
+    <td class="label">传真:</td>
+    <td>
+    	{#$detail.fax#}
+    </td>
+  </tr>
+  <tr>
+    <td class="label">公司类型:</td>
+    <td>
+    	{#$detail.l_company#}
+    </td>
+  </tr>
+  <tr>
+    <td class="label">公司名称:</td>
+    <td>
+    	{#$detail.company#}
+    </td>
+  </tr>
+  <tr>
+    <td class="label">所在地区（详细地址）:</td>
+    <td>
+    	{#$detail.province#}-{#$detail.city#}-{#$detail.country#}（{#$detail.address#}）
+    </td>
+  </tr>
+   <tr>
+    <td class="label">联系人姓名:</td>
+    <td>
+    	{#$detail.name#}
+    </td>
+  </tr>
+  <tr>
+    <td class="label">性别:</td>
+    <td>
+    	{#$detail.sex#}
+    </td>
+  </tr>
+  <tr>
+    <td class="label">固定电话:</td>
+    <td>
+    	{#$detail.tel#}
+    </td>
+  </tr>
+  <tr>
+    <td class="label">手机号码:</td>
+    <td>
+    	{#$detail.phone#}
+    </td>
+  </tr>
+  <tr>
+    <td class="label">网址:</td>
+    <td>
+    	{#$detail.www#}
+    </td>
+  </tr>
+  
+  
+  <tr>
+    <td colspan="2" align="center"><br />
+      <input type="hidden" name="id" value="{#$detail.id#}" />
+      <input type="submit" class="button" value="提交" />
+      <input type="reset" class="button" value="重置" />
+    </td>
+  </tr>
+</table>
+</form>
+</div>
+{#include file="admin/pagefooter.html"#}

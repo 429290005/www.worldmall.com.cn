@@ -1,0 +1,28 @@
+<div class="LeftPart">
+<!-- 		<div class="Title">
+    	  <h2>数据库</h2>
+    	</div>
+        <div class="Content">
+        	<ul class="TextList">
+				{#foreach item=cat from=$cats#}
+				
+				
+            	<li onClick="switchs('content',{#$cat.id#})"><a href="{#spUrl c=news a=shuju id=$cat.id tid=$smarty.get.tid sid=$smarty.get.sid pid=$smarty.get.id#}">{#$cat.catename#}</a></li>
+				
+				{#/foreach#}
+            </ul>
+        </div> -->
+		<!-- <div class="Bottom"></div> -->
+		
+		<!-- <div class="last4" style="margin:0px;"></div> -->
+        <a href="{#$baob.link#}"><img src="uploads/banner/{#$baob.upfile#}" width="230"/></a>
+
+        <div class="Title3"></div>
+        <div class="Content3">
+        	<ul class="TextList4">
+			{#foreach item=year_list from=$year#}
+            	<li><a href="{#spUrl c=news a=shuju id=$smarty.request.pid pid=$smarty.request.pid sid=$year_list.id#}">{#$year_list.catename#}</a>|</li>
+			{#/foreach#}
+            </ul>
+        </div>
+     </div>

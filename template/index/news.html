@@ -1,0 +1,47 @@
+{#include file="header.html"#}
+<div class="wrap_con"> 
+    <img width="992" src="{#$basepath#}themes/index/images/index22_18.jpg" /> 
+    <div class="top5"></div>
+
+  <!--content-->
+  
+    
+
+        <div class="content_left">
+          <div class="keyword"> 
+       <h4>{#$nowcat.catename#}</h4> 
+      </div>
+          <div class="contentL_box mark">
+            <div class="ibox_1">
+              
+              <div class="box_C">
+                <ul class="togglebg">
+        
+        {#foreach item=news_list from=$news#}
+                  <li>
+                    <div class="iw">
+                      <div class="aimg"><a href="{#$basepath#}{#$smarty.get.id#}/detail/{#$news_list.id#}">{#if $news_list.upfile!=""#}<img src="{#$basepath#}uploads/sm_article/{#$news_list.upfile#}"  width="118" height="119"/>{#else#}<img src="http://www.zgpjzd.com/themes/index/images/nopic.gif"  width="118" height="119" align="left"/>{#/if#}</a> </div>
+                      <div class="p1"> <a href="{#$basepath#}{#$smarty.get.id#}/detail/{#$news_list.id#}" style="color:#000000"><b>{#$news_list.title#}</b></a><br />
+                        <span>{#$news_list.short|mb_substr:0:100#}......<a href="{#$basepath#}{#$smarty.get.id#}/detail/{#$news_list.id#}" class="red">【详细内容】</a></span> </div>
+                    </div>
+                  </li>
+        {#/foreach#} 
+          
+          
+                </ul>
+                <div class="clearfix"></div>
+                <div class="top10"></div>
+                <div class="page"> {#pager pager=$pager myclass="yahoo2" c="news" a="index" id=$smarty.request.id pid=$smarty.request.pid offset=5#} </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {#include file="right.html"#}
+        {#include file="link.html"#}
+
+  <!--6--> 
+ <script type="text/javascript">
+  $(".togglebg li:even").css("background","#f7f7f7");
+</script> 
+  <!--footer-->
+{#include file="footer.html"#}

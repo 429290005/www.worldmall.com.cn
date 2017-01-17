@@ -1,0 +1,51 @@
+{#include file="admin/pageheader.html"#}
+<script>
+        KE.show({
+                id : 'content',
+				resizeMode : 0
+        });
+</script>
+<h1>
+<span class="action-span1"><a href="#">添加文章</a> </span>
+<span class="action-span"><a href="{#spUrl c=article a=index#}">文章列表</a></span>
+</h1>
+<div class="main-div">
+<form method="post" action="{#spUrl c=article a=insert#}" name="theForm"  onsubmit="return validate()">
+<table cellspacing="1" cellpadding="3" width="100%">
+
+{#foreach item="ask_list" from=$asklist#}
+  <tr height="20">
+	<td></td>
+  </tr>
+  <tr>
+    <td class="" bgcolor="#DDEEF2" align="left"><span  style="font-size:14px;font-weight:bolder;height:25px;line-height:35px;">{#$ask_list.catename#}</span>
+		<table>
+			{#foreach item="second_list" from=$ask_list.lists#}
+			<tr>
+				<td>
+				{#$second_list.title#}
+					<table>
+					
+						<tr>
+							{#foreach item="third_list" from=$second_list.smalllist#}
+								<td>{#$third_list#}</td>
+							{#/foreach#}
+						</tr>
+					
+					</table>
+				</td>
+			</tr>
+			{#/foreach#}
+		</table>
+	</td>
+  </tr>
+{#/foreach#}  
+  <tr>
+    <td colspan="1" align="center"><br />
+      <input type="button" class="button" onclick="javascript:history.go(-1)" value="返回" />
+    </td>
+  </tr>
+</table>
+</form>
+</div>
+{#include file="admin/pagefooter.html"#}

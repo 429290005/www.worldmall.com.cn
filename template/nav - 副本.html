@@ -1,0 +1,77 @@
+    <div class="nav_full">
+      <div id="nav" class="nav">
+        <ul>
+          <li><a href="{#$basepath#}">首页</a></li>
+          <li><a href="{#$basepath#}shichangdongtai/4">市场动态</a> </li>
+          <li><a href="{#$basepath#}zhuantibaodao/4">专题报道</a></li>
+          <li><a href="{#$basepath#}xinwenzhongxin/4">新闻中心</a> </li>
+          <li><a href="{#$basepath#}shangdutongdao/59">商都通道</a></li>
+          <li><a href="{#$basepath#}hangyezixun/4">行业资讯</a></li>
+          <li><a href="{#$basepath#}zhanhuihuodong/4">展会活动</a></li>
+          <li><a href="{#$basepath#}yejiechaoliu/4">业界潮流</a></li>
+          <li style="background:none"><a target='_blank' href="http://www.worldmall.cn">在线批发</a></li>
+        </ul>
+		
+        <script type="text/javascript">
+function navFun(){
+	var liselected={#$menuIndex#};
+	var imgLoadSrc=new Array()
+	//imgLoadSrc.push("{#$basepath#}/themes/index/images/navon.gif");
+	var lis=$("#nav>ul>li:not(.clear)");
+	selectFun(lis,liselected)
+	lis.each(function(i){
+			var n=i+1;
+			//imgLoadSrc.push("{#$basepath#}/themes/index/images/nav"+n+"_2.png");
+			$(this).hover(function(){
+								   ($(this).find("ul").css("display",""));
+								  // $("img",this).eq(0).attr('src','{#$basepath#}/themes/index/images/nav'+n+'_2.png')
+								   $(this).addClass('on');
+							   },
+					  function(){
+						  ($(this).find("ul").css("display","none"));
+						  if(n!=liselected){
+							 // $("img",this).eq(0).attr('src','{#$basepath#}/themes/index/images/nav'+n+'.png')
+							  $(this).removeClass('on'); 
+							  }
+			
+						  }
+					  )
+
+			});
+	/*preloader(imgLoadSrc)*/
+}
+function selectFun(obj,selectedIndex){
+	obj.eq(selectedIndex-1).addClass('on')
+	//$("img",obj.eq(selectedIndex-1)).attr('src','{#$basepath#}/themes/index/images/nav'+selectedIndex+'_2.png')
+}
+navFun()
+function preloader() {//预加载图片
+	var Arrimg=new Array();   
+	if(typeof(arguments[0])=="string")Arrimg[0]=arguments[0];   
+	if(typeof(arguments[0])=="object"){   
+	  for(var i=0;i<arguments[0].length;i++){   
+		  Arrimg[i]=arguments[0][i]   
+		}   
+	} 
+	
+	var images = new Array(); 
+	for(var i=0;i<Arrimg.length;i++)
+	{
+	  images[i]=new Image();
+	  images[i].src=Arrimg[i];
+	}
+}
+
+
+
+
+</script> 
+        <script type="text/javascript">
+	$(document).ready(function(){
+			$("#nav>ul>li:not(.clear)").click(function(){
+					alert(li[0]);
+				})
+		});
+</script> 
+      </div>
+    </div>

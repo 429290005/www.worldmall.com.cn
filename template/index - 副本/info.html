@@ -1,0 +1,44 @@
+{#include file="header.html"#}
+        <script type="text/javascript">
+	$(document).ready(function(){
+			$("#nav>ul>li:not(.clear)").click(function(){
+					alert(li[0]);
+				})
+		});
+</script> 
+<div class="B_big"> 
+  <!--content-->
+  <div class="white">
+    <div class="content_full">
+      <div class="content">
+        <div class="clear1"></div>
+        <div class="banr1"><img src="themes/index/images/index22_18.jpg" /></div>
+        <div class="clear1"></div>
+        <div class="content_left">
+          <div class="contentL_box mark news">
+            <div class="ibox_1">
+              <div class="box_T gai">
+                <p>{#$catb.catename#}</p>
+                <div class="postion"> 首页 > {#$catb.catename#} </div>
+              </div>
+              <div class="box_C">
+                <div class="p1"><b>{#$row.title#}</b><br/>
+                  <span></span></div>
+                <!-- <div class="aimg"><img src="themes/index/images/news_07.jpg" /></div> -->
+                <div class="p2" style="padding:20px;">
+                  {#$row.content#}
+                </div>
+                <div class="clear1"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {#include file="right.html"#}
+        {#include file="link.html"#}
+      </div>
+    </div>
+  </div>
+  <!--6--> 
+  
+  <!--footer-->
+{#include file="footer.html"#}

@@ -1,0 +1,62 @@
+<div class="content_right w-right">
+         <div class="keyword"> 
+      <a href="{#$basepath#}lingdaofengcai/5"><h4>领导风采</h4> </a>
+     </div> 
+
+{#foreach item=lingdao_list from=$lingdao#}
+     <div class="sideBar"> 
+      <div class="r-s"> 
+       {#if $lingdao_list.upfile!=""#}<img src="{#$basepath#}/uploads/sm_article/{#$lingdao_list.upfile#}"  width="94" height="68"/>{#else#}<img src="{#$basepath#}/themes/index/images/nopic3.gif"  width="94" height="68" align="left"/>{#/if#} 
+       <span><a href="{#$basepath#}lingdaofengcai/detail/{#$lingdao_list.id#}" style="color:#000000"><b>{#$lingdao_list.title#}</b></a></span> 
+        <span>{#$lingdao_list.short#}......<a href="{#$basepath#}lingdaofengcai/detail/{#$lingdao_list.id#}" class="red">【详细内容】</a></span>
+      </div> 
+     </div> 
+     {#/foreach#}
+              <!-- <div class="box_T">
+                <p>领导风采</p>
+                <a href="{#$basepath#}lingdaofengcai/5" class="aimg"></a> </div> -->
+  <!--             <div class="box_C">
+			  {#foreach item=lingdao_list from=$lingdao#}
+                <div class="iw">
+                  <div class="aimg"> {#if $lingdao_list.upfile!=""#}<img src="{#$basepath#}/uploads/sm_article/{#$lingdao_list.upfile#}"  width="94" height="68"/>{#else#}<img src="{#$basepath#}/themes/index/images/nopic3.gif"  width="94" height="68" align="left"/>{#/if#} </div>
+                  <div class="p1"> <a href="{#$basepath#}lingdaofengcai/detail/{#$lingdao_list.id#}" style="color:#000000"><b>{#$lingdao_list.title#}</b></a><br />
+                    <span>{#$lingdao_list.short#}......<a href="{#$basepath#}lingdaofengcai/detail/{#$lingdao_list.id#}" class="red">【详细内容】</a></span></div>
+                </div>
+                <div class="clear"></div>
+				{#/foreach#} -->
+              <!-- </div> -->
+            <!-- </div> -->
+            <div class="top10"></div>
+            <div class="ibox_R" style='background: url("{#$basepath#}/themes/index/images/contace_img_02.jpg") no-repeat scroll 0 0 transparent;height:249px;width:336px'>
+			<div style='padding:40px 5px 5px 5px;'>{#$contact.content#}</div>
+			<div class='clear'></div>
+			</div>
+
+        
+            <div class="top5"></div>
+                 <div class="keyword"> 
+      <a href="{#$basepath#}lingdaofengcai/5"><h4>最新活动</h4> </a>
+     </div> 
+              <div class="box_C">
+                <div class="clear"></div>
+                <ul class="ul2">
+				{#foreach item=zuixin_list from=$huodong#}
+				<li>
+					<a href="{#$basepath#}zuixinhuodong/detail/{#$zuixin_list.id#}">
+						{#if $zuixin_list.upfile!=""#}
+						<img src="{#$basepath#}uploads/article/{#$zuixin_list.upfile#}"  width="171" height="118"/>
+						{#else#}
+						<img src="{#$basepath#}themes/index/images/nopic.gif"  width="171" height="118" align="left"/>
+						{#/if#}
+					</a>
+					<span>
+					<a href="{#$basepath#}zuixinhuodong/detail/{#$zuixin_list.id#}">{#$zuixin_list.title|mb_substr:0:10#}</a>
+					</span>
+				</li>
+				{#/foreach#}
+
+				 
+                </ul>
+              </div>
+         <div class="top10"></div>
+       </div>

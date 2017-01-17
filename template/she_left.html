@@ -1,0 +1,28 @@
+<div class="LeftPart">
+		
+		<div class="Title">
+    	  <h2>民调报告</h2>
+    	</div>
+        <div class="Content">
+        	<ul class="TextList">
+				{#foreach item=cat from=$cats#}
+				
+				
+            	<li onClick="switchs('content',{#$cat.id#})"><a href="{#spUrl c=news a=baogao id=$cat.id tid=$smarty.get.tid sid=$smarty.get.sid#}">{#$cat.catename#}</a>
+
+                </li>
+				
+				{#/foreach#}
+            </ul>
+        </div>
+		<div class="Bottom"></div>
+
+        <div class="Title3"></div>
+        <div class="Content3">
+        	<ul class="TextList4">
+			{#foreach item=year_list from=$year#}
+            	<li><a href="{#spUrl c=news a=sheping id=$smarty.get.pid pid=$smarty.get.pid sid=$year_list.id#}">{#$year_list.catename#}</a>|</li>
+			{#/foreach#}
+            </ul>
+        </div>
+     </div>

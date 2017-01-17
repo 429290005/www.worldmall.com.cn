@@ -1,0 +1,47 @@
+{#include file="header.html"#}
+
+<link rel="stylesheet" type="text/css" href="themes/index/images/css.css" media="all" />
+<style type="text/css">
+.footer ul {
+    padding-top: 21px;
+}
+</style>
+<script type="text/javascript">
+var current_content;
+function switchs(name,n){
+  if(current_content){
+     $('#' + current_content).slideToggle();
+
+  }
+  $('#' + name + n).slideToggle();
+  current_content = name + n;
+
+	}
+
+</script>
+<div class=" holder" id="mainzuanti">
+	{#include file="shu_left.html"#}
+    <div class="RightPart">
+    	<div class="Titlelan">
+        	<h2>{#$pcat.catename#}</h2>
+        	<p>当前位置<a href="{#spUrl c=main a=index#}">网站首页</a>><a href="{#spUrl c=news a=sheping id=24#}">数据库</a>{#if $smarty.request.pid != ""#}&gt;<a href="{#spUrl c=news a=shepingdetail id=$row.id pid=$smarty.request.pid#}">{#$row.title#}</a>{#/if#}</p>
+        </div>
+        <div class="Contentlan">
+          <div class="ddWrap">
+			<div class="vcontent">
+				<h1 id="artibodyTitle">{#$row.title#}</h1>
+				{#$row.content#}
+			</div>
+          </div>
+
+		 
+          
+            </div>
+    </div>
+	<script type="text/javascript">
+		var id={#$smarty.request.pid#};
+		switchs('content',id);
+	</script>
+    <div class="break"></div>
+</div>
+{#include file="footer.html"#}

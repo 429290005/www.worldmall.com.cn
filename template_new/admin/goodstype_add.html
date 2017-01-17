@@ -1,0 +1,42 @@
+{#include file="admin/pageheader.html"#}
+<h1>
+<span class="action-span1"><a href="#">添加图标</a> </span>
+<span class="action-span"><a href="{#spUrl c=goodstype a=index#}">图标列表</a></span>
+</h1>
+<div class="main-div">
+<form method="post" action="{#spUrl c=goodstype a=insert#}" name="theForm"  onsubmit="return validate()" enctype="multipart/form-data">
+<table cellspacing="1" cellpadding="3" width="100%">
+  <tr>
+    <td class="label">图标图片:</td>
+    <td>
+      <input type="file" name="upfile"/>&nbsp;最佳大小为:55px*55px
+    </td>
+  </tr>
+  <tr>
+    <td class="label">图标名字:</td>
+    <td>
+      <input type="text" name='name' value="" size="50" />
+    </td>
+  </tr>
+  <tr>
+    <td class="label">链接:</td>
+    <td>
+      <input type="text" name='link' value="http://" size="50" />
+    </td>
+  </tr>
+  <tr>
+    <td class="label">排序:</td>
+    <td>
+      <input type="text" name='sort_id' value="50" size="15" />
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><br />
+      <input type="submit" class="button" value="提交" />
+      <input type="reset" class="button" value="重置" />
+    </td>
+  </tr>
+</table>
+</form>
+</div>
+{#include file="admin/pagefooter.html"#}

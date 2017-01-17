@@ -1,0 +1,41 @@
+{#include file="header.html"#}
+<link rel="stylesheet" type="text/css" href="themes/index/images/css.css" media="all" />
+<script type="text/javascript">
+var current_content;
+function switchs(name,n){
+  if(current_content){
+     $('#' + current_content).slideToggle();
+
+  }
+  $('#' + name + n).slideToggle();
+  current_content = name + n;
+
+	}
+
+</script>
+<div class=" holder" id="mainzuanti">
+	{#include file="dongtai_left.html"#}
+    <div class="RightPart">
+    	<div class="Titlelan">
+        	<h2>{#$nowcat.catename#}</h2>
+        	<p>当前位置<a href="{#spUrl c=main a=index#}">网站首页</a>><a href="{#spUrl c=news a=dongtai id=3#}">中心动态</a>{#if $smarty.request.tid != ""#}&gt;<a href="{#spUrl c=news a=baogao id=$nowcat.id sid=$smarty.request.sid#}">{#$nowcat.catename#}</a>{#/if#}</p>
+        </div>
+        <div class="Contentlan">
+          <div class="ddWrap">
+            <ul class="TextList">
+				{#foreach item=news_list from=$news#}
+           	        <li><a href="{#spUrl c=news a=dongtaidetail id=$news_list.id pid=$news_list.pid#}">{#$news_list.title#}</a><span>{#$news_list.add_time|date_format:"%Y-%m-%d"#}</span></li>
+				{#/foreach#}
+            </ul>
+          </div>
+		  {#pager pager=$pager myclass="own" c="news" a="dongtai" id=$smarty.request.id sid=$smarty.request.sid tid=$smarty.request.tid#}	
+          
+            </div>
+    </div>
+	<script type="text/javascript">
+		var id={#$smarty.request.id#};
+		switchs('content',id);
+	</script>
+    <div class="break"></div>
+</div>
+{#include file="footer.html"#}

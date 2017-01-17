@@ -1,0 +1,119 @@
+{#include file="admin/pageheader.html"#}
+<script type="text/javascript">
+$(function(){
+	$('#list-table').tableHover(); 
+})
+
+</script>
+
+
+<h1>
+<span class="action-span1"><a href="#">订单列表</a> </span>
+<span class="action-span"><a href="{#spUrl c=order a=addpage#}">添加订单</a></span>
+</h1>
+<div class="form-div">
+  <form action="{#spUrl c=order a=index#}" name="searchForm" method="post" >
+    <img src="themes/admin/images/icon_search.gif" width="26" height="22" border="0" alt="SEARCH" />
+    <select name="statue" style="margin-top:3px;">
+								<option value="1" {#if $smarty.get.statue==1#}selected="selected"{#/if#}>未受理</option>
+								<option value="0" {#if $smarty.get.statue==0#}selected="selected"{#/if#}>缺货</option>
+								<option value="2" {#if $smarty.get.statue==2#}selected="selected"{#/if#}>已送餐</option>
+								<option value="3" {#if $smarty.get.statue==3#}selected="selected"{#/if#}>已回复</option>
+								<option value="4" {#if $smarty.get.statue==4#}selected="selected"{#/if#}>已取消</option>
+								<option value="5" {#if $smarty.get.statue==5#}selected="selected"{#/if#}>已交易</option>
+								<option value="6" {#if $smarty.get.statue==6#}selected="selected"{#/if#}>待处理</option>
+								<option value="7" {#if $smarty.get.statue==7#}selected="selected"{#/if#}>全部</option>
+							</select>
+		<input type="submit" value="搜索" class="button" />
+		<input type="hidden" value="{#$cat_id#}" name="cat_id"/>
+  </form>
+</div>
+<form method="post" action="{#spUrl c=order a=batch#}" name="listForm">
+<!-- start ad position list -->
+<div class="list-div" id="listDiv">
+
+<table width="100%" cellspacing="1" cellpadding="2" id="list-table" class="table">
+  <tr>
+    <th><input type="checkbox" onclick='selectAll(this,"checkboxes")'/>编号</th>
+	<th>订单号</th>
+	<th>购买数量</th>
+	<th>订单总价</th>
+	<th>订单状态</th>
+    <th>下单日期</th>
+    <!-- <th>操作</th> -->
+  </tr>
+  {#foreach item=order_list from=$rows#}
+  <tr>
+    <td width="80"><input type="checkbox" name="checkboxs[]" value="{#$order_list.id#}">{#$order_list.id#}</td>
+	<td align="center">&nbsp;&nbsp;&nbsp;<strong>{#$order_list.orderid#}</strong></td>
+	<td align="center">&nbsp;&nbsp;&nbsp;<strong>{#$order_list.counts#}</strong></td>
+    <td align="center">&nbsp;&nbsp;&nbsp;<strong>{#$order_list.costs#}</strong></td>
+	<td align="center" style="color:red">&nbsp;&nbsp;&nbsp;<strong>{#if $order_list.statue==1#}未受理{#elseif $order_list.statue==2#}已送餐{#elseif $order_list.statue==0#}缺货{#elseif $order_list.statue==3#}已回复{#elseif $order_list.statue==4#}已取消{#elseif $order_list.statue==5#}已交易{#elseif $order_list.statue==6#}待处理{#elseif $order_list.statue==7#}全部{#/if#}</strong></td>
+    <td align="center">{#$order_list.addtime|date_format:"Y-m-d H:i:s"#}</td>
+    <!--<td align="center">
+    <span>
+      
+      <a title="编辑" href="{#spUrl c=order a=editpage id=$order_list.id#}"><img width="16" height="16" border="0" src="themes/admin/images/icon_edit.gif"></a>&nbsp;
+      <a title="移除" href="{#spUrl c=order a=delete id=$order_list.id#}" onclick="if(confirm('您确认要删除这条记录吗？')){return true}return false;"><img width="16" height="16" border="0" src="themes/admin/images/icon_drop.gif"></a> </span>-->
+     </td>
+  </tr>
+  {#/foreach#}
+  <tr>
+	<td colspan="7" height="30" bgcolor="#80BDCB" align="right">
+		订单总额：<font color=red>￥{#$sumcost#}</font>
+	</td>
+  </tr>
+  {#if $smarty.get.flag==1#}
+  <tr>
+	<td colspan=9 style="border:none;padding-top:5px;" align="right">
+	总订单：<span style="color:#D42552">{#$statue7#}份</span>&nbsp;&nbsp;
+	未受理：<span style="color:#D42552">{#$statue1#}份</span>&nbsp;&nbsp;
+	已回复：<span style="color:#D42552">{#$statue3#}份</span>&nbsp;&nbsp;
+	已送餐：<span style="color:#D42552">{#$statue2#}份</span>&nbsp;&nbsp;
+	待处理：<span style="color:#D42552">{#$statue6#}份</span>&nbsp;&nbsp;
+	已交易：<span style="color:#D42552">{#$statue5#}份</span>&nbsp;&nbsp;
+	</td>
+	</tr>
+	{#/if#}
+  <tr>
+  	<td colspan="7" height="30" bgcolor="#80BDCB" id="pager">
+ 		{#if $pager#}  
+            共有{#$pager.total_count#}条信息，共有{#$pager.total_page#}页（每页{#$pager.page_size#}条信息）：  
+            <!--在当前页不是第一页的时候，显示前页和上一页-->  
+            {#if $pager.current_page != $pager.first_page#}  
+                <a href="{#spUrl c=order a=index page=$pager.first_page#}">前页</a> |  
+                <a href="{#spUrl c=order a=index page=$pager.prev_page#}">上一页</a> |  
+            {#/if#}  
+            <!--开始循环页码，同时如果循环到当前页则不显示链接-->  
+            {#foreach from=$pager.all_pages item=thepage#}  
+                {#if $thepage != $pager.current_page#}  
+                     <a href="{#spUrl c=order a=index page=$thepage#}">{#$thepage#}</a>  
+                {#else#}  
+                     <b>{#$thepage#}</b>  
+                {#/if#}  
+            {#/foreach#}  
+            <!--在当前页不是最后一页的时候，显示下一页和后页-->  
+            {#if $pager.current_page != $pager.last_page#} |  
+                <a href="{#spUrl c=order a=index page=$pager.next_page#}">下一页</a> |  
+                <a href="{#spUrl c=order a=index page=$pager.last_page#}">后页</a>  
+            {#/if#}  
+        {#/if#}
+    </td>
+  </tr>
+</table>
+<div>
+  <select name="type">
+    <option value="">请选择...</option>
+    <option value="button_remove">批量删除</option>
+<!--    <option value="button_hide">批量隐藏</option>
+    <option value="button_show">批量显示</option>-->
+  </select>
+
+  <input type="submit" class="button" name="btnSubmit" id="btnSubmit" value="确定">
+</div>
+
+</div>
+</form>
+
+
+{#include file="admin/pagefooter.html"#}

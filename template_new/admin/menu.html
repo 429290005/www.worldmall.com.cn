@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>ECSHOP Menu</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="themes/admin/css/general.css" rel="stylesheet" type="text/css" />
+<link href="themes/admin/css/demo.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="themes/admin/js/jquery.js"></script>
+<script type="text/javascript" src="themes/admin/js/jquery.accordion.js"></script>
+
+<script type="text/javascript">
+	jQuery().ready(function(){
+		jQuery('#list1b').accordion({
+			autoheight: false
+		});
+		
+	});
+
+</script>
+<style type="text/css">
+body {
+  background: #80BDCB;
+}
+#tabbar-div {
+  background: #278296;
+  padding-left: 10px;
+  height: 21px;
+  padding-top: 0px;
+}
+#tabbar-div p {
+  margin: 1px 0 0 0;
+}
+.tab-front {
+  background: #80BDCB;
+  line-height: 20px;
+  font-weight: bold;
+  padding: 4px 15px 4px 18px;
+  border-right: 2px solid #335b64;
+  cursor: hand;
+  cursor: pointer;
+}
+.tab-back {
+  color: #F4FAFB;
+  line-height: 20px;
+  padding: 4px 15px 4px 18px;
+  cursor: hand;
+  cursor: pointer;
+}
+.tab-hover {
+  color: #F4FAFB;
+  line-height: 20px;
+  padding: 4px 15px 4px 18px;
+  cursor: hand;
+  cursor: pointer;
+  background: #2F9DB5;
+}
+#top-div
+{
+  padding: 3px 0 2px;
+  background: #BBDDE5;
+  margin: 5px;
+  text-align: center;
+}
+#main-div {
+  border: 1px solid #345C65;
+  padding: 5px;
+  margin: 5px;
+  /*background: #FFF;*/
+  min-height:700px;
+  _height:700px;
+  
+}
+#menu-list {
+  padding: 0;
+  margin: 0;
+}
+#menu-list ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  color: #335B64;
+}
+#menu-list li {
+  padding-left: 16px;
+  line-height: 16px;
+  cursor: hand;
+  cursor: pointer;
+}
+#main-div a:visited, #menu-list a:link, #menu-list a:hover {
+  color: #335B64
+  text-decoration: none;
+}
+#menu-list a:active {
+  color: #EB8A3D;
+}
+.explode {
+  background: url(themes/images/menu_minus.gif) no-repeat 0px 3px;
+  font-weight: bold;
+}
+.collapse {
+  background: url(themes/images/menu_plus.gif) no-repeat 0px 3px;
+  font-weight: bold;
+}
+.menu-item {
+  background: url(themes/images/menu_arrow.gif) no-repeat 0px 3px;
+  font-weight: normal;
+}
+#help-title {
+  font-size: 14px;
+  color: #000080;
+  margin: 5px 0;
+  padding: 0px;
+}
+#help-content {
+  margin: 0;
+  padding: 0;
+}
+.tips {
+  color: #CC0000;
+}
+.link {
+  color: #000099;
+}
+#list1b{}
+</style>
+</head>
+<body>
+<div id="tabbar-div">
+<p><span style="float:right; padding: 3px 5px;" ></span>
+  <span class="tab-front" id="menu-tab">菜单</span>
+</p>
+</div>
+<div id="main-div">
+
+<div id="menu-list">
+<div class="basic"  id="list1b">
+
+<!-- 	<a>首页</a>
+    <div>
+    	<ul>
+         <li onclick="parent.document.getElementById('main-frame').src='{#spUrl c=pageimg a=index nid=1#}'">广告管理</li>
+        </ul>
+    </div> -->
+
+<!-- 	<a>专题图片</a>
+    <div>
+    	<ul>
+         <li onclick="parent.document.getElementById('main-frame').src='{#spUrl c=pageimg a=index nid=2#}'">专题图片管理</li>
+        </ul>
+    </div> -->
+
+<a>图片管理</a>
+    <div>
+    	<ul>
+			<li onclick="parent.document.getElementById('main-frame').src='{#spUrl c=pageimg a=index nid=3#}'">首页图片</li>
+			
+        </ul>
+    </div>
+<!-- <li onclick="parent.document.getElementById('main-frame').src='{#spUrl c=pageimg a=index nid=1#}'">内页各页面图片</li> -->
+	<a>友情链接</a>
+    <div>
+    	<ul>
+			<li onclick="parent.document.getElementById('main-frame').src='{#spUrl c=pageimg a=index nid=2#}'">友情链接</li>
+        </ul>
+    </div>
+	<a>留言管理</a>
+    <div>
+    	<ul>
+			<li onclick="parent.document.getElementById('main-frame').src='{#spUrl c=guestbook a=index#}'">所有留言</li>
+        </ul>
+    </div>
+
+<!-- 	<a>留言列表</a>
+    <div>
+    	<ul>
+			<li onclick="parent.document.getElementById('main-frame').src='{#spUrl c=guestbook a=index#}'">留言列表</li>
+        </ul>
+    </div> -->
+	
+<!-- 	
+	<a>网点列表</a>
+    <div>
+    	<ul>
+			<li onclick="parent.document.getElementById('main-frame').src='{#spUrl c=shopcat a=index#}'">网点分类</li>
+        </ul>
+    </div> -->
+
+
+
+
+
+<!-- 	<a>订购列表</a>
+    <div>
+    	<ul>
+			<li onclick="parent.document.getElementById('main-frame').src='{#spUrl c=ding a=index#}'">订购列表</li>
+        </ul>
+    </div> -->
+
+
+	
+{#foreach item="cat" from=$cat_select#}
+	{#if strpos($detail.menuflag,"{#$cat.id#}") !== false#}
+	<a>{#$cat.catename#}</a>
+    <div>
+    	<ul>
+			
+        <!--  <li onclick="parent.document.getElementById('main-frame').src='{#spUrl c=articlecat a=index pid=$cat.id#}'">文章分类</li> -->
+		{#if $cat.id neq 4 and $cat.id neq 1 and $cat.id neq 26#}
+         <li onclick="parent.document.getElementById('main-frame').src='{#spUrl c=article a=index pid=$cat.id#}'">文章列表</li>
+         <li onclick="parent.document.getElementById('main-frame').src='{#spUrl c=article a=addpage pid=$cat.id#}'">添加文章</li>
+		 {#else#}
+		 {#if $cat.id==1#}
+			<li onclick="parent.document.getElementById('main-frame').src='{#spUrl c=article a=index pid=1#}'">{#$cat.catename#}</li>
+		 {#/if#}
+		 {#foreach item=second_cat from=$cat.second#}
+			
+			<li onclick="parent.document.getElementById('main-frame').src='{#spUrl c=article a=index pid=$second_cat.id#}'">{#$second_cat.catename#}</li>
+			<!-- <li onclick="parent.document.getElementById('main-frame').src='{#spUrl c=article a=addpage pid=$second_cat.id#}'">添加{#$second_cat.catename#}</li> -->
+		 {#/foreach#}
+		 {#/if#}
+		 
+        </ul>
+    </div>
+	{#/if#}
+{#/foreach#}
+    
+<!--    
+
+<a>招聘管理</a>
+ <div>
+    	<ul>
+		 <li onclick="parent.document.getElementById('main-frame').src='{#spUrl c=resumes a=index#}'">简历列表</li>
+        </ul>
+ </div> -->
+
+
+
+<!-- 	<a>产品管理</a>
+    <div>
+    	<ul>
+		 <li onclick="parent.document.getElementById('main-frame').src='{#spUrl c=goodscat a=index#}'">商品分类</li>
+         <li onclick="parent.document.getElementById('main-frame').src='{#spUrl c=goods a=index#}'">商品列表</li>
+         <li onclick="parent.document.getElementById('main-frame').src='{#spUrl c=goods a=addpage#}'">添加商品</li>
+		 
+        </ul>
+    </div> -->
+
+   
+
+	
+	
+
+<!-- <a>分类管理</a>
+    <div>
+    	<ul>
+         <li onclick="parent.document.getElementById('main-frame').src='{#spUrl c=articlecat a=index#}'">文章分类</li>
+        </ul>
+    </div>  -->
+
+	<a>管理员管理</a>
+    <div>
+    	<ul>
+			<li onclick="parent.document.getElementById('main-frame').src='{#spUrl c=users a=index#}'">管理员列表</li>
+        </ul>
+    </div>
+
+	
+	
+	
+
+	
+</div>
+</div>
+</div>
+</body>
+</html>

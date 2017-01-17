@@ -1,0 +1,175 @@
+{#include file="header.html"#}
+<style type="text/css">
+.footer ul {
+    padding-top: 21px;
+}
+</style>
+<div class="top_flash1">
+  <div class="menu">
+    <object id="FlashID" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="984" height="119">
+      <param name="movie" value="menu.swf" />
+      <param name="quality" value="high" />
+      <param name="wmode" value="transparent" />
+      <param name="swfversion" value="6.0.65.0" />
+      <!-- 此 param 标签提示使用 Flash Player 6.0 r65 和更高版本的用户下载最新版本的 Flash Player。如果您不想让用户看到该提示，请将其删除。 -->
+      <param name="expressinstall" value="Scripts/expressInstall.swf" />
+      <!-- 下一个对象标签用于非 IE 浏览器。所以使用 IECC 将其从 IE 隐藏。 -->
+      <!--[if !IE]>-->
+      <object type="application/x-shockwave-flash" data="menu.swf" width="984" height="119">
+        <!--<![endif]-->
+        <param name="quality" value="high" />
+        <param name="wmode" value="transparent" />
+        <param name="swfversion" value="6.0.65.0" />
+        <param name="expressinstall" value="Scripts/expressInstall.swf" />
+        <!-- 浏览器将以下替代内容显示给使用 Flash Player 6.0 和更低版本的用户。 -->
+        <div>
+          <h4>此页面上的内容需要较新版本的 Adobe Flash Player。</h4>
+          <p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="获取 Adobe Flash Player" width="112" height="33" /></a></p>
+        </div>
+        <!--[if !IE]>-->
+      </object>
+      <!--<![endif]-->
+    </object>
+  </div>
+  <div class="t1"><img src="themes/index/images/t5.png" /></div>
+</div>
+
+<div class="m_con">
+
+<div class="left_con">
+<div class="left_list news_list yh_font"  >
+<dl>
+<dt class="news_tit">
+新闻中心<br />
+News
+</dt>
+{#foreach item=rows_list from=$rows name=rowsb#}
+<dd><a href="{#spUrl c=news a=index id=$rows_list.id pid=$rows_list.pid#}">{#$rows_list.catename#}</a></dd>
+{#/foreach#}
+<div class="clear"></div>
+</dl>
+</div>
+<div class=" tel_left"><img src="themes/index/images/tel6.jpg" /></div>
+</div>
+
+<div class="right_con">
+<dl>
+<dt style="height:45px; "><img src="themes/index/images/news_t.jpg" align="absmiddle"/>&nbsp;&nbsp;
+<div class="r_txt"><a href="./">首页</a> >  {#$pcat.catename#} > {#$row.title#}</div>
+</dt>
+<dd>
+
+<div class="news">
+
+
+<div class="box_C artcontent">
+						<h1 id="artibodyTitle">{#$row.title#}</h1>
+					
+                        {#$row.content#}
+                        
+						<div class="clear"></div>
+						<div style="float:right;margin-top:15px;">
+						<!-- JiaThis Button BEGIN -->
+						<div class="jiathis_style">
+							<span class="jiathis_txt">分享到：</span>
+							<a class="jiathis_button_qzone"></a>
+							<a class="jiathis_button_tsina"></a>
+							<a class="jiathis_button_tqq"></a>
+							<a class="jiathis_button_renren"></a>
+							<a class="jiathis_button_kaixin001"></a>
+							<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+							<a class="jiathis_counter_style"></a>
+						</div>
+						<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1346730994307963" charset="utf-8"></script>
+						<!-- JiaThis Button END -->
+					</div>
+					<div class="clear"></div>
+					<div>
+						<style type="text/css">
+						.text-input{
+							border:1px solid #cccccc;
+							height:22px;
+							line-height:22px;
+							margin-right:5px;
+						}
+						.area-input{
+							border:1px solid #cccccc;
+							height:150px;
+							line-height:22px;
+						}
+						#guestbooktable td{
+							padding:3px;
+						}
+						#saveForm{
+							background:url('themes/index/images/gif-0004.gif') no-repeat;
+							height:24px;
+							width:66px;
+							border:none;
+						}
+
+						</style>
+						<script type="text/javascript" src="themes/index/js/guestbook.js"></script>
+						<h1 id="artibodyTitle">&nbsp;</h1>
+						<div class="protagcon" id="protag2" style="line-height: 18px;font-size:12px;">
+                			<div style="margin-top:10px;">
+							<span>网友评论仅供其表达个人看法，并不表明本站同意其观点或证实其描述。</span><br/><br/>
+                         <form id="formID" class="formular" method="post" action="{#spUrl c=guestbook a=add#}" onsubmit="return chk_guestbook()">
+								<table id="guestbooktable" cellspacing=0 cellpadding=0>
+                                    <tr>    
+                                        <td><span>客户姓名 : </span></td>
+                                        <td><input value="" class="text-input" type="text" name="username" id="username" onblur="chk_username();"/><span id="usernametips" class="lasttips"></span>
+										</td>
+									<tr>
+										<td>	
+                                            <span>邮箱地址 : </span></td>
+                                            <td><input value="" class="text-input" type="text" name="email" id="email"  onblur="chk_email()"/><span id="emailtips" class="lasttips"></span>
+										</td>
+									</tr>
+									<tr>
+										<td>
+                                            <span>手机号码 : </span></td>
+                                        <td><input value="" class="text-input" type="text" name="phone" id="phone" onblur="chk_phone()" /><span id="phonetips" class="lasttips"></span></td>
+									</tr>
+									<tr>
+										<td>
+                                            <span style="float:left;width:60px;">详细内容 : </span> 
+</td>											
+                                            <td><textarea cols="62" rows="8" class="area-input" value="" name="content" id="content2" onblur="chk_content()"></textarea><br/>
+									</td>
+									<tr>
+										<td></td>
+										<td><span id="contenttips" class="lasttips"></span></td>
+									</tr>
+									<tr>
+										<td class="last"></td><td class="last">
+										
+									<input type="hidden" value="{#$row.title#}" name="btitle"/>	
+                                    <input type="hidden" value="{#$smarty.get.id#}" name="id"/>
+                                    <input id="saveForm" type="submit" value=""/>
+									</td>
+									</table>
+                                </form>
+                            </div>
+				</div>
+					</div>
+
+                    </div>
+
+</div>
+
+</dd>
+
+</dl>
+</div>
+<div class="clear"></div>
+
+</div>
+
+<div class="foot_1 footer">
+<dl>
+{#include file="footer.html"#}
+</dl>
+</div>
+
+</body>
+</html>

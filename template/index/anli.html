@@ -1,0 +1,49 @@
+{#include file="header.html"#}
+<link rel="stylesheet" type="text/css" href="themes/index/images/css.css" media="all" />
+</head>
+
+<body>
+{#include file="nav.html"#}
+{#include file="banner.html"#}
+<div class="holder" id="maincp">
+	<div class="cpwrap"> 
+    	<div class="LeftPart">
+        	<div class="Title"><h2>案例中心</h2></div>
+            <div class="Content">
+            	<ul class="TextList">
+				{#foreach item=rows_list from=$rows#}
+                	<li><a href="{#spUrl c=info a=index id=$rows_list.id pid=$rows_list.pid#}">{#$rows_list.title#}</a></li>
+				{#/foreach#}
+                </ul>
+            </div>
+            <div class="lxfs"><img src="themes/index/images/ny_14.gif" /></div>
+        </div>
+        <div class="RightPart">
+        	<div class="Title2"><h2>案例中心</h2><p>您的位置：<a href="{#spUrl c=main a=index#}">首页</a>><a href="{#spUrl c=news a=index id=2#}">案例中心</a></p></div>
+			<div id="artcontent">
+					
+					
+					<div class="showlist showlist_2">
+						<ul class="ulA1">
+							{#foreach item=news_list from=$news#}
+							<li><a href="{#spUrl c=news a=anlidetail id=$news_list.id pid=$news_list.pid#}">{#$news_list.title#}</a><span>[{#$news_list.add_time|date_format:"%Y-%m-%d"#}]</span></li>
+							{#/foreach#}
+						</ul>
+				   </div>
+					<div class="clear"></div>
+					<div class="pager">
+                    {#pager pager=$pager myclass="technorati" c="news" a="index" id=$smarty.get.id#}
+                </div>
+					
+					
+					
+					
+				</div>
+			<div class="break"></div>
+        </div>
+		<div class="break"></div>
+    </div>
+    <div class="Bottom5"></div>
+    <div class="break"></div>
+</div>
+{#include file="footer.html"#}
