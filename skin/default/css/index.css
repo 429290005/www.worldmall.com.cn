@@ -1,0 +1,38 @@
+﻿@charset "utf-8";
+
+/*世界窗旗下业务*/
+.main .hd{background:#fff url(../images/title.png) no-repeat;height:20px;margin:30px 0 20px;text-indent:-9999em;}
+.news .hd{background-position:0 -30px;}
+.case .hd{background-position:0 -57px;border-bottom:1px solid #aeaeae;padding-bottom:8px;}
+.link .hd{background-position:0 -86px;border-bottom:1px solid #aeaeae;padding-bottom:8px;}
+.its li{float:left;margin:0 26px 0 0;padding-top:20px;width:280px;}
+.its img,.news_list img{float:left;margin:-15px 15px 0 0;height:99px;width:129px;}
+.its p{height:65px;overflow:hidden;}
+
+/*新闻动态*/
+.news_list li{border-bottom:1px dashed #b8b8b7;margin-bottom:10px;overflow:hidden;padding:20px 0 10px;width:475px;}
+.news_list img{height:80px;width:95px;}
+.news_list strong{display:block;height:20px;overflow:hidden;}
+.news_list p{height:40px;overflow:hidden;}
+
+/*最新文章*/
+.latest {float:right;margin-top:-30px;width:350px;}
+.latest_tab{overflow:hidden;margin-bottom:20px;}
+.latest_tab li{float:left;line-height:31px;margin-left:1px;text-align:center;width:115px;}
+.latest_tab a{background-position:0 -124px;display:block;}
+.latest_tab a:hover,.latest_tab a.current{background-position:0 -155px;color:#fff;text-decoration:none;}
+.latest_list a{background-position:5px -8px;background-repeat:no-repeat;display:block;height:25px;line-height:25px;padding-left:15px;}
+.latest_list a:hover,.latest_list a.current{background-position:5px 10px;}
+.latest_list a.current{color:#0d51a2;}
+
+/*二维码*/
+.qrcode{margin-top:10px;text-align:center;}
+.qrcode #bdshare{display:inline-block;float:none;margin-top:10px;}
+
+/*成功案列*/
+.case ul{border-bottom:1px dashed #9a9a9a;margin-top:25px;overflow:hidden;padding-bottom:25px;zoom:1;}
+.case li{float:left;text-align:center;width:184px;}
+.case img{height:60px;width:175px;}
+
+/*友情链接*/
+.link li{float:left;margin-right:10px;width:220px;}

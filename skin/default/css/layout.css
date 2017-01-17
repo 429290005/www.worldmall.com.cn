@@ -1,0 +1,89 @@
+@charset "utf-8";
+html{background:#fff;color:#333;font:Verdana,Arial,Helvetica,sans-serif,"微软雅黑";overflow-y:scroll;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;}
+body,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,img,pre,code,form,fieldset,legend,input,button,select,textarea,p,blockquote,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;}
+fieldset,iframe{border:0 none;}
+img{border:0 none;-ms-interpolation-mode:bicubic;vertical-align:top;}
+h1,h2,h3,h4,h5,h6,em,code,kbd,samp,tt,sup,sub,small,input,button,textarea,select,address{font-size:100%;font-style:normal;font-weight:normal;}
+input,button,textarea,select,optgroup,option{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;vertical-align:middle;}
+article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary { display: block }
+textarea{overflow:auto;vertical-align:top;resize:vertical;}
+ol,ul,menu{list-style:none outside none;}
+table{border-collapse:collapse;border-spacing:0;}
+button{width:auto;cursor:pointer;overflow:visible;}
+
+/*公共样式*/
+:active,:visited{outline:0;}
+:link,:visited,ins {text-decoration: none }
+a{color:#333;text-decoration:none;}
+.clearfix:before,.clearfix:after{content:'';display:table;}
+.clearfix:after{clear:both;}
+.clearfix{zoom:1;}
+.clear{clear:both;display:block;overflow:hidden;height:0;}
+.fr{float:right;}
+.fl{float:left;}
+.hide{display:none;visibility:hidden;}
+
+/**/
+.layout,.bd{margin:0 4.2% 20px;overflow:hidden;}
+
+/*全局导航*/
+nav.global{background:#404A54;height:100%;position:fixed;top:0;width:40%;z-index:9999;left:-30%;}
+nav.global li{height:20%;line-height:5;text-align:center;}
+nav.global li a{color:#fff;}
+
+
+/*头部*/
+#logo{background:url(../images/logo.png) no-repeat 50% 50% #fafafa;background-size:auto 40px;height:50px;text-indent:-9999em;}
+
+/*导航*/
+.nav{background:#BE2C37;margin-bottom:10px;overflow:hidden;}
+.nav li{float:left;height:40px;line-height:40px;text-align:center;width:20%;}
+.nav li a{color:#fff;display:block;font-size:14px;}
+
+/*banner*/
+#banner{margin:-10px 0 10px;}
+#banner img{height:auto;max-width:100%;width:100%;}
+
+/*新闻动态*/
+section header{background:#F3F3F3;border-top:2px solid #BE2C37;height:35px;line-height:35px;}
+section header h3{color:#BE2C37;font-size:16px;text-indent:8px;}
+.news li{border-bottom:1px solid #EFEFEF;overflow:hidden;padding:10px 0;}
+.news img{float:left;height:52px;margin-right:10px;width:70px;}
+.news h2{font-size:16px;height:22px;line-height:16px;overflow:hidden;}
+.news p{color:#808080;font-size:12px;line-height:16px;height:30px;overflow:hidden;text-align:justify;}
+.news .current img{height:auto;margin-top:10px;max-width:30%;width:30%;}
+.pageBtn{background:#ECECEC;border-radius:3px;display:block;font-size:16px;height:35px;line-height:35px;margin:10px auto 0;text-align:center;}
+
+/*成功案列*/
+.case ul{margin-left:-2.5%;overflow:hidden;}
+.case li{float:left;margin:2.5% 0 0 0;text-align:right;width:50%;}
+.case img{max-width:95%;width:95%;}
+
+/*动态内容*/
+.photoNews{margin-top:20px;text-align:center;}
+.photoNews img{height:auto;max-width:80%;width:80%;}
+.article h1,.contant h1{font-size:18px;padding-top:10px;}
+.article time{font-size:12px;color:#666;}
+.article p{font-size:16px;line-height:30px;margin-top:20px;text-indent:32px;text-align:justify;}
+
+/*关联*/
+.related{margin-top:30px;font-size:14px;}
+.toBack{background:#ddd; border-radius:3px;display:inline-block;height:30px;line-height:30px;text-align:center;width:100px;}
+
+/*联系我们*/
+.map{border:1px solid #ccc;height:300px;margin:10px 0;width:99%;}
+.contant li,.contant address{margin-bottom:10px;}
+
+/*回顶部*/
+.toTop{margin:20px 10px;text-align:right;}
+.toTop a{background:url(../images/arrowTop.png) no-repeat right 4px;background-size:11px 13px;font-size:16px;padding-right:13px;}
+
+/*页脚*/
+footer{background:#404A54;padding-bottom:10px;}
+footer .nav{background:#49535D;}
+footer p{color:#fff;font-size:0.5em;text-indent:8px;}
+.ui-page { -webkit-backface-visibility: hidden; }
+/*1024屏幕下样式*/
+@media screen and (max-width: 400px) {
+  
+}

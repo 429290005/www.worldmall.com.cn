@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>高级搜索 - Powered by EmpireCMS</title>
+<link href="/skin/default/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/skin/default/js/tabs.js"></script>
+<script src="/e/data/images/setday.js"></script>
+</head>
+<body class="listpage">
+</head>
+<body class="homepage">
+<!--头部 开始 -->
+<div id="header"> 
+	<!-- 顶部 开始 -->
+	<div class="header_top clearfix">
+		<a href="/" id="logo"><h1>世界窗整合营销机构</h1></a>
+		<form name="searchform" method="post" action="/e/search/index.php" class="top_search fr">
+			<input name="keyboard" type="text" value="输入你要找的内容" class="top_search_key">
+                        <input type="hidden" name="show" value="title,newstext"> 
+                         <input type="hidden" name="classid" value="24">    
+                        <input type="hidden" name="hh" value="LK">
+                        <button class="top_search_click"></button>
+		</form>
+	</div>
+	<!-- 顶部 结束 --> 
+	<!-- 导航 开始 -->
+	<div class="nav">
+		<ul>
+                         <li><a href="/" <?php  if($class_r[$GLOBALS[navclassid]][classname]==""){ ?>class="current" <?php } ?>>首页</a></li>
+			 [e:loop={"select classid,classpath,classname from wh_enewsclass where bclassid=0 and showclass = 0 order by myorder asc",0,24,0}]
+                            <li class="sub_nav po_re" id="tabnav_btn_<?=$bqno?>">
+                               <a href="/<?=$bqr['classpath']?>" <?php if($bqr['classname']==$class_r[$GLOBALS[navclassid]][classname]){ ?> class="current" <?php } ?>><?= $bqr['classname'] ?></a>
+                                  <?php if($bqr['classid']==2){ ?>
+                                     <ul class="hide qixiahide">
+                                        <?php 
+                                              global $empire;
+                                              $list = $empire->query("select classpath,classname from wh_enewsclass where bclassid = 2");
+                                              while($info = $empire->fetch($list)){
+                                                     echo "<li><a href=/".$info['classpath'].">".$info['classname']."</a></li>";
+                                              }
+                                        ?>
+                                   </ul>
+                                  <?php } ?>
+                           </li>
+                          [/e:loop]
+		</ul>
+                
+                            
+	</div>	
+          
+               <!-- 导航 结束 --> 
+</div>
+<table width="100%" border="0" cellspacing="10" cellpadding="0">
+	<tr valign="top">
+		<td class="list_content"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="position">
+				<tr>
+					<td>现在的位置：<a href='/'>首页</a>&nbsp;>&nbsp;<a href='../search/'>高级搜索</a>&nbsp;></td>
+				</tr>
+			</table>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="box">
+				<tr>
+					<td><table width="100%" border="0" cellpadding="0" cellspacing="0">
+						<tr>
+							<td><form action='/e/search/index.php' method="post" name="search_news" id="search_news">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td width="54%"><table width="100%" border="0" cellpadding="6" cellspacing="0">
+													<tr>
+														<td bgcolor="#F4F4F4"><strong>搜索范围</strong></td>
+													</tr>
+											</table></td>
+											<td width="46%"><table width="100%" border="0" cellpadding="6" cellspacing="0">
+													<tr>
+														<td bgcolor="#F4F4F4"><strong>搜索栏目</strong></td>
+													</tr>
+											</table></td>
+										</tr>
+										<tr>
+											<td valign="top"><table width="100%" border="0" cellpadding="6" cellspacing="0">
+													<tr>
+														<td><input type="radio" name="show" value="title" checked="checked" />
+															标题
+															<input type="radio" name="show" value="smalltext" />
+															简介
+															<input type="radio" name="show" value="newstext" />
+															内容
+															<input type="radio" name="show" value="writer" />
+															作者
+															<input name="show" type="radio" value="title,smalltext,newstext,writer" />
+															不限</td>
+													</tr>
+												</table>
+													<br />
+													<table width="100%" border="0" cellpadding="6" cellspacing="0">
+														<tr bgcolor="#F4F4F4">
+															<td><strong>时间限制</strong><font color="#666666">(0000-00-00为不限制)</font></td>
+														</tr>
+														<tr>
+															<td height="30" valign="top">从
+																<input name="starttime" type="text" value="0000-00-00" size="12" onclick="setday(this)" />
+																到
+																<input name="endtime" type="text" value="0000-00-00" size="12" onclick="setday(this)" />
+																之间的数据</td>
+														</tr>
+														<tr>
+															<td bgcolor="#F4F4F4"><strong>价格限制</strong><font color="#666666">(商城模型中有效,0为不限制)</font></td>
+														</tr>
+														<tr>
+															<td>从
+																<input name="startprice" type="text" id="startprice" value="0" size="6" />
+																到
+																<input name="endprice" type="text" id="endprice" value="0" size="6" />
+																元之间</td>
+														</tr>
+												</table></td>
+											<td valign="top"><table width="100%" border="0" cellspacing="6" cellpadding="0">
+													<tr>
+														<td><select name="classid" size="8" id="select2" style="width: 100%;height:112px">
+																<option value="0" selected="selected">所有栏目</option>
+															<option value='1'>|-公司介绍</option><option value='2'>|-旗下业务</option><option value='28' style='background:#99C4E3'>&nbsp;&nbsp;|-世界窗皮具网</option><option value='29' style='background:#99C4E3'>&nbsp;&nbsp;|-世界窗汇品</option><option value='30' style='background:#99C4E3'>&nbsp;&nbsp;|-世界窗科技</option><option value='3'>|-品牌合作</option><option value='34'>|-成功案例</option><option value='35' style='background:#99C4E3'>&nbsp;&nbsp;|-成功案例展示</option><option value='24'>|-最新动态</option><option value='25' style='background:#99C4E3'>&nbsp;&nbsp;|-业界动态</option><option value='26' style='background:#99C4E3'>&nbsp;&nbsp;|-团体活动</option><option value='31' style='background:#99C4E3'>&nbsp;&nbsp;|-新闻动态</option><option value='32' style='background:#99C4E3'>&nbsp;&nbsp;|-团体博客</option><option value='33' style='background:#99C4E3'>&nbsp;&nbsp;|-文章列表</option><option value='6'>|-联系我们</option><option value='21' style='background:#99C4E3'>&nbsp;&nbsp;|-联络我们</option><option value='22' style='background:#99C4E3'>&nbsp;&nbsp;|-招贤纳士</option><option value='23' style='background:#99C4E3'>&nbsp;&nbsp;|-在线留言</option><option value='36'>|-网站首页</option><option value='43'>|-成功案例</option><option value='46' style='background:#99C4E3'>&nbsp;&nbsp;|-手机成功案例</option><option value='44'>|-新闻动态</option><option value='45' style='background:#99C4E3'>&nbsp;&nbsp;|-新闻动态案例</option><option value='47'>|-关于我们</option><option value='48'>&nbsp;&nbsp;|-关于我们介绍</option><option value='49' style='background:#99C4E3'>&nbsp;&nbsp;|-旗下业务</option><option value='42'>|-联系我们</option>
+          
+														</select></td>
+													</tr>
+												</table>
+													<table width="100%" border="0" cellpadding="6" cellspacing="0">
+														<tr>
+															<td bgcolor="#F4F4F4"><strong>结果显示</strong></td>
+														</tr>
+														<tr>
+															<td height="30"><select name="orderby" id="select4">
+																	<option value="">按发布日期</option>
+																	<option value="id">信息ID</option>
+																	<option value="plnum">评论数</option>
+																	<option value="onclick">人气</option>
+																	<option value="totaldown">下载数</option>
+																</select>
+																	<select name="myorder" id="select5">
+																		<option value="0">倒序排列</option>
+																		<option value="1">顺序排列</option>
+																	</select>
+															</td>
+														</tr>
+												</table></td>
+										</tr>
+									</table>
+								<table width="100%" border="0" cellpadding="4" cellspacing="0">
+										<tr>
+											<td>关键字：
+												<input name="keyboard" type="text" id="keyboard2" size="60" />
+													<input type="submit" name="Submit22" value="搜索" />
+											</td>
+										</tr>
+									</table>
+							</form></td>
+						</tr>
+					</table></td>
+				</tr>
+			</table></td>
+	</tr>
+</table>
+<!--版权 开始 -->
+<div id="footer">
+	<div class="copyright"><a href="javascript:;">关于我们</a>|<a href="javascript:;">联系我们</a>|<a href="javascript:;">商家入驻</a>|<a href="javascript:;">法律声明</a></div>
+	<p><a href="http://www.miibeian.gov.cn" target="_blank">粤ICP备10236400号</a> Copyright © 2010-2015 WorldMall.cn 世界窗版权所有 网站统计 <a href="http://www.miitbeian.gov.cn/" target="_blank"><img src="/skin/default/images/miitbeian.jpg" alt="工业和信息化部" width="36" height="30" title="工业和信息化部"></a></p>
+</div>
+<!--版权 结束 -->
+</body>
+</html>
+</body>
+</html>

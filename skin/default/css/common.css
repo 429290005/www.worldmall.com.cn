@@ -1,0 +1,56 @@
+﻿@charset "utf-8";
+body{background:#fff;color:#666;font-family:Verdana,Arial,Helvetica,sans-serif;font-size:12px;line-height:21px;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,h7,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td,img{margin:0;padding:0;list-style:none outside none;}
+h1,h2,h3,h4,h5,h6,h7{font-size:100%;}
+img{border:none;margin:0;padding:0;vertical-align:top;}
+em{font-style:normal;}
+a {color:#666;text-decoration: none; }
+a:hover{color:#c30; text-decoration: underline; }
+a.cred,a.cred:link,a.cred:visited{color:#c00;}a.cred:hover{color:#c00;}
+
+/*公共*/
+.main{width:920px;margin:0 auto;overflow:hidden;}
+.fl{float:left;}
+.fr{float:right;}
+.bor_none{border:none !important;}
+h1,h2,h3,h4{font-family:"微软雅黑";}
+.hide {display:none;}
+.po_re{position:relative;}
+/*公共图标*/
+.nav li a:hover,.nav li a.current,.sub_nav ul a,.latest_tab a,.menu a:hover, .menu a.current,.info_hd,.info_hd h3{background:url(../images/bg.jpg);}
+.top_search input,.top_search button,.latest_list a{background:url(../images/icon.png);}
+
+/*banner*/
+#banner img{height:auto;max-width:100%;width:100%;}
+
+/*画册*/
+.album img{margin-top:20px;}
+
+/*清除浮动*/
+.clear{clear:both;zoom:1;overflow:hidden;}
+.clearfix{zoom:1;clear:both;}
+.clearfix:after {content: ".";display: block;height:0;clear:both;visibility: hidden;}
+
+/** 导航 **/
+#header {background:#fff url(../images/bg.jpg) repeat-x 0 50px;padding:30px 190px 0;}
+.header_top{overflow:hidden;margin-bottom:20px;}
+.header_top #logo{background:url(../images/logo.png);height:55px;float:left;width:173px;}
+.header_top #logo h1{visibility: hidden;}
+.top_search input{background-position:0 -34px;border:none;color:#9b9b9b;float:left;height:24px;padding-left:5px;}
+.top_search button{background-position:-155px -34px;border:none;float:left;height:24px;width:28px;}
+.tableborder { background: #E1EFFB; border: 1px solid #AACCEE }
+.nav{height:35px;line-height:35px;overflow:hidden;}
+.nav li{float:left;font-size:14px;font-family:"微软雅黑","宋体";text-align:center;width:106px;}
+.nav li a{color:#fff;display:block;}
+.nav li a:hover,.nav li a.current{background-position:0 -89px;text-decoration:none;}
+.sub_nav ul{position:absolute;z-index:5;}
+.sub_nav ul a{background-position:0 -54px;}
+
+/*版权*/
+#footer{background:#eee;height:70px;line-height:25px;margin-top:30px;text-align:center;padding-top:30px;}
+.copyright a{margin:0 5px;}
+
+/*翻页*/
+.page{margin:30px auto;text-align:center;}
+.page a,.page a:visited{border:1px solid #ddd;margin:5px;padding:2px 5px;}
+.page a:hover,.page a.current{background:#BE0D22;color:#fff;font-weight:bold;text-decoration:none;}
