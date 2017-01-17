@@ -1,0 +1,94 @@
+{include file="header.html"}
+<script type="text/javascript">
+$(function(){
+    $('#seller_linkman_form').validate({
+        errorPlacement: function(error, element){
+            $(element).next('.field_notice').hide();
+            $(element).after(error);
+        },
+        success       : function(label){
+            label.addClass('right').text('OK!');
+        },
+        onkeyup    : false,
+        rules : {
+            linkman_name : {
+                required : true
+            }
+        },
+        messages : {
+            linkman_name : {
+                required : '{$lang.linkman_name_not_empty}'
+            }
+        }
+    });
+});
+</script>
+<div id="rightTop">
+  <p>{$lang.linkman_manage}</p>
+  <ul class="subnav">
+    <li><a class="btn1" href="index.php?app=seller&amp;act=linkman&amp;id={$seller_id}">{$lang.manage}</a></li>
+    <li><span>{$lang.add}</span></li>
+  </ul>
+</div>
+<div class="info">
+  <form method="post" enctype="multipart/form-data" id="seller_linkman_form">
+  	<input type="hidden" name="app" value="{$smarty.get.app}" />
+    <input type="hidden" name="act" value="{$smarty.get.act}" />
+    <table class="infoTable">
+      <tr>
+        <th class="paddingT15"> {$lang.linkman_name}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" id="linkman_name" type="text" name="linkman_name" value="{$sellerls.linkman_name|escape}" /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.gender}:</th>
+        <td class="paddingT15 wordSpacing5"><p>
+            <label>
+            <input name="gender" type="radio" value="0" {if $sellerls.gender eq 0}checked="checked"{/if} />
+            {$lang.unknown}</label>
+            <label>
+            <input type="radio" name="gender" value="1" {if $sellerls.gender eq 1}checked="checked"{/if} />
+            {$lang.male}</label>
+            <label>
+            <input type="radio" name="gender" value="2" {if $sellerls.gender eq 2}checked="checked"{/if} />
+            {$lang.female}</label>
+          </p></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.email}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="email" type="text" id="email" value="{$sellerls.email|escape}" /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.phone_fax}:</th>
+        <td class="paddingT15 wordSpacing5"><input name="phone_fax" type="text" class="infoTableInput2" id="phone_fax" value="{$sellerls.phone_fax|escape}" /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.phone_tel}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="phone_tel" type="text" id="phone_tel" value="{$sellerls.phone_tel|escape}" /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.phone_mob}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="phone_mob" type="text" id="phone_mob" value="{$sellerls.phone_mob|escape}" /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.im_qq}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="im_qq" type="text" id="im_qq" value="{$sellerls.im_qq|escape}" /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.im_msn}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="im_msn" type="text" id="im_msn" value="{$sellerls.im_msn|escape}" /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.im_aliww}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="im_aliww" type="text" id="im_aliww" value="{$sellerls.im_aliww|escape}" /></td>
+      </tr>
+      <tr>
+        <th></th>
+        <td class="ptb20">
+        	<input class="formbtn" type="submit" name="Submit" value="{$lang.submit}" />
+            <input class="formbtn" type="reset" name="Reset" value="{$lang.reset}" />
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>
+{include file="footer.html"}

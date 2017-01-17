@@ -1,0 +1,126 @@
+{include file="header.html"}
+<script type="text/javascript">
+$(function(){
+	$('#add_time_from').datepicker({dateFormat: 'yy-mm-dd'});
+	$('#add_time_to').datepicker({dateFormat: 'yy-mm-dd'});
+	
+    $("tbody tr").hover(
+		function() {
+			$(this).css({background:"#EAF8DB"});
+		},
+		function(){
+			$(this).css({background:"#FBFDFF"});
+		}
+	);
+});
+</script>
+<div id="rightTop">
+  <p>{$lang.cost_report}</p>
+  <ul class="subnav">
+    <li><span>{$lang.manage}</span></li>
+  </ul>
+</div>
+<div class="mrightTop info">
+  <div class="fontl">
+    <form method="get">
+    	<input type="hidden" name="app" value="{$smarty.get.app}" />
+        <input type="hidden" name="act" value="{$smarty.get.act}" />
+        <select class="querySelect" name="field">
+        {html_options options=$search_options selected=$smarty.get.field}
+        </select>
+        <input class="queryInput" type="text" name="search_name" value="{$query.search_name|escape}" />
+        {$lang.add_time_from}:<input class="queryInput pick_date" type="text" value="{$query.add_time_from}" id="add_time_from" name="add_time_from" />
+        {$lang.add_time_to}:<input class="queryInput pick_date" type="text" value="{$query.add_time_to}" id="add_time_to" name="add_time_to" />
+        {$lang.sell_type}:
+        <select class="querySelect" name="sell_type">
+        <option value="">{$lang.type_all}</option>
+        {html_options options=$sell_type selected=$smarty.get.sell_type}
+        </select>
+        {$lang.status}:
+        <select class="querySelect" name="status">
+        <option value="">{$lang.type_all}</option>
+        {html_options options=$status selected=$smarty.get.status}
+        </select>
+        <input type="submit" class="formbtn" value="{$lang.query}" />
+      <!--{if $filtered}-->
+	  <a class="formbtn1" href="index.php?app=report&amp;act=cost">{$lang.cancel_query}</a>
+      <!--{/if}-->
+    </form>
+  </div>
+  <div class="fontr"><!--{if $data_list}-->{include file=page.top.html}<!--{/if}--></div>
+</div>
+<div class="tdare">
+  <table width="100%" cellspacing="0" class="dataTable">
+  	<thead>
+    <!--{if $data_list}-->
+    <tr class="tatr1">
+      <td colspan="4" class="table-center">{$lang.sell_info}</td>
+      <td colspan="3" class="table-center" style="border-left:1px solid #BBDBF1;border-right:1px solid #BBDBF1;">{$lang.income}</td>
+      <td colspan="3" class="table-center" style="border-right:1px solid #BBDBF1;">{$lang.cost}</td>
+      <td colspan="2" class="table-center">{$lang.gross_margin}</td>
+    </tr>
+    <tr class="tatr1">
+      <td width="10%" class="firstCell">{$lang.sell_sn}</td>
+      <td width="8%" class="table-center">{$lang.sell_time}</td>
+      <td width="6%">{$lang.sell_type}</td>
+      <td width="10%" style="border-right:1px solid #BBDBF1;">{$lang.order_sn}</td>
+      <td width="8%">{$lang.yes_tax_sell_money}</td>
+      <td width="8%">{$lang.output_tax}</td>
+      <td width="8%" style="border-right:1px solid #BBDBF1;">{$lang.no_tax_sell_money}</td>
+      <td width="8%">{$lang.yes_tax_cost_money}</td>
+      <td width="8%">{$lang.income_tax}</td>
+      <td width="8%" style="border-right:1px solid #BBDBF1;">{$lang.no_tax_cost_money}</td>
+      <td width="8%">{$lang.maori_forehead}</td>
+      <td>{$lang.gross_profit_margin}(%)</td>
+    </tr>
+    <!--{/if}-->
+    </thead>
+    <tbody>
+    <!--{foreach from=$data_list item=data}-->
+    <tr class="tatr2">
+      <td class="firstCell">{$data.sell_sn|escape|default:-}</td>
+      <td class="table-center">{$data.sell_time|escape|default:-}</td>
+      <td>{if $data.sell_type eq '0'}{$lang.type_other}{elseif $data.sell_type eq '1'}{$lang.type_worldmall}{elseif $data.sell_type eq '2'}{$lang.type_taobao}{/if}</td>
+      <td style="border-right:1px solid #BBDBF1;">{$data.order_sn|escape|default:-}</td>
+      <td>{$data.sell_money|price:%s}</td>
+      <td>{$data.output_tax|price:%s}</td>
+      <td style="border-right:1px solid #BBDBF1;">{$data.untax_money|price:%s}</td>
+      <td>{$data.total_cost_money|price:%s}</td>
+      <td>{$data.income_tax|price:%s}</td>
+      <td style="border-right:1px solid #BBDBF1;">{$data.untax_cost|price:%s}</td>
+      <td>{$data.maori_forehead|price:%s}</td>
+      <td>{$data.gross_profit_margin|price:%s}</td>
+    </tr>
+    <!--{foreachelse}-->
+    <tr class="no_data info">
+      <td colspan="12">{$lang.no_data}</td>
+    </tr>
+    <!--{/foreach}-->
+    </tbody>
+  </table>
+  <!--{if $data_list}-->
+    <table width="100%" cellspacing="0" class="dataTable">
+    	<thead>
+        <tr class="tatr1">
+            <td width="18%" class="firstCell">{$lang.yes_tax_sell_money}</td>
+            <td width="16%">{$lang.yes_tax_cost_money}</td>
+            <td width="16%">{$lang.maori_forehead}</td>
+            <td>{$lang.gross_profit_margin}(%)</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="tatr2">
+            <td class="firstCell"><span class="total_text">{$total.sell_money|price:%s}</span></td>
+            <td><span class="total_text">{$total.total_cost_money|price:%s}</span></td>
+            <td><span class="total_text">{$total.maori_forehead|price:%s}</span></td>
+            <td><span class="total_text">{$total.gross_profit_margin|price:%s}</span></td>
+        </tr>
+        </tbody>
+    </table>
+  <div id="dataFuncs">
+    <div class="pageLinks">{include file=page.bottom.html}</div>
+  </div>
+  <!--{/if}-->
+  <div class="clear"></div>
+</div>
+{include file="footer.html"}

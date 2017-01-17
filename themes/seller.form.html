@@ -1,0 +1,176 @@
+{include file="header.html"}
+<script type="text/javascript">
+$(function(){
+    $('#seller_form').validate({
+        errorPlacement: function(error, element){
+            $(element).next('.field_notice').hide();
+            $(element).after(error);
+        },
+        success       : function(label){
+            label.addClass('right').text('OK!');
+        },
+        onkeyup    : false,
+        rules : {
+            seller_name : {
+                required : true
+            },
+            email   : {
+                email : true
+            }
+        },
+        messages : {
+            seller_name : {
+                required : '{$lang.seller_name_not_empty}'
+            },
+            email  : {
+                email   : '{$lang.currect_email}'
+            }
+        }
+    });
+	
+	$('#birthday').datepicker({
+		dateFormat: 'yy-mm-dd',
+		changeMonth: true,
+		changeYear: true,
+		yearRange: '1950:2020',
+		showButtonPanel: true
+	});
+});
+</script>
+<div id="rightTop">
+  <p>{$lang.seller_manage}</p>
+  <ul class="subnav">
+    <li><a class="btn1" href="index.php?app=seller">{$lang.manage}</a></li>
+    <li><span>{$lang.add}</span></li>
+  </ul>
+</div>
+<div class="info">
+  <form method="post" enctype="multipart/form-data" id="seller_form">
+  	<input type="hidden" name="app" value="{$smarty.get.app}" />
+    <input type="hidden" name="act" value="{$smarty.get.act}" />
+    <table class="infoTable">
+      <tr>
+        <th class="paddingT15"> {$lang.seller_name}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" id="seller_name" type="text" name="seller_name" value="{$seller.seller_name|escape}" /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.real_name}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="real_name" type="text" id="real_name" value="{$seller.real_name|escape}" /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.store_name}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="store_name" type="text" id="store_name" value="{$seller.store_name|escape}" /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.seller_brand}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="seller_brand" type="text" id="seller_brand" value="{$seller.seller_brand|escape}" /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.seller_type}:</th>
+        <td class="paddingT15 wordSpacing5">
+          <select name="seller_type">
+          {html_options options=$seller_type selected=$seller.seller_type}
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.gender}:</th>
+        <td class="paddingT15 wordSpacing5"><p>
+            <label>
+            <input name="gender" type="radio" value="0" {if $seller.gender eq 0}checked="checked"{/if} />
+            {$lang.unknown}</label>
+            <label>
+            <input type="radio" name="gender" value="1" {if $seller.gender eq 1}checked="checked"{/if} />
+            {$lang.male}</label>
+            <label>
+            <input type="radio" name="gender" value="2" {if $seller.gender eq 2}checked="checked"{/if} />
+            {$lang.female}</label>
+          </p></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.region_name}:</th>
+        <td class="paddingT15 wordSpacing5"><input name="region_name" type="text" class="infoTableInput2" id="region_name" value="{$seller.region_name|escape}" /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.address}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="address" type="text" id="address" value="{$seller.address|escape}" /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.birthday}:</th>
+        <td class="paddingT15 wordSpacing5"><input name="birthday" type="text" class="infoTableInput2 pick_date" id="birthday" value="{$seller.birthday|escape}" readonly="readonly" /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.email}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="email" type="text" id="email" value="{$seller.email|escape}" /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.phone_fax}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="phone_fax" type="text" id="phone_fax" value="{$seller.phone_fax|escape}" /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.phone_tel}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="phone_tel" type="text" id="phone_tel" value="{$seller.phone_tel|escape}" /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.phone_mob}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="phone_mob" type="text" id="phone_mob" value="{$seller.phone_mob|escape}" /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.im_qq}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="im_qq" type="text" id="im_qq" value="{$seller.im_qq|escape}" /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.im_msn}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="im_msn" type="text" id="im_msn" value="{$seller.im_msn|escape}" /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.im_skype}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="im_skype" type="text" id="im_skype" value="{$seller.im_skype|escape}" /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.im_yahoo}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="im_yahoo" type="text" id="im_yahoo" value="{$seller.im_yahoo|escape}" /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.im_aliww}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="im_aliww" type="text" id="im_aliww" value="{$seller.im_aliww|escape}" /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.trademark_code}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="trademark_code" type="text" id="trademark_code" value="{$seller.trademark_code|escape}" /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.contractor}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="contractor" type="text" id="contractor" value="{$seller.contractor|escape}" /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.contractor_card}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="contractor_card" type="text" id="contractor_card" value="{$seller.contractor_card|escape}" /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.settlement_account}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="settlement_account" type="text" id="settlement_account" value="{$seller.settlement_account|escape}" /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.taxpayer_qualification}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="taxpayer_qualification" type="text" id="taxpayer_qualification" value="{$seller.taxpayer_qualification|escape}" /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.business_license}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="business_license" type="text" id="business_license" value="{$seller.business_license|escape}" /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.tax_numbers}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="tax_numbers" type="text" id="tax_numbers" value="{$seller.tax_numbers|escape}" /></td>
+      </tr>
+      <tr>
+        <th></th>
+        <td class="ptb20">
+        	<input class="formbtn" type="submit" name="Submit" value="{$lang.submit}" />
+            <input class="formbtn" type="reset" name="Reset" value="{$lang.reset}" />
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>
+{include file="footer.html"}

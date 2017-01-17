@@ -1,0 +1,212 @@
+{include file="header.html"}
+<script type="text/javascript" src="{$site_url}/includes/libraries/Lodop/LodopFuncs.js"></script>
+<object id="LODOP" classid="clsid:2105C259-1E0C-4534-8141-A753534CB4CA" width=0 height=0> 
+	<embed id="LODOP_EM" TYPE="application/x-print-lodop" width=0 height=0 PLUGINSPAGE="{$site_url}/includes/libraries/Lodop/install_lodop.exe"></embed>
+</object> 
+<script language="javascript" type="text/javascript"> 
+$(function(){
+	$('#add_time_from').datepicker({dateFormat: 'yy-mm-dd'});
+	$('#add_time_to').datepicker({dateFormat: 'yy-mm-dd'});
+	
+	$("tbody tr").hover(
+		function() {
+			$(this).css({background:"#EAF8DB"});
+		},
+		function(){
+			$(this).css({background:"#FBFDFF"});
+		}
+	);
+	
+	$('#print_type').change(function(){
+		var v = $(this).val();
+		if (v == 1) {
+			$('#show_create').show();
+			$('#show_time').hide();
+		} else {
+			$('#show_create').hide();
+			$('#show_time').show();
+		}
+	});
+});
+</script>
+<script language="javascript" type="text/javascript"> 
+	var LODOP;
+	function PrintMytable(){
+		var params = location.search.substr(1).split('&');
+		var v = $('#print_type').val();
+		params.push('print=1');
+		params.push('type='+v);
+		if (v == 2) {
+			params.push('add_time_from='+$('#add_time_from').val());
+			params.push('add_time_to='+$('#add_time_to').val());
+		}
+		
+		$.get(SITE_URL + '{$smarty.server.SCRIPT_NAME}?' + params.join('&'), function(data){
+			if (data) {
+				LODOP=getLodop(document.getElementById('LODOP'),document.getElementById('LODOP_EM'));
+				var strBodyStyle="<style>body{background:#fff;color:#000;}.printTitle1{font-size:24px;font-weight:700;}.printTitle2{font-weight:400;padding:5px 0 10px;}.dataTable td{border:1px solid #000;padding-left:5px;}.tdare{padding-bottom:30px;background:none;}.tatr1{color:#000;background-color:#C8C8C8;height:20px;line-height:20px;}.tatr2 a{text-decoration:none;}.tdare td a,.tatr2{color:#000;}</style>";
+				var strStyleCSS="<link href='templates/style/admin.css' type='text/css' rel='stylesheet'>";
+				var strFormHtml=strStyleCSS+strBodyStyle+"<body>"+data+"</body>";
+				LODOP.PRINT_INIT("{$lang.print_title}");
+				LODOP.ADD_PRINT_TABLE(25,15,740,990,strFormHtml);
+				retPurchase(LODOP.PREVIEW());
+			}
+		});
+	};
+	
+	//打印后返回操作
+	function retPurchase(ret){
+		if (ret <= 0) {
+			return false;
+		}
+		
+		var v = $('#print_type').val();
+		var params = location.search.substr(1).split('&');
+		var found1 = found2 = found3 = found4 = false;
+		for (var i = 0; i < params.length; i++){
+			param = params[i];
+			arr   = param.split('=');
+			pKey  = arr[0];
+			if (pKey == 'act') {
+				params[i] = 'act=ret_purchase';
+				found1 = true;
+			}
+			if (pKey == 'type') {
+				params[i] = 'type='+v;
+				found2 = true;
+			}
+			if (v == 2) {
+				if (pKey == 'add_time_from') {
+					params[i] = 'add_time_from='+$('#add_time_from').val();
+					found3 = true;
+				}
+				if (pKey == 'add_time_to') {
+					params[i] = 'add_time_to='+$('#add_time_to').val();
+					found4 = true;
+				}
+			}
+		}
+		
+		if (!found1) {
+			params.push('act=ret_purchase');
+		}
+		if (!found2) {
+			params.push('type='+v);
+		}
+		if (!found3 && v == 2) {
+			params.push('add_time_from='+$('#add_time_from').val());
+		}
+		if (!found4 && v == 2) {
+			params.push('add_time_to='+$('#add_time_to').val());
+		}
+		
+		$.get(SITE_URL + '{$smarty.server.SCRIPT_NAME}?' + params.join('&'));
+		
+		return true;
+	}
+</script>
+<div id="rightTop">
+    <p>{$lang.order_manage}</p>
+    <ul class="subnav">
+        <li><span>{$lang.manage}</span></li>
+        <li><a class="btn1" href="index.php?app=order&amp;act=get_order">{$lang.get_order}</a></li>
+    </ul>
+</div>
+<div class="mrightTop">
+    <div class="fontl">
+        <form method="get">
+             <div class="left">
+                <input type="hidden" name="app" value="order" />
+                <select class="querySelect" name="field">
+                {html_options options=$search_options selected=$smarty.get.field}
+                </select>
+                <input class="queryInput" type="text" name="search_name" value="{$query.search_name|escape}" />
+                {$lang.order_type}:
+                <select class="querySelect" name="order_type">
+                <option value="">{$lang.type_all}</option>
+                {html_options options=$order_type selected=$smarty.get.order_type}
+                </select>
+                <input type="submit" class="formbtn" value="{$lang.query}" />
+            </div>
+            <!--{if $filtered}-->
+            <a class="left formbtn1" href="index.php?app=order">{$lang.cancel_query}</a>
+            <!--{/if}-->
+        </form>
+    </div>
+    <div class="fontr">
+        {if $data_list}{include file=page.top.html}{/if}
+    </div>
+</div>
+<div class="tdare">
+    <table width="100%" cellspacing="0" class="dataTable">
+    	<thead>
+        <!--{if $data_list}-->
+        <tr class="tatr1">
+            <td width="15%" class="firstCell">{$lang.order_sn}</td>
+            <td width="8%" class="table-center">{$lang.order_type}</td>
+            <td>{$lang.store_name}</td>
+        	<td width="12%">{$lang.seller_name}</td>
+            <td width="12%">{$lang.buyer_name}</td>
+            <td width="8%" class="table-center">{$lang.purchase_status}</td>
+            <td width="12%" class="table-center"><span ectype="order_by" fieldname="create_time">{$lang.create_time}</span></td>
+            <td width="12%" class="table-center"><span ectype="order_by" fieldname="add_time">{$lang.add_time}</span></td>
+            <td width="6%" class="table-center">{$lang.handler}</td>
+        </tr>
+        <!--{/if}-->
+        </thead>
+        <tbody>
+        <!--{foreach from=$data_list item=order}-->
+        <tr class="tatr2"{if !$order.purchase_status} style="color:#30F;"{/if}>
+            <td class="firstCell">
+            {if $order.order_type eq '1'}
+            <a href="http://www.worldmall.cn/admin/index.php?app=order&act=view&code={$order.order_sn|escape}" target="_blank">{$order.order_sn|escape}</a>
+            {elseif $order.order_type eq '2'}
+            <a href="http://trade.taobao.com/trade/detail/trade_item_detail.htm?bizOrderId={$order.order_sn|escape}" target="_blank">{$order.order_sn|escape}</a>
+            {else}
+            {$order.order_sn|escape}
+            {/if}
+            </td>
+            <td class="table-center">{if $order.order_type eq '1'}{$lang.type_worldmall}{elseif $order.order_type eq '2'}{$lang.type_taobao}{elseif $order.order_type eq '0'}{$lang.type_other}{/if}</td>
+            <td>{$order.store_name|escape}</td>
+            <td>{$order.seller_name|escape}</td>
+            <td>{$order.buyer_name|escape}</td>
+            <td class="table-center">{if $order.purchase_status}{$lang.purchase_yes}{else}{$lang.purchase_no}{/if}</td>
+            <td class="table-center">{$order.create_time|date:complete}</td>
+            <td class="table-center">{$order.add_time|date:complete}</td>
+            <td class="table-center">
+              <a href="index.php?app=order&amp;act=view&amp;id={$order.order_id}">{$lang.view}</a>
+              <a href="index.php?app=sell&amp;act=add&amp;order_id={$order.order_id}">{$lang.sell}</a>
+            </td>
+        </tr>
+        <!--{foreachelse}-->
+        <tr class="no_data">
+            <td colspan="9">{$lang.no_data}</td>
+        </tr>
+        <!--{/foreach}-->
+        </tbody>
+    </table>
+    <!--{if $data_list}-->
+    <div id="dataFuncs">
+    	<div class="printLinks">
+            <select class="querySelect" name="print_type" id="print_type">
+            {html_options options=$print_type selected=$smarty.get.print_type}
+            </select>
+            <span id="show_time" style="display:none;">
+            {$lang.add_time_from}:<input class="queryInput2 pick_date" type="text" value="{$query.add_time_from}" id="add_time_from" name="add_time_from" />
+            {$lang.add_time_to}:<input class="queryInput2 pick_date" type="text" value="{$query.add_time_to}" id="add_time_to" name="add_time_to" />
+            </span>
+            <span id="show_create">
+            <select class="querySelect">
+            	<option value="">{$lang.purchase_no}</option>
+            </select>
+            </span>
+            <a class="btn3" href="javascript:PrintMytable();">{$lang.create_purchase}</a>
+        </div>
+        <div class="pageLinks">
+            {include file=page.bottom.html}
+        </div>
+    </div>
+    <!--{/if}-->
+    <div class="clear"></div>
+</div>
+{include file="footer.html"}

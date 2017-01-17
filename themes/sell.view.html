@@ -1,0 +1,137 @@
+{include file="header.html"}
+<script type="text/javascript" src="{lib file=jquery.plugins/jquery.AddIncSearch-min.js}" charset="utf-8"></script>
+<script type="text/javascript">
+//提交
+function confirm_submit() {
+	if(!confirm('{$lang.confirm_export}')){
+		return false;
+    }
+	$('#export_form').submit();
+}
+</script>
+<div id="rightTop">
+  <p>{$lang.sell_manage}</p>
+  <ul class="subnav">
+    <li><a class="btn1" href="index.php?app=sell">{$lang.manage}</a></li>
+    <li><a class="btn1" href="index.php?app=sell&amp;act=add">{$lang.sell_manage}</a></li>
+    <li><span>{$lang.view}</span></li>
+  </ul>
+</div>
+<div class="tdare">
+    <table width="100%" cellspacing="0" class="dataTable">
+    	<thead>
+        <tr class="tatr1" style="background-color:#B9FFFF;">
+            <td class="firstCell">{$lang.sell_sn}</td>
+            <td class="table-center">{$lang.sell_time}</td>
+            <td class="table-center">{$lang.sell_type}</td>
+        	<td>{$lang.order_sn}</td>
+            <td>{$lang.buyer_name}</td>
+            <td>{$lang.payment}</td>
+            <td>{$lang.shipping_name}</td>
+            <td>{$lang.shipping_sn}</td>
+            <td>{$lang.shipping_fee}</td>
+            <td>{$lang.buyer_remark}</td>
+            <td>{$lang.buyer}</td>
+            <td>{$lang.lister}</td>
+            <td>{$lang.warehouser}</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="tatr2" style="background-color:#E1FFF0;">
+            <td class="firstCell">{$data.sell_sn|escape|default:-}</td>
+            <td class="table-center">{$data.sell_time|escape|default:-}</td>
+            <td class="table-center">{if $data.sell_type eq '0'}{$lang.type_other}{elseif $data.sell_type eq '1'}{$lang.type_worldmall}{elseif $data.sell_type eq '2'}{$lang.type_taobao}{elseif $data.sell_type eq '3'}{$lang.type_network}{/if}</td>
+            <td>{$data.order_sn|escape|default:-}</td>
+            <td>{$data.buyer_name|escape|default:-}</td>
+            <td>{$data.payment|escape|default:-}</td>
+            <td>{$data.shipping_name|escape|default:-}</td>
+            <td>{$data.shipping_sn|escape|default:-}</td>
+            <td>{$data.shipping_fee|price:%s}</td>
+            <td>{$data.buyer_remark|escape|default:-}</td>
+            <td>{$data.buyer|escape|default:-}</td>
+            <td>{$data.lister|escape|default:-}</td>
+            <td>{$data.warehouse_username|escape|default:-}</td>
+        </tr>
+        <!--{foreach from=$data.client_p item=client_p}-->
+        <tr class="tatr2" style="background-color:#E1FFF0;">
+          <td class="firstCell">收件人姓名：</td>
+          <td>{$client_p.name}</td>
+          <td>&nbsp;</td>
+          <td colspan="2">收件人电话：{$client_p.phone}</td>
+          <td colspan="8">收件人地址:{$client_p.address}</td>
+        </tr>
+         <!--{/foreach}-->
+        </tbody>
+    </table>
+    
+    <table width="100%" cellspacing="0" class="dataTable">
+    	<thead>
+        <tr class="tatr1" style="background-color: #BDF;">
+            <td class="firstCell">{$lang.goods_sn}</td>
+            <td>{$lang.goods_name}</td>
+            <td>{$lang.brand_name}</td>
+        	<td>{$lang.store_goods_code}</td>
+            <td>{$lang.goods_colour}</td>
+            <td class="table-center">{$lang.unit}</td>
+            <td>{$lang.goods_specification}</td>
+            <td>{$lang.price_crane}</td>
+            <td>{$lang.price_retail}</td>
+            <td>{$lang.price}</td>
+            <td>{$lang.discount}</td>
+            <td>{$lang.quantity}</td>
+            <td>{$lang.money}</td>
+            <td>{$lang.price_cost}</td>
+            <td>{$lang.price_total_cost}</td>
+            <td>{$lang.remark}</td>
+           
+            
+            {if $data.warehouse_username}
+             <td>{$lang.returned_quantity}</td>
+              <td>{$lang.refund_quantity}</td>
+              <td>{$lang.status_invalid}</td>
+              {/if}
+        </tr>
+        </thead>
+        <tbody>
+        <!--{foreach from=$data.sd item=goods}-->
+        <tr class="tatr2" style="background-color:{if $data.warehouse_username && !$goods.warehouse_state}#eee{else}#E1FFF0{/if};">
+            <td class="firstCell">{$goods.goods_sn|escape|default:-}</td>
+            <td>{$goods.goods_name|escape|default:-}</td>
+            <td>{$goods.brand_name|escape|default:-}</td>
+            <td>{$goods.store_goods_code|escape|default:-}</td>
+            <td>{$goods.goods_colour|escape|default:-}</td>
+            <td class="table-center">{$goods.unit|escape|default:-}</td>
+            <td>{$goods.goods_specification|escape|default:-}</td>
+            <td>{$goods.price_crane|price:%s}</td>
+            <td>{$goods.price_retail|price:%s}</td>
+            <td>{$goods.price|price:%s}</td>
+            <td>{$goods.discount|escape|default:-}</td>
+            <td>{$goods.quantity|escape|default:-}</td>
+            <td>{$goods.money|price:%s}</td>
+            <td>{$goods.price_cost|price:%s}</td>
+            <td>{$goods.price_total_cost|price:%s}</td>
+            <td>{$goods.remark|escape|default:-}</td>
+            {if $data.warehouse_username}
+            
+            <td {if $goods.watehouse_num != $goods.quantity && $goods.warehouse_state}style="color:red"{/if}>
+         
+            {$goods.watehouse_num|escape|default:-}</td>
+            <td>{$goods.refund_num|escape|default:-}</td>
+            <td>{if $goods.warehouse_state eq 1}己出仓{else}未出仓{/if}</td>
+            {/if}
+        </tr>
+        <!--{/foreach}-->
+        </tbody>
+    </table>
+    <form method="post" name="export_form" id="export_form" action="index.php?app=sell&amp;act=export">
+    <input type="hidden" name="sell_id" value="{$sell_id}" />
+    <div class="order_form" align="center">
+    	<input class="formbtn1" type="button" name="Submit" value="{$lang.go_back}" onclick="javascript:history.go(-1);" />
+    	{if $data.sd}
+    	<input class="formbtn1" type="submit" name="Export" value="{$lang.export}" onclick="confirm_submit();" />
+    	{/if}
+    </div>
+    </form>
+    <div class="clear"></div>
+</div>
+{include file="footer.html"}

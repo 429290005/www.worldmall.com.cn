@@ -1,0 +1,80 @@
+{include file="header.html"}
+<script type="text/javascript">
+$(function(){
+    $("tbody tr").hover(
+		function() {
+			$(this).css({background:"#EAF8DB"});
+		},
+		function(){
+			$(this).css({background:"#FBFDFF"});
+		}
+	);
+});
+</script>
+<div id="rightTop">
+  <p>{$lang.linkman_manage}</p>
+  <ul class="subnav">
+    <li><span>{$lang.manage}</span></li>
+    <li><a class="btn1" href="index.php?app=seller&amp;act=linkman_add&amp;seller_id={$seller_id}">{$lang.add}</a></li>
+  </ul>
+</div>
+<div class="mrightTop info">
+  <div class="fontl"></div>
+  <div class="fontr">{include file=page.top.html}</div>
+</div>
+<div class="tdare">
+  <table width="100%" cellspacing="0" class="dataTable">
+  	<thead>
+    <!--{if $data_list}-->
+    <tr class="tatr1">
+      <td width="20" class="firstCell"><input type="checkbox" class="checkall" /></td>
+      <td>{$lang.linkman_name}</td>
+      <td width="3%" class="table-center">{$lang.gender}</td>
+      <td width="14%">{$lang.email}</td>
+      <td width="8%">{$lang.phone_mob}</td>
+      <td width="8%">{$lang.phone_tel}</td>
+      <td width="8%">{$lang.phone_fax}</td>
+      <td width="8%">{$lang.im_qq}</td>
+      <td width="8%">{$lang.im_aliww}</td>
+      <td width="14%">{$lang.im_msn}</td>
+      <td width="12%" class="table-center">{$lang.add_time}</td>
+      <td width="3%" class="table-center">{$lang.handler}</td>
+    </tr>
+    <!--{/if}-->
+    </thead>
+    <tbody>
+    <!--{foreach from=$data_list item=linkman}-->
+    <tr class="tatr2">
+      <td class="firstCell"><input type="checkbox" class="checkitem" value="{$linkman.linkman_id}"/></td>
+      <td>{$linkman.linkman_name|escape}</td>
+      <td class="table-center">{if $linkman.gender eq 1}{$lang.male}{elseif $linkman.gender eq 2}{$lang.female}{else}{$lang.unknown}{/if}</td>
+      <td>{$linkman.email|escape}</td>
+      <td>{$linkman.phone_mob|escape}</td>
+      <td>{$linkman.phone_tel|escape}</td>
+      <td>{$linkman.phone_fax|escape}</td>
+      <td>{$linkman.im_qq|escape}</td>
+      <td>{$linkman.im_aliww|escape}</td>
+      <td>{$linkman.im_msn|escape}</td>
+      <td class="table-center">{$linkman.add_time|date:complete}</td>
+      <td class="table-center">
+        <a href="index.php?app=seller&amp;act=linkman_edit&amp;id={$linkman.linkman_id}">{$lang.edit}</a>
+      </td>
+    </tr>
+    <!--{foreachelse}-->
+    <tr class="no_data info">
+      <td colspan="12">{$lang.no_data}</td>
+    </tr>
+    <!--{/foreach}-->
+    </tbody>
+  </table>
+  <!--{if $data_list}-->
+  <div id="dataFuncs">
+    <div id="batchAction" class="left paddingT15">
+      <input class="formbtn batchButton" type="button" value="{$lang.drop}" name="id" uri="index.php?app=seller&amp;act=seller_id_drop&amp;seller_id={$seller_id}" presubmit="confirm('{$lang.linkman_drop_confirm}')" />
+    </div>
+    <div class="pageLinks">{include file=page.bottom.html}</div>
+  </div>
+  <!--{/if}-->
+  <div class="clear"></div>
+</div>
+{include file="footer.html"}

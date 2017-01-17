@@ -1,0 +1,742 @@
+{include file=header.html}
+<meta property="wb:webmaster" content="7bc92cfd160f48ee" />
+<link href="{res file=css/index.css}" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+$(function(){
+	$(".leather_wrap").each(function(){		
+	$(this).hover(
+	 function () {
+		$(this).addClass("leather_hover");
+	  },
+	  function () {
+		$(this).removeClass("leather_hover");
+	  }
+	  )
+	});	
+	$('.special_main li').each(function() {
+	$(this).hover(function() {
+	var this_i=$(this).index();
+		$('.special_main .suppliers_hover').each(function(i) {
+			if (this_i != i) {
+				$(this).addClass("suppliers_img");
+			}
+		});
+	},
+	function() {
+		$('.special_main .suppliers_img').removeClass("suppliers_img");
+	});
+});
+});
+</script>
+<div class="main"> 
+  <!--首页幻灯片 开始 -->
+  <div class="sidebarA">
+	<div id="focus">
+		<ul>
+        	<li><a href="http://bbs.worldmall.cn/topic-6.htm" target="_blank"><img  src="{res file=images/03.jpg}" alt="时尚波点 全面上线" title="时尚波点 全面上线" width="755" height="300" /></a></li>
+			<li><a href="http://bbs.worldmall.cn/topic-4.htm" target="_blank"><img  src="{res file=images/01.jpg}" alt="世界窗8月推荐第1期高利润抢批7元起" title="世界窗8月推荐第1期高利润抢批7元起" width="755" height="300" /></a></li>
+			<li><a href="http://bbs.worldmall.cn/topic-5.htm" target="_blank"><img  src="{res file=images/02.jpg}" alt="撞色包-最新撞色包包推荐" title="撞色包-最新撞色包包推荐" width="755" height="300" /></a></li>
+			<li><a href="{url app=goods&id=279}" target="_blank"><img  src="{res file=images/04.jpg}" alt="抢！15元真皮手拿包 限时限批 意大利宾利零利润巨献"  title="抢！15元真皮手拿包 限时限批 意大利宾利零利润巨献" width="755" height="300" /></a></li>
+			<li><a href="javascript:;"><img  src="{res file=images/05.jpg}" alt="皮具箱包网络交易平台 助您乐享电子商务之旅" title="皮具箱包网络交易平台 助您乐享电子商务之旅" width="755" height="300" /></a></li>
+			<li><a href="javascript:;"><img  src="{res file=images/06.jpg}" alt="秋季 时尚配皮 恒利秋冬超值批发" title="秋季 时尚配皮 恒利秋冬超值批发" width="755" height="300" /></a></li>
+		</ul>
+	</div>
+	<!--分类导航 开始 -->
+	<div class="classification">
+		<div class="classification_t"><a href="{url app=search}">更多分类导航>></a></div>
+		<div class="category">
+		<dl>
+			<dt><a href="search/class_1" target="_blank">女款</a></dt>
+			<dd>
+				<img src="{res file=images/classification1.jpg}" alt="其实进货很简单" width="46" height="55" />
+				<a class="cred" href="search/class_2" target="_blank">单肩包</a>
+				<a href="search/class_3" target="_blank">斜挎包</a>
+				<a href="search/class_4" target="_blank">手提包</a>
+				<a href="search/class_5" target="_blank">双肩包</a>
+				<a href="search/class_1239" target="_blank">晚装包</a>
+				<a href="search/class_4077" target="_blank">手拿包</a>
+				<a class="cred" href="search/class_1240" target="_blank">钱包</a>
+				<a href="search/class_4181" target="_blank">女皮带</a>
+			</dd>
+		</dl>
+		<dl>
+			<dt><a href="search/class_21" target="_blank">男款</a></dt>
+			<dd>
+				<img src="{res file=images/classification2.jpg}" alt="其实进货很简单" width="46" height="55" />
+				<a class="cred" href="search/class_23" target="_blank">单肩包</a>
+				<a href="search/class_4241" target="_blank">斜挎包</a>
+				<a href="search/class_22" target="_blank">双肩包</a>
+				<a href="search/class_25" target="_blank">手拿包</a>
+				<a href="search/class_4182" target="_blank">手提包</a>
+				<a href="search/class_26" target="_blank">钱包</a>
+				<a href="search/class_28" target="_blank">腰包/胸包</a>
+				<a href="search/class_3883" target="_blank">男皮带</a>
+			</dd>
+		</dl>
+		<dl>
+			<dt><a href="search/class_57" target="_blank">功能箱包</a></dt>
+			<dd>
+				<img src="{res file=images/classification3.jpg}" alt="其实进货很简单" width="46" height="55" />
+				<a href="search/class_4074" target="_blank">电脑数码包</a>
+				<a class="cred" href="search/class_59" target="_blank">拉杆箱</a>
+				<a href="search/class_1241" target="_blank">旅行包</a>
+				<a href="search/class_58" target="_blank">运动休闲包</a>
+				<a class="cred" href="search/class_4076" target="_blank">登山包</a>
+				<a href="search/class_4075" target="_blank">钥匙卡包</a>
+				<a href="search/class_4183" target="_blank">书包</a>
+			</dd>
+		</dl>
+		<dl>
+			<dt><a href="index.php?app=search" target="_blank">材质</a></dt>
+			<dd>
+				<img src="{res file=images/classification4.jpg}" alt="其实进货很简单" width="46" height="55" />
+				<a class="cred" href="search/material_1" target="_blank">牛皮</a>
+				<a href="search/material_5" target="_blank">鸵鸟皮</a>
+				<a class="cred" href="search/material_8" target="_blank">PU</a>
+				<a href="search/material_9" target="_blank">PC</a>
+				<a href="search/material_7" target="_blank">PVC</a>
+				<a href="search/material_12" target="_blank">尼龙</a>
+				<a href="search/material_14" target="_blank">牛津布</a>
+				<a href="search/material_27" target="_blank">其他质地</a>
+			</dd>
+		</dl>
+		<dl>
+			<dt><a href="index.php?app=search" target="_blank">风格</a></dt>
+			<dd>
+				<img src="{res file=images/classification5.jpg}" alt="其实进货很简单" width="46" height="55" />
+				<a href="search/style_2" target="_blank">百搭</a>
+				<a href="search/style_4" target="_blank" class="cred">嬉皮</a>
+				<a href="search/style_6" target="_blank">瑞丽</a>
+				<a href="search/style_7" target="_blank" class="cred">学院</a>
+				<a href="search/style_5" target="_blank">韩版</a>
+				<a href="search/style_1" target="_blank">淑女</a>
+				<a href="search/style_8" target="_blank">通勤</a>
+				<a href="search/style_10" target="_blank">欧美</a>
+				<a href="search/style_12" target="_blank">田园</a>
+				<a href="search/style_14" target="_blank">OL</a>
+			</dd>
+		</dl>
+		<dl>
+			<dt><a href="index.php?app=search" target="_blank">随便看看</a></dt>
+			<dd>
+				<img src="{res file=images/classification6.jpg}" alt="其实进货很简单" width="46" height="55" />
+				<a href="search/price_0-50" target="_blank">0-50元</a>
+				<a class="cred" href="search/price_50-100" target="_blank">50-100元</a>
+				<a href="search/price_100-200" target="_blank">100-200元</a>
+				<a href="search/price_100-250" target="_blank">100-250元</a>
+				<a href="search/price_250-2000" target="_blank">250元以上</a>
+			</dd>
+		</dl>
+		<dl style="width:461px;">
+			<dt><a href="index.php?app=search" target="_blank">流行元素</a></dt>
+			<dd>
+				<img src="{res file=images/classification7.jpg}" alt="其实进货很简单" width="46" height="55" />
+				<a href="search/popid_1" target="_blank">蝴蝶结</a>
+				<a href="search/popid_2" target="_blank">流苏</a>
+				<a class="cred" href="search/popid_3" target="_blank">铆钉</a>
+				<a href="search/popid_4" target="_blank">菱格</a>
+				<a href="search/popid_5" target="_blank">亮片</a>
+				<a href="search/popid_6" target="_blank">字母</a>
+				<a href="search/popid_7" target="_blank">蕾丝</a>
+				<a href="search/popid_8" target="_blank">链条</a>
+				<a href="search/popid_9" target="_blank">裸色</a>
+				<a href="search/popid_10" target="_blank">漆皮</a>
+				<a href="search/popid_11" target="_blank">丝巾</a>
+				<a href="search/popid_12" target="_blank" class="cred">糖果色</a>
+				<a href="search/popid_13" target="_blank">鳄鱼纹</a>
+				<a href="search/popid_14" target="_blank">褶皱</a>
+				<a href="search/popid_15" target="_blank">豹纹</a>
+				<a href="search/popid_16" target="_blank">桃心</a>
+				<a href="search/popid_17" target="_blank">车缝线</a>
+				<a href="search/popid_18" target="_blank">邮差包</a>
+				<a class="cred" href="search/popid_19" target="_blank">撞色</a>
+			</dd>
+		</dl>
+		<dl>
+			<dt><a href="index.php?app=search" target="_blank">适销地区</a></dt>
+			<dd>
+				<img src="{res file=images/classification8.jpg}" alt="其实进货很简单" width="46" height="55" />
+				<a class="cred" href="search/region_4" target="_blank">内销</a>
+				<a href="search/region_1" target="_blank">欧美</a>
+				<a href="search/region_5" target="_blank">日韩</a>
+				<a href="search/region_2" target="_blank">中东</a>
+				<a href="search/region_3" target="_blank">非洲</a>
+				<a href="search/region_6" target="_blank">拉美</a>
+			</dd>
+		</dl>
+		</div>
+    </div>
+	<!--分类导航 结束 -->
+</div>  
+  <!--首页幻灯片 结束 -->
+  <!--首页幻灯片js 开始 -->
+  <script type="text/javascript">
+$(function() {
+	var sWidth = $("#focus").width(); //获取焦点图的宽度（显示面积）
+	var len = $("#focus ul li").length; //获取焦点图个数
+	var index = 0;
+	var picTimer;
+	
+	//以下代码添加数字按钮和按钮后的半透明条，还有上一页、下一页两个按钮
+	var btn = "<div class='btnBg'></div><div class='wrapper_btn'>";
+	for(var i=0; i < len; i++) {
+		btn += "<span></span>";
+	}
+	btn += "</div><div class='preNext pre'></div><div class='preNext next'></div>";
+	$("#focus").append(btn);
+	$("#focus .btnBg").css("opacity",0.5);
+
+	//为小按钮添加鼠标滑入事件，以显示相应的内容
+	$("#focus .wrapper_btn span").css("opacity",0.4).mouseenter(function() {
+		index = $("#focus .wrapper_btn span").index(this);
+		showPics(index);
+	}).eq(0).trigger("mouseenter");
+
+	//上一页、下一页按钮透明度处理
+	$("#focus .preNext").css("opacity",0.2).hover(function() {
+		$(this).stop(true,false).animate({"opacity":"0.5"},300);
+	},function() {
+		$(this).stop(true,false).animate({"opacity":"0.2"},300);
+	});
+
+	//上一页按钮
+	$("#focus .pre").click(function() {
+		index -= 1;
+		if(index == -1) {index = len - 1;}
+		showPics(index);
+	});
+
+	//下一页按钮
+	$("#focus .next").click(function() {
+		index += 1;
+		if(index == len) {index = 0;}
+		showPics(index);
+	});
+
+	//本例为左右滚动，即所有li元素都是在同一排向左浮动，所以这里需要计算出外围ul元素的宽度
+	$("#focus ul").css("width",sWidth * (len));
+	
+	//鼠标滑上焦点图时停止自动播放，滑出时开始自动播放
+	$("#focus").hover(function() {
+		clearInterval(picTimer);
+	},function() {
+		picTimer = setInterval(function() {
+			showPics(index);
+			index++;
+			if(index == len) {index = 0;}
+		},3000); //此4000代表自动播放的间隔，单位：毫秒
+	}).trigger("mouseleave");
+	
+	//显示图片函数，根据接收的index值显示相应的内容
+	function showPics(index) { //普通切换
+		var nowLeft = -index*sWidth; //根据index值计算ul元素的left值
+		$("#focus ul").stop(true,false).animate({"left":nowLeft},300); //通过animate()调整ul元素滚动到计算出的position
+		//$("#focus .wrapper_btn span").removeClass("on").eq(index).addClass("on"); //为当前的按钮切换到选中的效果
+		$("#focus .wrapper_btn span").stop(true,false).animate({"opacity":"0.4"},300).eq(index).stop(true,false).animate({"opacity":"1"},300); //为当前的按钮切换到选中的效果
+	}
+});
+
+</script>
+	<!--首页幻灯片js 结束 -->
+	<!--第一屏右侧 开始 -->
+	<div class="sidebarB">
+		<!--世界窗批发网 开始 -->
+		<div class="latest_styles">
+			<p>包包本周更新款数<strong class="c00">{$g_b_num.goods_num}</strong>件</p>
+			<p>本月入驻供货商<strong class="c00">{$g_b_num.brand_num}</strong>家</p>
+		</div>
+		<!--世界窗批发网 结束 -->
+		<!--世界窗实体批发一手货源 开始 -->
+		<dl class="goods_supply">
+			<dt>世界窗：实体批发一手货源</dt>
+			<dd>市场：为工厂、品牌商、批发商寻找用户</dd>
+			<dd>平台：中小卖家交流皮具箱包经营的场所</dd>
+			<dd>优势：背靠广州最大的皮具生产销售商圈</dd>
+			<dd>货源：坐拥三大皮具城，品牌及商品良好</dd>
+			<dd>安全：保障交易模式，收货后再确认付款</dd>
+			<dd>创业：商品起批数低，方便更多用户创业</dd>
+		</dl>
+		<!--世界窗实体批发一手货源 结束 -->
+		<!--免费注册 开始 -->
+		<ul class="login_nav">
+			<li class="login_registration"><a ectype="dialog" dialog_id='login' dialog_width="870" uri="index.php?app=member&act=ajaxLogin&ajax=1" href="javascript:;">{$lang.register}</a></li>
+			<li class="login_login"><a ectype="dialog" dialog_id='login' dialog_width="870" uri="index.php?app=member&act=ajaxLogin&ajax=1" href="javascript:;">{$lang.login}</a></li>
+			<li class="login_shop"><a href="{url app=apply}" title="申请开店" target="_blank">{$lang.i_want_shop}</a></li>
+		</ul>
+		<!--免费注册 结束 -->
+		<!--批发进货  开始 -->
+		<dl class="wholesale_purchase">
+			<dt>批发进货</dt>
+			<dd>1.满300元起批，厂家直销，品质保证</dd>
+			<dd>2.淘宝代理在这可以找到最好的商品</dd>
+			<dd>3.为企业提供精美高档皮具礼品定制</dd>
+			<dd>4.寻找并提供OEM代工生产的便捷途径</dd>
+		</dl>
+		<!--批发进货 结束 -->
+		<p><a href="http://www.worldmall.cn/goods/318 " target="_blank"><img src="{res file=images/bag1.jpg}" alt="妩媚风情 美丽绽放" title="新款蝴蝶结时尚糖果包" /></a></p>
+  </div>
+  <!--第一屏右侧 结束 -->
+</div>
+<!--促销 开始 -->
+<div class="main">
+	<ul class="promotions">
+		<li><a href="http://bbs.worldmall.cn/topic-5.htm" target="_blank"><img src="{res file=images/promotions1.jpg}" alt="多彩撞色系列" title="多彩撞色系列" /></a></li>
+		<li><a href="http://bbs.worldmall.cn/topic-6.htm" target="_blank"><img src="{res file=images/promotions2.jpg}" alt="波点潮流色" title="波点潮流色" /></a></li>
+		<li><a href="{url app=goods&id=328}" target="_blank"><img src="{res file=images/promotions3.jpg}" alt="最新单品" title="最新单品" /></a></li>
+		<li><a href="{url app=goods&id=346}" target="_blank"><img src="{res file=images/promotions4.jpg}" alt="礼品定制" title="礼品定制" /></a></li>
+		<li><a href="{url app=brand_user&id=52}" target="_blank"><img src="{res file=images/promotions5.jpg}" alt="牧马保罗" title="牧马保罗" /></a></li>
+		<li><a href="{url app=goods&id=372}" target="_blank"><img src="{res file=images/promotions6.jpg}" alt="香港名兔" title="香港名兔" /></a></li>
+		<li><a href="{url app=goods&id=504}" target="_blank"><img src="{res file=images/promotions7.jpg}" alt="香港.多蜜儿" title="香港.多蜜儿"/></a></li>
+		<li><a href="{url app=goods&id=341}" target="_blank"><img src="{res file=images/promotions8.jpg}" alt="袋鼠" title="袋鼠" /></a></li>
+	</ul>
+</div>
+<!--促销 结束 -->
+<!--皮具 开始 -->
+<div class="main">
+	<!--左侧 开始 -->
+	<div class="sidebarA">
+		<!--特价皮具 开始 -->
+		<div class="special clearfix">
+			<div class="special_t">PU等材质为主，款式鲜艳丰富，紧跟潮流，性价比高<a href="{url app=search&goods_grade=3}">更多特价皮具>></a></div>
+			<div class="leather">
+				<div class="leather_img"><a href="{url app=search&goods_grade=3}" target="_blank"><img src="{res file=images/special1.jpg}" alt="特价皮具" title="特价皮具" /></a></div>
+				<ul>
+					<!--{foreach from=$goods_data.tehui.man item=goods name=goods_name}-->
+					<li>
+					<div class="leather_wrap">
+					<a href="{url app=goods&id=$goods.goods_id}" title="{$goods.goods_name|escape}" target="_blank"><img src="{$goods.default_image}" alt="皮具" /></a>
+					<h2><a href="{url app=goods&id=$goods.goods_id}" title="{$goods.goods_name|escape}" target="_blank">{$goods.goods_name|escape|truncate:26}</a></h2>
+					<p class="wholesale_btn">	
+                    <em>批发价</em>
+					<!--{if !$visitor.user_id}-->
+					<a ectype="dialog" dialog_id="login" dialog_width="870" uri="index.php?app=member&amp;act=ajaxLogin&amp;ajax=1" href="javascript:;">登录查看</a>
+					<!--{elseif (!$goods.whether_you_can_view_price)}-->
+					<a href="javascript:void()" uri="{url app=member&act=member_apply&brand_id=$goods.brand_id&goods_id=$goods.goods_id}"  ectype="dialog" dialog_title="申请会员" dialog_width="400"  dialog_id="member_brand_apply">
+{$lang.an_application_for_author}</a>
+					<!--{else}--> 
+					<strong class="c00">{$goods.price|price}</strong>
+					<!--{/if}--> </p>
+					<p>起批数：{$goods.brand_huipi_number|default:0}件</p>
+					<p>销&nbsp;&nbsp;&nbsp;量：{$goods.sales|default:0}件</p>
+					<p><a href="{url app=brand_user&id=$goods.brand_id}" target="_blank" class="golden">{$goods.brand}</a></p>
+					</div>
+					</li>
+					<!--{/foreach}-->
+				</ul>
+			</div>
+			<ul class="special_brand">
+				<li><a target="_blank" href="{url app=brand_user&id=40}"><img src="{res file=images/leather1.png}" alt="迈司迪" title="迈司迪" /></a></li>
+				<li><a target="_blank" href="{url app=brand_user&id=68}"><img src="{res file=images/leather2.png}" alt="四隆雅图" title="四隆雅图" /></a></li>
+				<li><a target="_blank" href="{url app=brand_user&id=39}"><img src="{res file=images/leather3.png}" alt="银爵" title="银爵" /></a></li>
+				<li><a target="_blank" href="{url app=brand_user&id=70}"><img src="{res file=images/leather4.png}" alt="龙发皮具" title="龙发皮具" class="margin0" /></a></li>
+			</ul>
+		</div>
+		<!--特价皮具 结束 -->
+		<!--精品皮具 开始 -->
+		<div class="special clearfix">
+			<div class="boutique_t">PU、超纤、配皮等为主，做工较好，款式经典，热销<a href="{url app=search&goods_grade=2}">更多精品皮具>></a></div>
+			<div class="leather">
+				<div class="leather_img"><a href="{url app=search&goods_grade=2}" target="_blank"><img src="{res file=images/special2.jpg}" alt="精品皮具" title="精品皮具" /></a></div>
+				<ul>
+					<!--{foreach from=$goods_data.jingpin.man item=goods name=goods_name}-->
+					<li>
+					<div class="leather_wrap">
+					<a href="{url app=goods&id=$goods.goods_id}" title="{$goods.goods_name|escape}" target="_blank"><img src="{$goods.default_image}" alt="皮具" /></a>
+					<h2><a href="{url app=goods&id=$goods.goods_id}" title="{$goods.goods_name|escape}" target="_blank">{$goods.goods_name|escape|truncate:26}</a></h2>
+				<p class="wholesale_btn">	
+                    <em>批发价</em>	
+              <!--{if !$visitor.user_id}--> 
+              <a ectype="dialog" dialog_id="login" dialog_width="870" uri="index.php?app=member&amp;act=ajaxLogin&amp;ajax=1" href="javascript:;">登录查看</a>
+			  <!--{elseif (!$goods.whether_you_can_view_price)}-->  
+		  <a href="javascript:void()" uri="{url app=member&act=member_apply&brand_id=$goods.brand_id&goods_id=$goods.goods_id}"  ectype="dialog" dialog_title="申请会员" dialog_width="400"  dialog_id="member_brand_apply">
+{$lang.an_application_for_author}</a>
+					<!--{else}-->
+					<strong class="c00">{$goods.price|price}</strong>
+					<!--{/if}-->
+					</p>
+					<p>起批数：{$goods.brand_huipi_number|default:0}件</p>
+					<p>销&nbsp;&nbsp;&nbsp;量：{$goods.sales|default:0}件</p>
+					<p><a href="{url app=brand_user&id=$goods.brand_id}" target="_blank" class="golden">{$goods.brand}</a></p>
+					</div>
+					</li>
+					<!--{/foreach}-->
+				</ul>
+			</div>
+			<ul class="special_brand">
+				<li><a target="_blank" href="{url app=brand_user&id=47}"><img src="{res file=images/leather5.png}" alt="九格格" title="九格格" /></a></li>
+				<li><a target="_blank" href="{url app=brand_user&id=41}"><img src="{res file=images/leather6.png}" alt="梦兰妮娇" title="梦兰妮娇" /></a></li>
+				<li><a target="_blank" href="{url app=brand_user&id=42}"><img src="{res file=images/leather7.png}" alt="快乐女孩" title="快乐女孩" /></a></li>
+				<li><a target="_blank" href="{url app=brand_user&id=44}"><img src="{res file=images/leather8.png}" alt="梦娜米露" title="梦娜米露" class="margin0" /></a></li>
+			</ul>
+		</div>
+		<!--精品皮具 结束 -->
+		<!--品牌皮具 开始 -->
+		<div class="special clearfix">
+			<div class="brand_t">国内自主品牌，做工精致，款式优秀，适合代理加盟<a href="{url app=search&goods_grade=1}">更多品牌皮具>></a></div>
+			<div class="leather">
+				<div class="leather_img"><a href="{url app=search&goods_grade=1}" target="_blank"><img src="{res file=images/special3.jpg}" alt="品牌皮具" title="品牌皮具" /></a></div>
+				<ul>
+					<!--{foreach from=$goods_data.pinpai.man item=goods name=goods_name}-->
+					<li>
+					<div class="leather_wrap">
+					<a href="{url app=goods&id=$goods.goods_id}" title="{$goods.goods_name|escape}" target="_blank"><img src="{$goods.default_image}" alt="皮具" /></a>
+					<h2><a href="{url app=goods&id=$goods.goods_id}" title="{$goods.goods_name|escape}" target="_blank">{$goods.goods_name|escape|truncate:26}</a></h2>
+			<p class="wholesale_btn">	
+                    <em>批发价</em>	
+              <!--{if !$visitor.user_id}--> 
+              <a ectype="dialog" dialog_id="login" dialog_width="870" uri="index.php?app=member&amp;act=ajaxLogin&amp;ajax=1" href="javascript:;">登录查看</a>
+			  <!--{elseif (!$goods.whether_you_can_view_price)}-->  
+		  <a href="javascript:void()" uri="{url app=member&act=member_apply&brand_id=$goods.brand_id&goods_id=$goods.goods_id}"  ectype="dialog" dialog_title="申请会员" dialog_width="400"  dialog_id="member_brand_apply">
+{$lang.an_application_for_author}</a>
+					<!--{else}--> 
+					<strong class="c00">{$goods.price|price}</strong>
+					<!--{/if}-->
+					</p>
+					<p>起批数：{$goods.brand_huipi_number|default:0}件</p>
+					<p>销&nbsp;&nbsp;&nbsp;量：{$goods.sales|default:0}件</p>
+					<p><a href="{url app=brand_user&id=$goods.brand_id}" target="_blank" class="golden">{$goods.brand}</a></p>
+					</div>
+					</li>
+					<!--{/foreach}-->
+				</ul>
+			</div>
+			<ul class="special_brand">
+				<li><a target="_blank" href="{url app=brand_user&id=32}"><img src="{res file=images/leather9.png}" alt="意大利宾利" title="意大利宾利" /></a></li>
+				<li><a target="_blank" href="{url app=brand_user&id=31}"><img src="{res file=images/leather10.png}" alt="协兴" title="协兴" /></a></li>
+				<li><a target="_blank" href="{url app=brand_user&id=45}"><img src="{res file=images/leather11.png}" alt="谛威狼" title="谛威狼" /></a></li>
+				<li><a target="_blank" href="{url app=brand_user&id=54}"><img src="{res file=images/leather12.png}" alt="意大利都邦" title="意大利都邦"  class="margin0" /></a></li>
+			</ul>
+		</div>
+		<!--品牌皮具 结束 -->
+		<!--品牌供应商 开始 -->
+		<div class="special clearfix">
+			<div class="suppliers_t m-bot10">真皮/超纤等材质为主，用料考究，做工精致，造型经典，设计成熟<a href="{url app=brand}">更多品牌供应商>></a></div>
+			<ul class="special_main clearfix">
+            	<!--{foreach from=$top_brand_list item=brand name=top_brand_list}-->
+                {if $smarty.foreach.top_brand_list.iteration<5}
+				<li {if $smarty.foreach.top_brand_list.iteration eq 4} class="margin0"{/if}>
+					<h2><a target="_blank" href="{url app=brand_user&id=$brand.brand_id}">{$brand.brand_name}</a></h2>
+					<div class="po_re">
+						<a target="_blank" href="{url app=brand_user&id=$brand.brand_id}"><img src="{res file=images/index_top_brand_}{$smarty.foreach.top_brand_list.iteration}.jpg" alt="{$brand.brand_name}" title="{$brand.brand_name}" /></a>
+						<div class="suppliers_hover"></div>
+					</div>
+					<dl>
+						<dt>主营产品</dt>
+						<dd><a href="javascript:;">{$brand.tag}</a> </dd>
+						<dt>商 品 数</dt>
+						<dd><span class="c00">{$brand.goods_num|default:0}</span>件</dd>
+					</dl>
+				</li>
+                {/if}
+                <!--{/foreach}-->
+			</ul>
+			<div class="brand_logo">
+				<ul>
+                <!--{foreach from=$top_brand_list item=brand name=top_brand_list}-->
+                {if $smarty.foreach.top_brand_list.iteration>4}
+					<li><a target="_blank" href="{url app=brand_user&id=$brand.brand_id}"><img src="{$brand.brand_logo}" alt="{$brand.brand_name}" title="{$brand.brand_name}" /></a></li>
+				{/if}
+                <!--{/foreach}-->
+				</ul>
+			</div>
+		</div>
+		<!--品牌供应商 结束 -->
+	</div>
+	<!--左侧 结束 -->
+	<!--右侧 开始 -->
+	<div class="sidebarB">
+		<!--皮具行业数据库 开始 -->
+		<div class="database">
+			<div class="database_t">皮具行业数据库</div>
+			<div class="database_m">
+				<!--女款热批排行榜 开始 -->
+				<div class="hot_batch hot_female">女款热批排行榜</div>
+				<ul>
+                <!--{foreach from=$orders_data.girl item=goods name=girl_top_goods_name}-->
+					<li>
+						<div class="hot_img">
+                         <a href="{url app=goods&id=$goods.goods_id}" title="{$goods.goods_name|escape}" target="_blank"><img src="{$goods.goods_image}" alt="低价皮具" /></a>
+                      <span>{$smarty.foreach.girl_top_goods_name.iteration}</span>
+                      </div>
+						<div class="hot_main">
+							<h2><a href="{url app=goods&id=$goods.goods_id}" title="{$goods.goods_name|escape}" target="_blank">{$goods.goods_name|escape|truncate:36}</a></h2>
+                            <p class="wholesale_btn">	
+                    <em>批发价</em>	
+              <!--{if !$visitor.user_id}--> 
+              <a ectype="dialog" dialog_id="login" dialog_width="870" uri="index.php?app=member&amp;act=ajaxLogin&amp;ajax=1" href="javascript:;">登录查看</a>
+			  <!--{elseif (!$goods.whether_you_can_view_price)}-->  
+		  <a href="javascript:void()" uri="{url app=member&act=member_apply&brand_id=$goods.brand_id&goods_id=$goods.goods_id}"  ectype="dialog" dialog_title="申请会员" dialog_width="400"  dialog_id="member_brand_apply">
+{$lang.an_application_for_author}</a>
+					<!--{else}--> 
+					<strong class="c00">{$goods.price|price}</strong>
+					<!--{/if}--> </p>
+							<p>已卖出：<strong>{$goods.sales|default:0}</strong>件</p>
+						</div>
+					</li>
+  		 <!--{/foreach}-->
+				</ul>
+				<!--女款热批排行榜 结束 -->
+				<!--男款热批排行榜 开始 -->
+				<div class="hot_batch hot_male">男款热批排行榜</div>
+				<ul>
+		   <!--{foreach from=$orders_data.man item=goods name=man_top_goods_name}-->
+					<li>
+						<div class="hot_img">
+                         <a href="{url app=goods&id=$goods.goods_id}" title="{$goods.goods_name|escape}" target="_blank"><img src="{$goods.goods_image}" alt="低价皮具" /></a>
+                      <span>{$smarty.foreach.man_top_goods_name.iteration}</span>
+                      </div>
+						<div class="hot_main">
+							<h2><a href="{url app=goods&id=$goods.goods_id}" title="{$goods.goods_name|escape}" target="_blank">{$goods.goods_name|escape|truncate:36}</a></h2>
+                            <p class="wholesale_btn">	
+                    <em>批发价</em>	
+              <!--{if !$visitor.user_id}--> 
+              <a ectype="dialog" dialog_id="login" dialog_width="870" uri="index.php?app=member&amp;act=ajaxLogin&amp;ajax=1" href="javascript:;">登录查看</a>
+			  <!--{elseif (!$goods.whether_you_can_view_price)}-->  
+		  <a href="javascript:void()" uri="{url app=member&act=member_apply&brand_id=$goods.brand_id&goods_id=$goods.goods_id}"  ectype="dialog" dialog_title="申请会员" dialog_width="400"  dialog_id="member_brand_apply">
+{$lang.an_application_for_author}</a>
+							<!--{else}--> 
+							<strong class="c00">{$goods.price|price}</strong>
+							<!--{/if}--> </p>
+							<p>已卖出：<strong>{$goods.sales|default:0}</strong>件</p>
+						</div>
+					</li>
+  		 <!--{/foreach}-->
+				</ul>
+				<!--男款热批排行榜 结束 -->
+				<!--功能箱包热批排行榜 开始 -->
+				<div class="hot_batch hot_multifunction">功能箱包热批排行榜</div>
+				<ul>
+				  <!--{foreach from=$top_xiangbao item=goods name=top_xiangbao_goods}-->
+					<li>
+						<div class="hot_img">
+                         <a href="{url app=goods&id=$goods.goods_id}" title="{$goods.goods_name|escape}" target="_blank"><img src="{$goods.default_image}" alt="低价皮具" /></a>
+                      <span>{$smarty.foreach.top_xiangbao_goods.iteration}</span>
+                      </div>
+						<div class="hot_main">
+							<h2><a href="{url app=goods&id=$goods.goods_id}" title="{$goods.goods_name|escape}" target="_blank">{$goods.goods_name|escape|truncate:36}</a></h2>
+                            <p class="wholesale_btn">	
+                    <em>批发价</em>	
+              <!--{if !$visitor.user_id}--> 
+              <a ectype="dialog" dialog_id="login" dialog_width="870" uri="index.php?app=member&amp;act=ajaxLogin&amp;ajax=1" href="javascript:;">登录查看</a>
+			  <!--{elseif (!$goods.whether_you_can_view_price)}-->  
+		  <a href="javascript:void()" uri="{url app=member&act=member_apply&brand_id=$goods.brand_id&goods_id=$goods.goods_id}"  ectype="dialog" dialog_title="申请会员" dialog_width="400"  dialog_id="member_brand_apply">
+{$lang.an_application_for_author}</a>
+							<!--{else}--> 
+							<strong class="c00">{$goods.price|price}</strong>
+							<!--{/if}--> </p>
+							<p>已卖出：<strong>{$goods.sales|default:0}</strong>件</p>
+						</div>
+					</li>
+  		 <!--{/foreach}-->
+				</ul>
+				<!--功能箱包热批排行榜 结束 -->
+			</div>
+		</div>
+		<!--皮具行业数据库 结束 -->
+		<!--品牌热款推荐 开始 -->
+		<div class="database">
+			<div class="selling_t">商品评论</div>
+			<div class="selling_ul">
+				<ul>
+				 <!--{foreach from=$top_brand_recom item=goods name=top_brand_recom_goods}-->
+					<li>
+						<div class="selling_img">
+                         <a href="{url app=goods&id=$goods.goods_id}" title="{$goods.goods_name|escape}" target="_blank"><img width="100" height="100" src="{$goods.default_image}" alt="低价皮具" /></a>
+                      </div>
+						<div class="selling_main">
+							<h2><a href="{url app=goods&id=$goods.goods_id}" title="{$goods.goods_name|escape}" target="_blank">{$goods.goods_name|escape|truncate:36}</a></h2>
+                            <p class="wholesale_btn">	
+                    <em>批发价</em>	
+              <!--{if !$visitor.user_id}--> 
+              <a ectype="dialog" dialog_id="login" dialog_width="870" uri="index.php?app=member&amp;act=ajaxLogin&amp;ajax=1" href="javascript:;">登录查看</a>
+			  <!--{elseif (!$goods.whether_you_can_view_price)}-->  
+		  <a href="javascript:void()" uri="{url app=member&act=member_apply&brand_id=$goods.brand_id&goods_id=$goods.goods_id}"  ectype="dialog" dialog_title="申请会员" dialog_width="400"  dialog_id="member_brand_apply">
+{$lang.an_application_for_author}</a>
+							<!--{else}--> 
+							<strong>{$goods.price|price}</strong>
+							<!--{/if}--> </p>
+							<p>已卖出：<strong>{$goods.sales|default:0}</strong>件</p>
+                            <p><a target="_blank" href="{url app=brand_user&id=$goods.brand_id}" class="golden">{$goods.brand}</a></p>
+						</div>
+					</li>
+  		 <!--{/foreach}-->
+				</ul>
+			</div>
+		</div>
+		<!--品牌热款推荐 结束 -->
+	</div>
+	<!--右侧 结束 -->
+</div>
+<!--皮具 结束 -->
+<!--皮具行业价格走势 开始 -->
+<div class="main">
+	<div class="trend_t">世界窗1-8月批发价行情</div>
+	<ul class="trend-main">
+        <li><img src="{res file=images/trend-pic.png}" alt="真皮男大包批发价格" title="真皮男大包批发价格" /></li>
+        <li><img src="{res file=images/handbags.png}" alt="真皮女大包批发价价格" title="真皮女大包批发价价格" /></li>
+        <li><img src="{res file=images/male_parts.png}" alt="真皮小皮件批发价格" title="真皮小皮件批发价格" /></li>
+        <li><img src="{res file=images/female_parts.png}" alt="拉杆箱包批发价格"  title="拉杆箱包批发价格"/></li>
+        <li><img src="{res file=images/trolley_case.png}" alt="钱包卡套批发价格" title="钱包卡套批发价格" /></li>
+      </ul>
+</div>
+<!--皮具行业价格走势 结束 -->
+<!--最新成交款式 潮流资讯 开始 -->
+<div class="main">
+	<div class="sidebarA">
+		<!--最新成交款式 开始 -->
+		<div class="turnover_styles">
+			<div class="turnover_t"></div>
+			<ul>
+            <!-- {foreach from=$new_finish_goods item=goods} -->
+				<li>
+                	<div class="selling_img">
+                         <a href="{url app=goods&id=$goods.goods_id}" title="{$goods.goods_name|escape}" target="_blank"><img  width="100" height="100" src="{$goods.goods_image}" alt="低价皮具" /></a>
+                         </div>
+					<div class="hot_main">
+						<p><span>{$goods.buyer_name|escape|truncate:4}</span>{$goods.add_time|date:m-d h:i}</p>
+						<h2><a href="{url app=goods&id=$goods.goods_id}" title="{$goods.goods_name|escape}" target="_blank">{$goods.goods_name|escape|truncate:16}</a></h2>
+						<p class="wholesale_btn">	
+                    <em>批发价</em>	
+              <!--{if !$visitor.user_id}--> 
+              <a ectype="dialog" dialog_id="login" dialog_width="870" uri="index.php?app=member&amp;act=ajaxLogin&amp;ajax=1" href="javascript:;">登录查看</a>
+			  <!--{elseif (!$goods.whether_you_can_view_price)}-->  
+		  <a href="javascript:void()" uri="{url app=member&act=member_apply&brand_id=$goods.brand_id&goods_id=$goods.goods_id}"  ectype="dialog" dialog_title="申请会员" dialog_width="400"  dialog_id="member_brand_apply">
+{$lang.an_application_for_author}</a>
+					<!--{else}--> 
+					<strong>{$goods.price|price}</strong>
+					<!--{/if}--> </p>
+					</div>
+				</li>
+                <!-- {/foreach} -->
+			</ul>
+		</div>
+		<!--最新成交款式 结束 -->
+		<!--潮流资讯 开始 -->
+		<div class="trend">
+			<div class="information_t"><a href="http://bbs.worldmall.cn">更多潮流资讯>></a></div>
+			<div class="trend_main">
+				<div class="trend_detail l">
+					<div class="l"><img src="{res file=images/special2.jpg}" alt="低价皮具" width="60" height="60" /></div>
+					<div class="r">
+                  <!-- {foreach from=$trend_info item=trend_item name="trend_info"}-->
+                       {if $smarty.foreach.trend_info.iteration eq 1}
+						<p class="b"><a href="{url app=article&act=view&article_id=$trend_item.article_id}">{$trend_item.title|strip_tags|truncate:30}</a></p>
+						<p>{$trend_item.content|strip_tags|truncate:110}</p>
+                        {/if}
+                        <!-- {/foreach}-->
+					</div>
+				</div>
+				<ul class="r">
+                <!-- {foreach from=$trend_info item=trend_item name="trend_info"}-->
+                {if $smarty.foreach.trend_info.iteration gt 1}
+					<li><a href="{url app=article&act=view&article_id=$trend_item.article_id}">{$trend_item.title|strip_tags|truncate:40}</a><span>{$trend_item.add_time|date:m-d}</span></li>
+                    {/if}
+                 <!-- {/foreach}-->
+                    
+				</ul>
+			</div>
+		</div>
+		<!--潮流资讯 结束 -->
+	</div>
+	<div class="sidebarB">
+		<div class="database">
+			<div class="review_t">商品评论</div>
+			<div class="review_main">
+				<ul>
+					<!-- {foreach from=$comment_data item=comment} -->
+					<li><a href="{url app=goods&amp;id=$comment.goods_id&amp;act=comments#module}" target="_blank">{$comment.comment|truncate:32|escape}</a> </li>
+					<!-- {/foreach} -->
+				</ul>
+				<div class="hot_batch hot_community">同窗社区</div>
+				<script type="text/javascript" src="http://bbs.worldmall.cn/api.php?mod=js&bid=100"></script>
+			</div>
+		</div>
+	</div>
+</div>
+<!--最新成交款式 潮流资讯 结束 -->
+<!--关于世界窗 开始 -->
+<div class="about main" ectype="about_worldmall">
+<div class="about-menu">
+  <ul class="r cswitch-menu">
+    <li><a href="javascript:;" class="current">{$lang.about}</a></li>
+    <li><a href="javascript:;">{$lang.help}</a></li>
+    <li class="margin0"><a href="javascript:;">{$lang.link}</a></li>
+  </ul>
+</div>
+<div class="about-main cswitch-content">
+  <ul class="about_img">
+  	<li>
+		<a target="_blank" href="http://donghao.worldmall.cn"><img src="{res file=images/introduction3.jpg}" alt="集团旗下新东豪皮具城" title="集团旗下新东豪皮具城" /></a>
+		<p><a target="_blank" href="http://donghao.worldmall.cn">集团旗下</br>新东豪皮具城</a></p>
+	</li>
+	<li>
+		<a target="_blank" href="http://huihao.worldmall.cn"><img src="{res file=images/introduction2.jpg}" alt="集团旗下新汇豪皮具城" title="集团旗下新汇豪皮具城" /></a>
+		<p><a target="_blank" href="http://huihao.worldmall.cn">集团旗下</br>新汇豪皮具城</a></p>
+	</li>
+	<li>
+		<a target="_blank" href="http://shenghao.worldmall.cn"><img src="{res file=images/introduction1.jpg}" alt="集团旗下盛豪皮革五金材料城" title="集团旗下盛豪皮革五金材料城" /></a>
+		<p><a target="_blank" href="http://shenghao.worldmall.cn">集团旗下</br>盛豪皮革五金材料城</a></p>
+	</li>
+	<li>
+		<a target="_blank" href="{url app=article&act=view&article_id=515}"><img src="{res file=images/honor1.jpg}" alt="广州市十大最有潜力电子商务企业" title="广州市十大最有潜力电子商务企业" /></a>
+		<p><a target="_blank" href="{url app=article&act=view&article_id=515}">广州市十大最有潜力电子商务企业</a></p>
+	</li>
+	<li>
+		<a target="_blank" href="{url app=article&act=view&article_id=516}"><img src="{res file=images/honor2.jpg}" alt="广州市白云区政府扶持项目" title="广州市白云区政府扶持项目" /></a>
+		<p><a target="_blank" href="{url app=article&act=view&article_id=516}">广州市白云区政府扶持项目</a></p>
+	</li>
+	<li>
+		<a target="_blank" href="{url app=article&act=view&article_id=644}"><img src="{res file=images/room4.jpg}" alt="广州市政府领导莅临指导" title="广州市政府领导莅临指导" /></a>
+		<p><a target="_blank" href="{url app=article&act=view&article_id=644}">世界窗皮具网为广州互联网协会理事单位</a></p>
+	</li>
+	<li>
+		<a target="_blank" href="{url app=article&act=view&article_id=715}"><img src="{res file=images/room5.jpg}" alt="世界窗皮具网为买卖双方提供保障交易" title="世界窗皮具网为买卖双方提供保障交易" /></a>
+		<p><a target="_blank" href="{url app=article&act=view&article_id=715}">世界窗皮具网为买卖双方提供保障交易</a></p>
+	</li>
+	<li>
+		<a target="_blank" href="{url app=article&act=view&article_id=720}"><img src="{res file=images/show9.png}" alt="世界窗提供线下实体拿货服务" title="世界窗提供线下实体拿货服务" /></a>
+		<p><a target="_blank" href="{url app=article&act=view&article_id=720}">世界窗提供线下实体拿货服务</a></p>
+	</li>
+  </ul>
+</div>
+<div style="display:none" class="about-main cswitch-content">
+  <dl>
+    <dt>{$lang.im_buyer}</dt>
+    <dd><a href="{url act=help&amp;type=registration}" target="_blank">{$lang.account_registration}</a></dd>
+    <dd><a href="{url act=help&amp;type=choose}" target="_blank">{$lang.search_goods}{$lang.search}</a></dd>
+    <dd><a href="{url act=help&amp;type=purchase}" target="_blank">{$lang.purchase_payment}</a></dd>
+    <dd><a href="{url act=help&amp;type=refund}" target="_blank">{$lang.rrading_rights}</a></dd>
+    <dd><a href="{url act=help&amp;type=evaluation}" target="_blank">{$lang.receiving_evaluation}</a></dd>
+    <dd><a href="{url act=help&amp;type=pay}" target="_blank">{$lang.payment_name} </a></dd>
+    <dd>{$lang.view_logistics}</dd>
+    <dd><a href="{url act=help&amp;type=collection}" target="_blank">{$lang.shop_collection}</a></dd>
+    <dd><a href="{url act=help&amp;type=collection}" target="_blank">{$lang.goods_collection}</a></dd>
+  </dl>
+  <dl>
+    <dt>{$lang.im_seller}</dt>
+    <dd><a href="{url act=help&amp;type=assigned}" target="_blank">{$lang.i_want_shop}</a></dd>
+    <dd><a href="{url act=help&amp;type=order}" target="_blank">{$lang.order_manage}</a></dd>
+    <dd><a href="{url act=help&amp;type=account}" target="_blank">{$lang.account_settings}</a></dd>
+    <dd><a href="{url act=help&amp;type=account}" target="_blank">{$lang.how_to_cash}</a></dd>
+    <dd><a href="{url act=help&amp;type=purchase}">{$lang.shipment}</a></dd>
+    <dd><a href="{url act=help&amp;type=commodity}" target="_blank">{$lang.release_of_goods}</a></dd>
+    <dd><a href="{url act=help&amp;type=commodity}" target="_blank">{$lang.management}</a></dd>
+    <dd><a href="{url act=help&amp;type=brand}">{$lang.shop_fitting}</a></dd>
+  </dl>
+  <dl class="margin0">
+    <dt>{$lang.contact_customer_service}</dt>
+    <dd>
+      <p>{$lang.online_service}：<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=1322252660&amp;site=qq&amp;menu=yes"><img border="0" alt="点击这里给我发消息" src=" http://wpa.qq.com/pa?p=2:653453277:41" title="点击这里给我发消息"></a></p>
+      <p>{$lang.wervice_email}：<a href="mailto:service@worldmall.cn">service@worldmall.cn</a></p>
+      <p>{$lang.customer_service_hotline}：020-86378968</p>
+    </dd>
+  </dl>
+</div>
+<div style="display:none" class="about-main cswitch-content">{widgets page=index area=index_link}</div>
+
+<!--关于世界窗 结束 --> 
+{include file=footer.html}
+<div class="certification text_c">
+
+</div>
+<script src="http://13878.kf.qycn.com/vclient/state.php?webid=13878" language="javascript" type="text/javascript"></script>

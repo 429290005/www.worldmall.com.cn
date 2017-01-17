@@ -1,0 +1,108 @@
+{include file="header.html"}
+<script type="text/javascript">
+$(function(){
+	$('#add_time_from').datepicker({dateFormat: 'yy-mm-dd'});
+	$('#add_time_to').datepicker({dateFormat: 'yy-mm-dd'});
+
+	
+    $("tbody tr").hover(
+		function() {
+			$(this).css({background:"#EAF8DB"});
+		},
+		function(){
+			$(this).css({background:"#FBFDFF"});
+		}
+	);
+});
+</script>
+<div id="rightTop">
+  <p>{$lang.stock_manage}</p>
+  <ul class="subnav">
+    <li><span>{$lang.manage}</span></li>
+  </ul>
+</div>
+<div class="mrightTop info">
+  <div class="fontl">
+    <form method="get">
+      <input type="hidden" name="app" value="stock" />
+      <select class="querySelect" name="field_name">
+      {html_options options=$query_fields selected=$smarty.get.field_name}
+      </select>
+      <input class="queryInput" type="text" name="field_value" value="{$smarty.get.field_value|escape}" />
+      
+      <input class="queryInput pick_date" type="hidden" value="1971-01-01" id="add_time_from" name="add_time_from" />
+                {$lang.add_time_to}:<input class="queryInput pick_date" type="text" value="{$query.add_time_to}" id="add_time_to" name="add_time_to" />
+      
+      <input type="submit" class="formbtn" value="{$lang.query}" />
+      <input type="submit" class="formbtn" name="export_all" value="{$lang.export}" />
+    </form>
+  </div>
+  <div class="fontr"><!--{if $goods_list}-->{include file=page.top.html}<!--{/if}--></div>
+</div>
+<div class="tdare">
+  <table width="100%" cellspacing="0" class="dataTable">
+  	<thead>
+    <!--{if $goods_list}-->
+    <tr class="tatr1">
+      <td width="12%" class="firstCell">{$lang.goods_sn}</td>
+      <td>{$lang.goods_name}</td>
+      <td width="8%">{$lang.brand_name}</td>
+      <td width="10%">{$lang.store_goods_code}</td>
+      <td width="4%">{$lang.goods_colour}</td>
+      <td width="6%">{$lang.goods_specification}</td>
+      <td width="5%">{$lang.quantity}</td>
+      <td width="6%">{$lang.price_average}</td>
+      <td width="8%">{$lang.price}</td>
+      <td width="12%" class="table-center">{$lang.update_time}</td>
+      <td width="12%" class="table-center">{$lang.add_time}</td>
+    </tr>
+    <!--{/if}-->
+    </thead>
+    <tbody>
+    <!--{foreach from=$goods_list item=goods}-->
+    <tr class="tatr2">
+      <td class="firstCell">{$goods.goods_sn|escape|default:-}</td>
+      <td>{$goods.goods_name|escape|default:-}</td>
+      <td>{$goods.brand_name|escape|default:-}</td>
+      <td>{$goods.store_goods_code|escape|default:-}</td>
+      <td>{$goods.goods_colour|escape|default:-}</td>
+      <td>{$goods.goods_specification|escape|default:-}</td>
+      <td>{if $goods.quantity le '10'}<strong>{$goods.quantity|escape|default:-}</strong>{else}{$goods.quantity|escape|default:-}{/if}</td>
+      <td>{$goods.price_average|price:%s}</td>
+      <td>{$goods.price|price:%s}</td>
+      <td class="table-center">{$goods.update_time|date:complete}</td>
+      <td class="table-center">{$goods.add_time|date:complete}</td>
+    </tr>
+    <!--{foreachelse}-->
+    <tr class="no_data info">
+      <td colspan="11">{$lang.no_data}</td>
+    </tr>
+    <!--{/foreach}-->
+    </tbody>
+  </table>
+  <!--{if $goods_list}-->
+    <table width="100%" cellspacing="0" class="dataTable">
+    	<thead>
+        <tr class="tatr1">
+            <td width="16%" class="firstCell">{$lang.quantity}</td>
+            <td width="16%">{$lang.price}</td>
+            <td width="16%">{$lang.page_total_quantity}</td>
+            <td>{$lang.page_total_price}</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="tatr2">
+            <td class="firstCell"><span class="total_text">{$total.total_q|default:0}</span></td>
+            <td><span class="total_text">{$total.total_p|price:%s}</span></td>
+            <td><span class="total_text">{$total.total_quantity|default:0}</span></td>
+            <td><span class="total_text">{$total.total_price|price:%s}</span></td>
+        </tr>
+        </tbody>
+    </table>
+  <div id="dataFuncs">
+    <div class="pageLinks">{include file=page.bottom.html}</div>
+  </div>
+  <!--{/if}-->
+  <div class="clear"></div>
+</div>
+{include file="footer.html"}

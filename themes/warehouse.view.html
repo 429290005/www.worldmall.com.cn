@@ -1,0 +1,83 @@
+{include file="header.html"}
+<div id="rightTop">
+  <p>{$lang.returned_manage}</p>
+  <ul class="subnav">
+    <li><a class="btn1" href="index.php?app=warehouse">{$lang.returned_list}</a></li>
+  </ul>
+</div>
+<div class="tdare">
+    <table width="100%" cellspacing="0" class="dataTable">
+    	<thead>
+        <tr class="tatr1" style="background-color:#B9FFFF;">
+            <td class="firstCell">{$lang.sell_sn}</td>
+            <td class="table-center">{$lang.returned_time}</td>
+            <td class="table-center">{$lang.returned_type}</td>
+        	<td>{$lang.order_sn}</td>
+            <td>{$lang.buyer_name}</td>
+            <td>{$lang.shipping_name}</td>
+            <td>{$lang.shipping_sn}</td>
+            <td>{$lang.shipping_fee}</td>
+            <td>{$lang.buyer_remark}</td>
+            <td>{$lang.lister}</td>
+            <td>{$lang.warehouser}</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="tatr2" style="background-color:#E1FFF0;">
+            <td class="firstCell">{$data.sell_sn|escape|default:-}</td>
+            <td class="table-center">{$data.refund_time|escape|default:-}</td>
+            <td class="table-center">{if $data.refund_type eq '0'}{$lang.type_other}{elseif $data.refund_type eq '1'}{$lang.type_worldmall}{elseif $data.refund_type eq '2'}{$lang.type_taobao}{elseif $data.refund_type eq '3'}{$lang.type_network}{/if}</td>
+            <td>{$data.order_sn|escape|default:-}</td>
+            <td>{$data.buyer_name|escape|default:-}</td>
+            <td>{$data.shipping_name|escape|default:-}</td>
+            <td>{$data.shipping_sn|escape|default:-}</td>
+            <td>{$data.shipping_fee|price:%s}</td>
+            <td>{$data.buyer_remark|escape|default:-}</td>
+            <td>{$data.lister|escape|default:-}</td>
+            <td>{$data.warehouse_username|escape|default:-}</td>
+        </tr>
+        </tbody>
+    </table>
+    
+    <table width="100%" cellspacing="0" class="dataTable">
+    	<thead>
+        <tr class="tatr1" style="background-color: #BDF;">
+            <td class="firstCell">{$lang.goods_sn}</td>
+            <td>{$lang.goods_name}</td>
+            <td>{$lang.brand_name}</td>
+        	<td>{$lang.store_goods_code}</td>
+            <td>{$lang.goods_colour}</td>
+            <td class="table-center">{$lang.unit}</td>
+            <td>{$lang.goods_specification}</td>
+            <td>{$lang.returned_quantity}</td>
+            <td>{$lang.returned_price}</td>
+            <td>{$lang.returned_money}</td>
+            <td>{$lang.defective}</td>
+            <td>{$lang.remark}</td>
+        </tr>
+        </thead>
+        <tbody>
+        <!--{foreach from=$data.rd item=goods}-->
+        <tr class="tatr2" style="background-color:#E1FFF0;">
+            <td class="firstCell">{$goods.goods_sn|escape|default:-}</td>
+            <td>{$goods.goods_name|escape|default:-}</td>
+            <td>{$goods.brand_name|escape|default:-}</td>
+            <td>{$goods.store_goods_code|escape|default:-}</td>
+            <td>{$goods.goods_colour|escape|default:-}</td>
+            <td class="table-center">{$goods.unit|escape|default:-}</td>
+            <td>{$goods.goods_specification|escape|default:-}</td>
+            <td>{$goods.quantity}</td>
+            <td>{$goods.price}</td>
+            <td>{$goods.money}</td>
+            <td>{if $goods.defective eq '0'}否{else}是{/if}</td>
+            <td>{$goods.remark|escape|default:-}</td>
+        </tr>
+        <!--{/foreach}-->
+        </tbody>
+    </table>
+    <div class="order_form" align="center">
+    	<input class="formbtn1" type="button" name="Submit" value="{$lang.go_back}" onclick="javascript:history.go(-1);" />
+    </div>
+    <div class="clear"></div>
+</div>
+{include file="footer.html"}

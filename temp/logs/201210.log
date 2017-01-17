@@ -1,0 +1,19 @@
+Thu, 04 Oct 2012 14:21:41 +0800	[2]Division by zero	/app/sell.app.php	62
+Fri, 05 Oct 2012 08:35:54 +0800	[2]Division by zero	/app/sell.app.php	62
+Fri, 05 Oct 2012 10:20:15 +0800	[2]Division by zero	/app/sell.app.php	62
+Fri, 05 Oct 2012 10:23:07 +0800	[2]Division by zero	/app/sell.app.php	62
+Fri, 05 Oct 2012 10:34:52 +0800	[2]Division by zero	/app/sell.app.php	62
+Fri, 05 Oct 2012 10:35:32 +0800	[2]Division by zero	/app/sell.app.php	62
+Fri, 05 Oct 2012 10:36:38 +0800	[2]Division by zero	/app/sell.app.php	63
+Fri, 05 Oct 2012 10:38:14 +0800	[2]Division by zero	/app/sell.app.php	64
+Fri, 05 Oct 2012 14:45:46 +0800	[256]MySQL Error[1054]: Unknown column 'C01' in 'where clause'
+MySQL Query:SELECT *,sell.sell_id FROM ecm_sell sell WHERE order_sn=C01-0664222-4135829 AND is_void =0
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[533]	/eccore/model/mysql.php	285
+Fri, 05 Oct 2012 19:24:04 +0800	[2]Division by zero	/app/warehouse.app.php	310
+Sun, 07 Oct 2012 15:03:11 +0800	[256]MySQL Error[1054]: Unknown column 'C02' in 'where clause'
+MySQL Query:SELECT *,sell.sell_id FROM ecm_sell sell WHERE order_sn=C02-7446444-1171005 AND is_void =0
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[533]	/eccore/model/mysql.php	285
+Sun, 07 Oct 2012 15:07:54 +0800	[256]MySQL Error[1054]: Unknown column 'C02' in 'where clause'
+MySQL Query:SELECT *,sell.sell_id FROM ecm_sell sell WHERE order_sn= C02-7446444-1171005 AND is_void =0
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[533]	/eccore/model/mysql.php	285
+Sat, 13 Oct 2012 15:59:56 +0800	[2]Division by zero	/app/warehouse.app.php	310

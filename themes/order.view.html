@@ -1,0 +1,32 @@
+{include file="header.html"}
+<div id="rightTop">
+    <p><b>{$lang.order_detail}</b></p>
+</div>
+<div class="info">
+    <div class="order_form">
+        <h1>{$lang.order_status}</h1>
+        <ul>
+            <li><b>{$lang.order_sn}:</b>{$order.order_sn}</li>
+            <li><b>{$lang.order_type}:</b>{if $order.order_type eq '1'}{$lang.type_worldmall}{elseif $order.order_type eq '2'}{$lang.type_taobao}{elseif $order.order_type eq '0'}{$lang.type_other}{/if}</li>
+            <li><b>{$lang.store_name}:</b>{$order.store_name|escape}</li>
+            <li><b>{$lang.order_amount}:</b> <span style="color:#CC0000; font-size:14px; font-weight:bold;"><em>{$order.order_amount|price}</em></span></li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+    <div class="order_form">
+        <h2>{$lang.goods_info}</h2>
+        <!--{foreach from=$order.og item=goods}-->
+        <div class="order_info">
+            <a href="{$goods.default_image}" target="_blank" class="order_info_pic"><img width="80" height="80" alt="{$lang.goods_pic}" src="{$goods.default_image}" /></a>
+            <div class="order_info_text">{$goods.goods_name|escape}<br />{$goods.goods_specification|escape}</div>
+            <p class="price"><b>{$lang.price} :</b> <span class="red_common">{$goods.price|price}</span></p>
+            <p class="amount"><b>{$lang.quantity} :</b> <span>{$goods.quantity}</span></p>
+        </div>
+        <!--{/foreach}-->
+        <div class="clear"></div>
+    </div>
+    <div class="order_form" align="center">
+    	<input class="formbtn1" type="button" name="Submit" value="{$lang.go_back}" onclick="javascript:history.go(-1);" />
+    </div>
+</div>
+{include file="footer.html"}

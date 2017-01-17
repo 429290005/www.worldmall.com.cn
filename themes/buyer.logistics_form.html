@@ -1,0 +1,72 @@
+{include file="header.html"}
+<script type="text/javascript">
+$(function(){
+    $('#buyer_logistics_form').validate({
+        errorPlacement: function(error, element){
+            $(element).next('.field_notice').hide();
+            $(element).after(error);
+        },
+        success       : function(label){
+            label.addClass('right').text('OK!');
+        },
+        onkeyup    : false,
+        rules : {
+            consignee : {
+                required : true
+            }
+        },
+        messages : {
+            consignee : {
+                required : '{$lang.consignee_not_empty}'
+            }
+        }
+    });
+});
+</script>
+<div id="rightTop">
+  <p>{$lang.buyer_manage}</p>
+  <ul class="subnav">
+    <li><a class="btn1" href="index.php?app=buyer&amp;act=logistics&amp;id={$buyer_id}">{$lang.manage}</a></li>
+    <li><span>{$lang.add}</span></li>
+  </ul>
+</div>
+<div class="info">
+  <form method="post" enctype="multipart/form-data" id="buyer_logistics_form">
+  	<input type="hidden" name="app" value="{$smarty.get.app}" />
+    <input type="hidden" name="act" value="{$smarty.get.act}" />
+    <table class="infoTable">
+      <tr>
+        <th class="paddingT15"> {$lang.consignee}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" id="consignee" type="text" name="consignee" value="{$buyerls.consignee|escape}" /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.ls_region_name}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="region_name" type="text" id="region_name" value="{$buyerls.region_name|escape}" /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.ls_address}:</th>
+        <td class="paddingT15 wordSpacing5"><input name="address" type="text" class="infoTableInput2" id="address" value="{$buyerls.address|escape}" /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.zipcode}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="zipcode" type="text" id="zipcode" value="{$buyerls.zipcode|escape}" /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.phone_tel}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="phone_tel" type="text" id="phone_tel" value="{$buyerls.phone_tel|escape}" /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.phone_mob}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="phone_mob" type="text" id="phone_mob" value="{$buyerls.phone_mob|escape}" /></td>
+      </tr>
+      <tr>
+        <th></th>
+        <td class="ptb20">
+        	<input class="formbtn" type="submit" name="Submit" value="{$lang.submit}" />
+            <input class="formbtn" type="reset" name="Reset" value="{$lang.reset}" />
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>
+{include file="footer.html"}

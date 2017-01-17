@@ -1,0 +1,4 @@
+Thu, 01 Mar 2012 10:13:01 +0800	[2]Division by zero	/includes/models/sell.model.php	83
+Thu, 08 Mar 2012 15:45:30 +0800	[256]MySQL Error[1146]: Table 'erp.ecm_pandian' doesn't exist
+MySQL Query:SELECT COUNT(*) as c FROM ecm_pandian pandian WHERE 1 = 1
+Wrong File:  /var/local/worldmall/erp.worldmall.cn/eccore/model/mysql.php[457]	/eccore/model/mysql.php	285

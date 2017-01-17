@@ -1,0 +1,6 @@
+Sat, 02 Feb 2013 10:34:00 +0800	[256]MySQL Error[1054]: Unknown column '130128L28LL8' in 'where clause'
+MySQL Query:SELECT *,sell.sell_id FROM ecm_sell sell WHERE order_sn=130128L28LL8 AND is_void =0
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[533]	/eccore/model/mysql.php	285
+Sat, 02 Feb 2013 10:35:03 +0800	[256]MySQL Error[1054]: Unknown column '130128L28LL8' in 'where clause'
+MySQL Query:SELECT *,sell.sell_id FROM ecm_sell sell WHERE order_sn=130128L28LL8 AND is_void =0
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[533]	/eccore/model/mysql.php	285

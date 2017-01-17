@@ -1,0 +1,97 @@
+{include file="header.html"}
+<script type="text/javascript" src="{lib file=jquery.plugins/jquery.AddIncSearch-min.js}" charset="utf-8"></script>
+<script type="text/javascript">
+//提交
+function confirm_submit() {
+	if(!confirm('{$lang.confirm_export}')){
+		return false;
+    }
+	$('#export_form').submit();
+}
+</script>
+<div id="rightTop">
+  <p>{$lang.purchase_manage}</p>
+  <ul class="subnav">
+    <li><a class="btn1" href="index.php?app=purchase">{$lang.manage}</a></li>
+    <li><a class="btn1" href="index.php?app=purchase&amp;act=add">{$lang.purchase_manage}</a></li>
+    <li><span>{$lang.view}</span></li>
+  </ul>
+</div>
+<div class="tdare">
+    <table width="100%" cellspacing="0" class="dataTable">
+    	<thead>
+        <tr class="tatr1" style="background-color:#B9FFFF;">
+            <td width="16%" class="firstCell">{$lang.purchase_sn}</td>
+            <td width="16%">{$lang.purchase_time}</td>
+            <td width="16%">{$lang.store_name}</td>
+        	<td width="16%">{$lang.store_name_sn}</td>
+            <td width="10%" class="table-center">{$lang.purchase_type}</td>
+            <td>{$lang.buyer}</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="tatr2" style="background-color:#E1FFF0;">
+            <td class="firstCell">{$purchase.purchase_sn|escape}</td>
+            <td>{$purchase.purchase_time|escape}</td>
+            <td>{$purchase.store_name|escape}</td>
+            <td>{$purchase.seller_sn|escape}</td>
+            <td class="table-center">{if $purchase.purchase_type eq 0}{$lang.type_purchase}{elseif $purchase.purchase_type eq 2}<span style="color:red;">{$lang.type_purchase_returns}</span>{else}{$lang.type_other}{/if}</td>
+            <td>{$purchase.buyer|escape}</td>
+        </tr>
+        </tbody>
+    </table>
+    
+    <table width="100%" cellspacing="0" class="dataTable">
+    	<thead>
+        <tr class="tatr1" style="background-color: #BDF;">
+            <td class="firstCell" width="12%">{$lang.goods_sn}</td>
+            <td>{$lang.goods_name}</td>
+            <td>{$lang.goods_category}</td>
+            <td width="8%">{$lang.brand_name}</td>
+        	<td width="10%">{$lang.store_goods_code}</td>
+            <td width="5%">{$lang.goods_colour}</td>
+            <td width="4%" class="table-center">{$lang.unit}</td>
+            <td width="8%">{$lang.goods_specification}</td>
+            <td width="6%">{$lang.price_crane}</td>
+            <td width="6%">{$lang.price_retail}</td>
+            <td width="6%">{$lang.price_purchase}</td>
+            <td width="6%">{$lang.discount}</td>
+            <td width="4%">{$lang.quantity}</td>
+            <td width="6%">{$lang.money}</td>
+            <td width="6%">{$lang.remark}</td>
+        </tr>
+        </thead>
+        <tbody>
+        <!--{foreach from=$purchase.pd item=goods}-->
+        <tr class="tatr2" style="background-color:#E1FFF0;">
+            <td class="firstCell">{$goods.goods_sn|escape|default:-}</td>
+            <td>{$goods.goods_name|escape|default:-}</td>
+            <td>{$goods.goods_category|escape|default:-}</td>
+            <td>{$goods.brand_name|escape|default:-}</td>
+            <td>{$goods.store_goods_code|escape|default:-}</td>
+            <td>{$goods.goods_colour|escape|default:-}</td>
+            <td class="table-center">{$goods.unit|escape|default:-}</td>
+            <td>{$goods.goods_specification|escape|default:-}</td>
+            <td>{$goods.price_crane|price:%s}</td>
+            <td>{$goods.price_retail|price:%s}</td>
+            <td>{$goods.price_purchase|price:%s}</td>
+            <td>{$goods.discount|escape|default:-}</td>
+            <td>{$goods.quantity|escape|default:-}</td>
+            <td>{$goods.money|price:%s}</td>
+            <td>{$goods.remark|escape|default:-}</td>
+        </tr>
+        <!--{/foreach}-->
+        </tbody>
+    </table>
+    <form method="post" name="export_form" id="export_form" action="index.php?app=purchase&amp;act=export">
+    <input type="hidden" name="purchase_id" value="{$purchase_id}" />
+    <div class="order_form" align="center">
+    	<input class="formbtn1" type="button" name="Submit" value="{$lang.go_back}" onclick="javascript:history.go(-1);" />
+    	{if $purchase.pd}
+    	<input class="formbtn1" type="submit" name="Export" value="{$lang.export}" onclick="confirm_submit();" />
+    	{/if}
+    </div>
+    </form>
+    <div class="clear"></div>
+</div>
+{include file="footer.html"}

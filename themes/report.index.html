@@ -1,0 +1,101 @@
+{include file="header.html"}
+<script type="text/javascript">
+$(function(){
+	$('#add_time_from').datepicker({dateFormat: 'yy-mm-dd'});
+	$('#add_time_to').datepicker({dateFormat: 'yy-mm-dd'});
+	
+    $("tbody tr").hover(
+		function() {
+			$(this).css({background:"#EAF8DB"});
+		},
+		function(){
+			$(this).css({background:"#FBFDFF"});
+		}
+	);
+});
+</script>
+<div id="rightTop">
+  <p>{$lang.sell_report}</p>
+  <ul class="subnav">
+    <li><span>{$lang.manage}</span></li>
+  </ul>
+</div>
+<div class="mrightTop info">
+  <div class="fontl">
+    <form method="get">
+    	<input type="hidden" name="app" value="{$smarty.get.app}" />
+        <input type="hidden" name="act" value="{$smarty.get.act}" />
+        <select class="querySelect" name="field">
+        {html_options options=$search_options selected=$smarty.get.field}
+        </select>
+        <input class="queryInput" type="text" name="search_name" value="{$query.search_name|escape}" />
+        {$lang.add_time_from}:<input class="queryInput pick_date" type="text" value="{$query.add_time_from}" id="add_time_from" name="add_time_from" />
+        {$lang.add_time_to}:<input class="queryInput pick_date" type="text" value="{$query.add_time_to}" id="add_time_to" name="add_time_to" />
+        {$lang.sell_type}:
+        <select class="querySelect" name="sell_type">
+        <option value="">{$lang.type_all}</option>
+        {html_options options=$sell_type selected=$smarty.get.sell_type}
+        </select>
+        {$lang.status}:
+        <select class="querySelect" name="status">
+        <option value="">{$lang.type_all}</option>
+        {html_options options=$status selected=$smarty.get.status}
+        </select>
+        <input type="submit" class="formbtn" value="{$lang.query}" />
+        <input type="submit" class="formbtn" name="export_all" value="{$lang.export}" />
+    </form>
+  </div>
+  <div class="fontr"><!--{if $data_list}-->{include file=page.top.html}<!--{/if}--></div>
+</div>
+<div class="tdare">
+  <table width="100%" cellspacing="0" class="dataTable">
+  	<thead>
+    <!--{if $data_list}-->
+    <tr class="tatr1">
+      <td width="12%" class="firstCell">{$lang.sell_sn}</td>
+      <td width="10%" class="table-center">{$lang.sell_time}</td>
+      <td width="8%">{$lang.sell_type}</td>
+      <td width="12%">{$lang.order_sn}</td>
+      <td width="10%">{$lang.no_tax_sell_money}</td>
+      <td width="8%">{$lang.tax_rate}(%)</td>
+      <td width="10%">{$lang.yes_tax_sell_money}</td>
+      <td width="8%">{$lang.shipping_fee}</td>
+      <td>{$lang.total}</td>
+    </tr>
+    <!--{/if}-->
+    </thead>
+    <tbody>
+    <!--{foreach from=$data_list item=data}-->
+    <tr class="tatr2">
+      <td class="firstCell">{$data.sell_sn|escape|default:-}</td>
+      <td class="table-center">{$data.sell_time|escape|default:-}</td>
+      <td>{if $data.sell_type eq '0'}{$lang.type_other}{elseif $data.sell_type eq '1'}{$lang.type_worldmall}{elseif $data.sell_type eq '2'}{$lang.type_taobao}{/if}</td>
+      <td>{$data.order_sn|escape|default:-}</td>
+      <td>{$data.untax_money|price:%s}</td>
+      <td>17</td>
+      <td>{$data.sell_money|price:%s}</td>
+      <td>{$data.shipping_fee|price:%s}</td>
+      <td>{$data.total|price:%s}</td>
+    </tr>
+    <!--{foreachelse}-->
+    <tr class="no_data info">
+      <td colspan="9">{$lang.no_data}</td>
+    </tr>
+    <!--{/foreach}-->
+    </tbody>
+    <!--{if $data_list}-->
+    <tfoot>
+    <tr class="tatr1">
+      <td colspan="9" class="firstCell">{$lang.total_money}: <span class="total_text">{$total_money}</span> {$lang.yuan}</td>
+    </tr>
+    </tfoot>
+    <!--{/if}-->
+  </table>
+  <!--{if $data_list}-->
+  <div id="dataFuncs">
+    <div class="pageLinks">{include file=page.bottom.html}</div>
+  </div>
+  <!--{/if}-->
+  <div class="clear"></div>
+</div>
+{include file="footer.html"}

@@ -1,0 +1,1 @@
+Fri, 07 Oct 2011 10:39:48 +0800	[2]mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Can't connect to MySQL server on 'localhost' (10061)	\eccore\model\mysql.php	94

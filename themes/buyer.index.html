@@ -1,0 +1,92 @@
+{include file="header.html"}
+<script type="text/javascript">
+$(function(){
+    $("tbody tr").hover(
+		function() {
+			$(this).css({background:"#EAF8DB"});
+		},
+		function(){
+			$(this).css({background:"#FBFDFF"});
+		}
+	);
+});
+</script>
+<div id="rightTop">
+  <p>{$lang.buyer_manage}</p>
+  <ul class="subnav">
+    <li><span>{$lang.manage}</span></li>
+    <li><a class="btn1" href="index.php?app=buyer&amp;act=add">{$lang.add}</a></li>
+  </ul>
+</div>
+<div class="mrightTop info">
+  <div class="fontl">
+    <form method="get">
+      <input type="hidden" name="app" value="buyer" />
+    {$lang.buyer_name}:
+    <input class="queryInput" type="text" name="buyer_name" value="{$query.buyer_name|escape}" />
+      <input type="submit" class="formbtn" value="{$lang.query}" />
+      <!--{if $smarty.get.field_value}-->
+	  <a class="formbtn1" href="index.php?app=buyer">{$lang.cancel_query}</a>
+      <!--{/if}-->
+    </form>
+  </div>
+  <div class="fontr">{include file=page.top.html}</div>
+</div>
+<div class="tdare">
+  <table width="100%" cellspacing="0" class="dataTable">
+  	<thead>
+    <!--{if $data_list}-->
+    <tr class="tatr1">
+      <td width="20" class="firstCell"><input type="checkbox" class="checkall" /></td>
+      <td>{$lang.buyer_name}</td>
+      <td width="7%">{$lang.real_name}</td>
+      <td width="6%" class="table-center">{$lang.buyer_type}</td>
+      <td width="4%" class="table-center">{$lang.gender}</td>
+      <td width="10%">{$lang.region_name}</td>
+      <td width="8%" class="table-center">{$lang.birthday}</td>
+      <td width="16%">{$lang.email}</td>
+      <td width="10%">{$lang.phone_tel}</td>
+      <td width="10%">{$lang.phone_mob}</td>
+      <td width="9%">{$lang.im_qq}</td>
+      <td width="8%" class="table-center">{$lang.handler}</td>
+    </tr>
+    <!--{/if}-->
+    </thead>
+    <tbody>
+    <!--{foreach from=$data_list item=buyer}-->
+    <tr class="tatr2">
+      <td class="firstCell"><input type="checkbox" class="checkitem" value="{$buyer.buyer_id}"/></td>
+      <td>{$buyer.buyer_name|escape|default:-}</td>
+      <td>{$buyer.real_name|escape|default:-}</td>
+      <td class="table-center">{if $buyer.buyer_type eq '1'}{$lang.type_worldmall}{elseif $buyer.buyer_type eq '2'}{$lang.type_taobao}{elseif $buyer.buyer_type eq '0'}{$lang.type_other}{/if}</td>
+      <td class="table-center">{if $buyer.gender eq 1}{$lang.male}{elseif $buyer.gender eq 2}{$lang.female}{else}{$lang.unknown}{/if}</td>
+      <td>{$buyer.region_name|escape|default:-}</td>
+      <td class="table-center">{$buyer.birthday|escape|default:-}</td>
+      <td>{$buyer.email|escape|default:-}</td>
+      <td>{$buyer.phone_tel|escape|default:-}</td>
+      <td>{$buyer.phone_mob|escape|default:-}</td>
+      <td>{$buyer.im_qq|escape|default:-}</td>
+      <td class="table-center">
+      	<a href="index.php?app=buyer&amp;act=logistics&amp;id={$buyer.buyer_id}">{$lang.logistics}</a>
+        <a href="index.php?app=buyer&amp;act=edit&amp;id={$buyer.buyer_id}">{$lang.edit}</a>
+        <a href="index.php?app=buyer&amp;act=view&amp;id={$buyer.buyer_id}">{$lang.view}</a>
+      </td>
+    </tr>
+    <!--{foreachelse}-->
+    <tr class="no_data info">
+      <td colspan="16">{$lang.no_data}</td>
+    </tr>
+    <!--{/foreach}-->
+    </tbody>
+  </table>
+  <!--{if $data_list}-->
+  <div id="dataFuncs">
+    <div id="batchAction" class="left paddingT15" style="padding-left:25px;">
+      <input class="formbtn batchButton" type="button" value="{$lang.drop}" name="id" uri="index.php?app=buyer&act=drop" presubmit="confirm('{$lang.drop_confirm}')" />
+    </div>
+    <div class="pageLinks">{include file=page.bottom.html}</div>
+  </div>
+  <!--{/if}-->
+  <div class="clear"></div>
+</div>
+{include file="footer.html"}

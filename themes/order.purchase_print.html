@@ -1,0 +1,65 @@
+<div class="tdare">
+    <table width="100%" align="center" cellspacing="0" class="dataTable">
+    	<thead>
+        <tr>
+        	<td colspan="6" class="printTitle1" style="border:none;" align="center">{$lang.report_print}</td>
+        </tr>
+        </thead>
+        <tbody>
+        <!--{foreach from=$data_list item=order}-->
+        <tr class="tatr1">
+            <td width="18%">{$lang.store_name}</td>
+            <td width="16%">{$lang.brand_name}</td>
+            <td>{$lang.to_address}</td>
+            <td width="11%">{$lang.linkman}</td>
+            <td width="14%">{$lang.phone_mob}</td>
+            <td width="11%">{$lang.settlement}</td>
+        </tr>
+        <tr class="tatr2">
+            <td>{$order.store_name|escape}</td>
+            <td>{$order.seller_brand|escape}</td>
+            <td>{$order.address|escape}</td>
+            <td>{$order.real_name|escape}</td>
+            <td>{$order.phone_mob|escape}</td>
+            <td></td>
+        </tr>
+            <tr class="tatr1" style="background-color: #EAEAEA;">
+                <td width="18%">{$lang.goods_image}</td>
+                <td width="16%">{$lang.goods_item}</td>
+                <td>{$lang.goods_color}</td>
+                <td width="11%">{$lang.purchase_quantity}</td>
+                <td width="14%">{$lang.actual_number}</td>
+                <td width="11%">{$lang.box}</td>
+            </tr>
+            <!--{foreach from=$order.og item=goods}-->
+            <tr class="tatr2">
+                <td align="center"><img width="65" height="65" src="{$goods.default_image}" /></td>
+                <td>{$goods.store_goods_code|escape}</td>
+                <td>{$goods.goods_colour|escape}</td>
+                <td align="center">{$goods.quantity|escape}</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <!--{/foreach}-->
+            <tr class="tatr1" style="background-color: #EAEAEA;">
+                <td colspan="6">{$lang.stock_register}</td>
+            </tr>
+            <tr>
+                <td colspan="6" style="height:60px;"></td>
+            </tr>
+        <tr>
+            <td colspan="6" style="height:10px; border:0px;"></td>
+        </tr>
+        <!--{foreachelse}-->
+        <tr class="no_data">
+            <td colspan="6">{$lang.no_data}</td>
+        </tr>
+        <!--{/foreach}-->
+        </tbody>
+        <tfoot>
+        <tr>
+        	<td colspan="6" class="printTitle2 table-center" align="center" style="border:none;">第&nbsp;<span tdata="pageNO" format="#">#</span>&nbsp;页/共&nbsp;<span tdata="pageCount" format="#">#</span>&nbsp;页</td>
+        </tr>
+        </tfoot>
+    </table>
+</div>

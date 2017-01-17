@@ -1,0 +1,1 @@
+jQuery.extend({getCookie:function(d){var b=document.cookie.split("; ");for(var c=0;c<b.length;c++){var a=b[c].split("=");if(d==a[0]){return decodeURIComponent(a[1])}}return""},setCookie:function(b,d,c){var a=b+"="+encodeURIComponent(d);if(c!=null){a+="; expires="+c}document.cookie=a},removeCookie:function(a){document.cookie=a+"=; expires=Fri, 31 Dec 1999 23:59:59 GMT;"}});

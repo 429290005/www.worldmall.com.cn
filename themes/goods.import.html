@@ -1,0 +1,55 @@
+{include file="header.html"}
+<script type="text/javascript">
+$(function(){
+    $('#goods_form').validate({
+        errorPlacement: function(error, element){
+            $(element).next('.field_notice').hide();
+            $(element).after(error);
+        },
+        success       : function(label){
+            label.addClass('right').text('OK!');
+        },
+        onkeyup    : false,
+        rules : {
+            import_file : {
+                required : true
+            }
+        },
+        messages : {
+            import_file : {
+                required : '{$lang.no_select_file}'
+            }
+        }
+    });
+});
+</script>
+<div id="rightTop">
+  <p>{$lang.goods_manage}</p>
+  <ul class="subnav">
+    <li><a class="btn1" href="index.php?app=goods">{$lang.manage}</a></li>
+    <li><a class="btn1" href="index.php?app=goods&amp;act=add">{$lang.add}</a></li>
+    <li><span>{$lang.import}</span></li>
+  </ul>
+</div>
+<div class="info">
+  <form method="post" enctype="multipart/form-data" id="goods_form">
+  	<input type="hidden" name="app" value="{$smarty.get.app}" />
+    <input type="hidden" name="act" value="{$smarty.get.act}" />
+    <table class="infoTable">
+      <tr>
+        <th class="paddingT15"> {$lang.select_file_xls}:</th>
+        <td class="paddingT15 wordSpacing5">
+        	<input name="import_file" type="file" id="import_file" />
+            <a href="{$site_url}/data/files/download/import_goods_template.xls" target="_blank">{$lang.template_download}</a>
+        </td>
+      </tr>
+      <tr>
+        <th></th>
+        <td class="ptb20">
+        	<input class="formbtn" type="submit" name="Submit" value="{$lang.import}" />
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>
+{include file="footer.html"}

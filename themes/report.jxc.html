@@ -1,0 +1,102 @@
+{include file="header.html"}
+<script type="text/javascript">
+$(function(){
+	$('#add_time_from').datepicker({dateFormat: 'yy-mm'});
+	$('#add_time_to').datepicker({dateFormat: 'yy-mm'});
+	
+    $("tbody tr").hover(
+		function() {
+			$(this).css({background:"#EAF8DB"});
+		},
+		function(){
+			$(this).css({background:"#FBFDFF"});
+		}
+	);
+});
+</script>
+<div id="rightTop">
+  <p>{$lang.jxc_report}</p>
+</div>
+<div class="mrightTop info">
+  <div class="fontl">
+    <form method="get">
+    	<input type="hidden" name="app" value="{$smarty.get.app}" />
+        <input type="hidden" name="act" value="{$smarty.get.act}" />
+        <select class="querySelect" name="field">
+        {html_options options=$search_options selected=$smarty.get.field}
+        </select>
+        <input class="queryInput" type="text" name="search_name" value="{$query.search_name|escape}" />
+        {$lang.select_time}:<input class="queryInput pick_date" type="text" value="{$query.add_time_from}" id="add_time_from" name="add_time_from" />
+        <input type="submit" class="formbtn" value="{$lang.query}" />
+        <input type="submit" class="formbtn" name="export_all" value="{$lang.export}" />
+    </form>
+  </div>
+</div>
+<div class="tdare">
+  <table width="100%" cellspacing="0" class="dataTable">
+  	<thead>
+    <!--{if $data_list}-->
+    <tr class="tatr1">
+      <td colspan="5" class="table-center">{$lang.goods_info}</td>
+      <td colspan="3" class="table-center" style="border-left:1px solid #BBDBF1;border-right:1px solid #BBDBF1;">{$lang.prev_num}</td>
+      <td colspan="3" class="table-center" style="border-right:1px solid #BBDBF1;">{$lang.curr_in}</td>
+      <td colspan="3" class="table-center" style="border-right:1px solid #BBDBF1;">{$lang.curr_out}</td>
+      <td colspan="3" class="table-center">{$lang.curr_num}</td>
+    </tr>
+    <tr class="tatr1">
+      <td width="30px" class="firstCell">{$lang.sn}</td>
+      <td width="120px" class="table-center">{$lang.goods_code}</td>
+      <td width="120px" class="table-center">{$lang.goods_name}</td>
+      <td width="30px">{$lang.goods_specification}</td>
+      <td width="30px" style="border-right:1px solid #BBDBF1;">{$lang.goods_colour}</td>
+      <td class="table-center">{$lang.num}</td>
+      <td class="table-center">{$lang.price}</td>
+      <td class="table-center" style="border-right:1px solid #BBDBF1;">{$lang.money}</td>
+      <td class="table-center">{$lang.num}</td>
+      <td class="table-center">{$lang.price}</td>
+      <td class="table-center" style="border-right:1px solid #BBDBF1;">{$lang.money}</td>
+      <td class="table-center">{$lang.num}</td>
+      <td class="table-center">{$lang.price}</td>
+      <td class="table-center" style="border-right:1px solid #BBDBF1;">{$lang.money}</td>
+      <td class="table-center">{$lang.num}</td>
+      <td class="table-center">{$lang.price}</td>
+      <td class="table-center">{$lang.money}</td>
+    </tr>
+    <!--{/if}-->
+    </thead>
+    <tbody>
+    <!--{foreach from=$data_list item=goods}-->
+    <tr class="tatr2">
+      <td class="firstCell">{$goods.sn}</td>
+      <td class="table-center">{$goods.goods_sn|escape|default:-}</td>
+      <td class="table-center">{$goods.goods_name|escape|default:-}</td>
+      <td class="table-center">{$goods.goods_specification|escape|default:-}</td>
+      <td class="table-center" style="border-right:1px solid #BBDBF1;">{$goods.goods_colour|escape|default:-}</td>
+      <td class="table-center">{$goods.xyjc_num|escape|default:-}</td>
+      <td class="table-center">{$goods.xyjc_price|price:%s}</td>
+      <td class="table-center" style="border-right:1px solid #BBDBF1;">{$goods.xyjc_money|price:%s}</td>
+      <td class="table-center">{$goods.byrk_num|escape|default:-}</td>
+      <td class="table-center">{$goods.byrk_price|escape|default:-}</td>
+      <td class="table-center" style="border-right:1px solid #BBDBF1;">{$goods.byrk_money|price:%s}</td>
+      <td class="table-center">{$goods.byck_num|escape|default:-}</td>
+      <td class="table-center">{$goods.byck_price|escape|default:-}</td>
+      <td class="table-center" style="border-right:1px solid #BBDBF1;">{$goods.byck_money|price:%s}</td>
+      <td class="table-center">{$goods.byjc_num|escape|default:-}</td>
+      <td class="table-center">{$goods.byjc_price|escape|default:-}</td>
+      <td class="table-center">{$goods.byjc_money|price:%s}</td>
+    </tr>
+    <!--{foreachelse}-->
+    <tr class="no_data info">
+      <td colspan="17">{$lang.no_data}</td>
+    </tr>
+    <!--{/foreach}-->
+    </tbody>
+  </table>
+  <!--{if $data_list}-->
+  <div id="dataFuncs">
+    <div class="pageLinks">{include file=page.bottom.html}</div>
+  </div>
+  <!--{/if}-->
+  <div class="clear"></div>
+</div>
+{include file="footer.html"}

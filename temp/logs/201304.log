@@ -1,0 +1,24 @@
+Sat, 06 Apr 2013 16:23:18 +0800	[256]MySQL Error[1054]: Unknown column 'C01' in 'where clause'
+MySQL Query:SELECT *,sell.sell_id FROM ecm_sell sell WHERE order_sn= C01-4034899-7386412 AND is_void =0
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[533]	/eccore/model/mysql.php	285
+Sat, 06 Apr 2013 16:26:46 +0800	[256]MySQL Error[1054]: Unknown column 'C01' in 'where clause'
+MySQL Query:SELECT *,sell.sell_id FROM ecm_sell sell WHERE order_sn= C01-4034899-7386412 AND is_void =0
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[533]	/eccore/model/mysql.php	285
+Sat, 06 Apr 2013 16:37:20 +0800	[256]MySQL Error[1054]: Unknown column 'C01' in 'where clause'
+MySQL Query:SELECT *,sell.sell_id FROM ecm_sell sell WHERE order_sn=C01-4034899-7386412 AND is_void =0
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[533]	/eccore/model/mysql.php	285
+Sat, 06 Apr 2013 20:13:21 +0800	[256]MySQL Error[1054]: Unknown column '130331SACQEM' in 'where clause'
+MySQL Query:SELECT *,sell.sell_id FROM ecm_sell sell WHERE order_sn=130331SACQEM AND is_void =0
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[533]	/eccore/model/mysql.php	285
+Sat, 06 Apr 2013 20:13:56 +0800	[256]MySQL Error[1054]: Unknown column '130331SACQEM' in 'where clause'
+MySQL Query:SELECT *,sell.sell_id FROM ecm_sell sell WHERE order_sn=130331SACQEM AND is_void =0
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[533]	/eccore/model/mysql.php	285
+Mon, 08 Apr 2013 17:09:05 +0800	[256]MySQL Error[1054]: Unknown column '130331SACQEM' in 'where clause'
+MySQL Query:SELECT *,sell.sell_id FROM ecm_sell sell WHERE order_sn=130331SACQEM AND is_void =0
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[533]	/eccore/model/mysql.php	285
+Mon, 08 Apr 2013 17:10:03 +0800	[256]MySQL Error[1054]: Unknown column '130331SACQEM' in 'where clause'
+MySQL Query:SELECT *,sell.sell_id FROM ecm_sell sell WHERE order_sn=130331SACQEM AND is_void =0
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[533]	/eccore/model/mysql.php	285
+Mon, 08 Apr 2013 17:26:32 +0800	[256]MySQL Error[1064]: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '1308062418  AND is_void =0' at line 1
+MySQL Query:SELECT *,sell.sell_id FROM ecm_sell sell WHERE order_sn=1308073275 1308062418  AND is_void =0
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[533]	/eccore/model/mysql.php	285

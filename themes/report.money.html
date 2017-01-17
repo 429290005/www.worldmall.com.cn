@@ -1,0 +1,141 @@
+{include file="header.html"}
+<script type="text/javascript">
+$(function(){
+    $("tbody tr").hover(
+		function() {
+			$(this).css({background:"#EAF8DB"});
+		},
+		function(){
+			$(this).css({background:"#FBFDFF"});
+		}
+	);
+});
+</script>
+<div class="ttab">
+	<p>{$lang.benyuefen}</p>
+</div>
+<div class="tdare">
+  <table width="100%" cellspacing="0" class="dataTable">
+  	<thead>
+    <!--{if $current_data}-->
+    <tr class="tatr1">
+      <td width="20%" class="firstCell">{$lang.seller_name}</td>
+      <td width="12%">{$lang.period_unpaid}</td>
+      <td width="12%">{$lang.current_payables}</td>
+      <td width="12%">{$lang.issue_paid}</td>
+      <td>{$lang.non_payment_period}</td>
+    </tr>
+    <!--{/if}-->
+    </thead>
+    <tbody>
+    <!--{foreach from=$current_data item=data}-->
+    <tr class="tatr2">
+      <td class="firstCell"><a href="index.php?app=purchase&field=store_name&search_name={$data.store_name|url}&add_time_from={$cur_day.firstday}&add_time_to={$cur_day.lastday}">{$data.store_name|escape|default:-}</a></td>
+      <td>{$data.period_unpaid|price:%s}</td>
+      <td>{$data.current_payables|price:%s}</td>
+      <td>{$data.issue_paid|price:%s}</td>
+      <td>{$data.non_payment_period|price:%s}</td>
+    </tr>
+    <!--{foreachelse}-->
+    <tr class="no_data info">
+      <td colspan="5">{$lang.no_data}</td>
+    </tr>
+    <!--{/foreach}-->
+    </tbody>
+  </table>
+  <!--{if $current_data}-->
+    <table width="100%" cellspacing="0" class="dataTable">
+    	<thead>
+        <tr class="tatr1">
+            <td width="18%" class="firstCell">{$lang.period_unpaid}</td>
+            <td width="16%">{$lang.current_payables}</td>
+            <td width="16%">{$lang.issue_paid}</td>
+            <td>{$lang.non_payment_period}</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="tatr2">
+            <td class="firstCell"><span class="total_text">{$cur_total.period_unpaid|price:%s}</span></td>
+            <td><span class="total_text">{$cur_total.current_payables|price:%s}</span></td>
+            <td><span class="total_text">{$cur_total.issue_paid|price:%s}</span></td>
+            <td><span class="total_text">{$cur_total.non_payment_period|price:%s}</span></td>
+        </tr>
+        </tbody>
+    </table>
+  <!--{/if}-->
+  <div class="clear"></div>
+</div>
+
+<div class="ttab">
+	<p>{$lang.history}</p>
+</div>
+<div class="mrightTop info">
+  <div class="fontl">
+    <form method="get">
+    	<input type="hidden" name="app" value="{$smarty.get.app}" />
+        <input type="hidden" name="act" value="{$smarty.get.act}" />
+        {$lang.seller_name}:
+        <input name="seller_name" type="text" class="queryInput" id="seller_name" value="{$query.seller_name|escape}" />
+        {$lang.month}:
+        <select class="querySelect" name="month">
+        {html_options options=$m selected=$month}
+        </select>
+        <input type="submit" class="formbtn" value="{$lang.query}" />
+      <!--{if $filtered}-->
+	  <a class="formbtn1" href="index.php?app=report&amp;act=money">{$lang.cancel_query}</a>
+      <!--{/if}-->
+    </form>
+  </div>
+</div>
+<div class="tdare">
+  <table width="100%" cellspacing="0" class="dataTable">
+  	<thead>
+    <!--{if $data_list}-->
+    <tr class="tatr1">
+      <td width="20%" class="firstCell">{$lang.seller_name}</td>
+      <td width="12%">{$lang.period_unpaid}</td>
+      <td width="12%">{$lang.current_payables}</td>
+      <td width="12%">{$lang.issue_paid}</td>
+      <td>{$lang.non_payment_period}</td>
+    </tr>
+    <!--{/if}-->
+    </thead>
+    <tbody>
+    <!--{foreach from=$data_list item=data}-->
+    <tr class="tatr2">
+      <td class="firstCell"><a href="index.php?app=purchase&field=store_name&search_name={$data.store_name|url}&add_time_from={$day.firstday}&add_time_to={$day.lastday}">{$data.store_name|escape|default:-}</a></td>
+      <td>{$data.period_unpaid|price:%s}</td>
+      <td>{$data.current_payables|price:%s}</td>
+      <td>{$data.issue_paid|price:%s}</td>
+      <td>{$data.non_payment_period|price:%s}</td>
+    </tr>
+    <!--{foreachelse}-->
+    <tr class="no_data info">
+      <td colspan="5">{$lang.no_data}</td>
+    </tr>
+    <!--{/foreach}-->
+    </tbody>
+  </table>
+  <!--{if $data_list}-->
+    <table width="100%" cellspacing="0" class="dataTable">
+    	<thead>
+        <tr class="tatr1">
+            <td width="18%" class="firstCell">{$lang.period_unpaid}</td>
+            <td width="16%">{$lang.current_payables}</td>
+            <td width="16%">{$lang.issue_paid}</td>
+            <td>{$lang.non_payment_period}</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="tatr2">
+            <td class="firstCell"><span class="total_text">{$total.period_unpaid|price:%s}</span></td>
+            <td><span class="total_text">{$total.current_payables|price:%s}</span></td>
+            <td><span class="total_text">{$total.issue_paid|price:%s}</span></td>
+            <td><span class="total_text">{$total.non_payment_period|price:%s}</span></td>
+        </tr>
+        </tbody>
+    </table>
+  <!--{/if}-->
+  <div class="clear"></div>
+</div>
+{include file="footer.html"}

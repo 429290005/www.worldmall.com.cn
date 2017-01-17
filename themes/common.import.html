@@ -1,0 +1,36 @@
+{include file="header.html"}
+<div id="rightTop">
+  <p>{$lang.import_data}</p>
+  <ul class="subnav">
+  </ul>
+</div>
+<div class="info">
+  <form method="post" enctype="multipart/form-data">
+    <table class="infoTable">
+      <tr>
+        <th class="paddingT15">{$lang.select_file}:</th>
+        <td class="paddingT15 wordSpacing5">
+        <input type="file" name="excel" id="excel" />
+      </tr>
+      <tr>
+        <th></th>
+        <td class="ptb20"><input class="formbtn" type="submit" name="Submit" value="{$lang.import}" />
+          <input class="formbtn" type="button" onclick="history.go(-1)" value="{$lang.back}" />        </td>
+      </tr>
+    </table>
+  </form>
+  <table class="infoTable">
+      <tr>
+        <th class="paddingT15">{$lang.down_example}:</th>
+        <td class="paddingT15 wordSpacing5">
+        	{if $from_act eq 'sell_type'}<a href="./temp/upload/XS.xls">{$lang.down_XS}</a>
+        	{elseif $from_act eq 'pandian_type'}
+        	<a href="./temp/upload/PD.xls">{$lang.down_PD}</a>
+        	{else}
+        	<a href="./temp/upload/CG.xls">{$lang.down_CG}</a>
+        	{/if}
+        </td>
+      </tr>
+  </table>
+</div>
+{include file="footer.html"} 

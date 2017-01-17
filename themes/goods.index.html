@@ -1,0 +1,105 @@
+{include file="header.html"}
+<script type="text/javascript">
+$(function(){
+    $("tbody tr").hover(
+		function() {
+			$(this).css({background:"#EAF8DB"});
+		},
+		function(){
+			$(this).css({background:"#FBFDFF"});
+		}
+	);
+});
+</script>
+<div id="rightTop">
+  <p>{$lang.goods_manage}</p>
+  <ul class="subnav">
+    <li><span>{$lang.manage}</span></li>
+    <li><a class="btn1" href="index.php?app=goods&amp;act=add">{$lang.add}</a></li>
+    <!--<li><a class="btn1" href="index.php?app=goods&amp;act=import">{$lang.import}</a></li>-->
+  </ul>
+</div>
+<div class="mrightTop info">
+  <div class="fontl">
+    <form method="get">
+      <input type="hidden" name="app" value="goods" />
+      <select class="querySelect" name="field_name">
+      {html_options options=$query_fields selected=$smarty.get.field_name}
+      </select>
+      <input class="queryInput" type="text" name="field_value" value="{$smarty.get.field_value|escape}" />
+      <input type="submit" class="formbtn" value="{$lang.query}" />
+      <!--{if $smarty.get.field_value}-->
+	  <a class="formbtn1" href="index.php?app=goods">{$lang.cancel_query}</a>
+      <!--{/if}-->
+    </form>
+  </div>
+  <div class="fontr">{include file=page.top.html}</div>
+</div>
+<div class="tdare">
+  <table width="100%" cellspacing="0" class="dataTable">
+  	<thead>
+    <!--{if $goods_list}-->
+    <tr class="tatr1">
+      <td width="20" class="firstCell"><input type="checkbox" class="checkall" /></td>
+      <td>{$lang.goods_name}</td>
+      <td width="6%" class="table-center">{$lang.stock_type}</td>
+      <td width="7%">{$lang.store_goods_code}</td>
+      <td width="9%">{$lang.barcode}</td>
+      <td width="9%">{$lang.goods_code}</td>
+      <td width="4%" class="table-center">{$lang.goods_category}</td>
+      <td width="6%">{$lang.goods_brand}</td>
+      <td width="4%">{$lang.goods_colour}</td>
+      <td width="5%">{$lang.goods_weight}(KG)</td>
+      <td width="5%">{$lang.goods_specification}(CM)</td>
+      <td width="3%" class="table-center">{$lang.unit}</td>
+      <td width="5%">{$lang.price_crane}</td>
+      <td width="5%">{$lang.price_retail}</td>
+      <td width="5%">{$lang.price_wholesale}</td>
+      <td width="5%">{$lang.price_purchase}</td>
+      <td width="7%">{$lang.purchase_discount}(%)</td>
+      <td width="3%" class="table-center">{$lang.handler}</td>
+    </tr>
+    <!--{/if}-->
+    </thead>
+    <tbody>
+    <!--{foreach from=$goods_list item=goods}-->
+    <tr class="tatr2">
+      <td class="firstCell"><input type="checkbox" class="checkitem" value="{$goods.goods_id}"/></td>
+      <td>{$goods.goods_name|escape|default:-}</td>
+      <td class="table-center">{if $goods.stock_type eq '1'}{$lang.stock_store}{elseif $goods.stock_type eq '2'}{$lang.stock_self}{/if}</td>
+      <td>{$goods.store_goods_code|escape|default:-}</td>
+      <td>{$goods.barcode|escape|default:-}</td>
+      <td>{$goods.goods_code|escape|default:-}</td>
+      <td class="table-center">{$goods.goods_category|modifier:goods_category|default:-}</td>
+      <td>{$goods.goods_brand|escape|default:-}</td>
+      <td>{$goods.goods_colour|escape|default:-}</td>
+      <td>{$goods.goods_weight|escape|default:-}</td>
+      <td>{$goods.goods_specification|escape|default:-}</td>
+      <td class="table-center">{$goods.unit|escape|default:-}</td>
+      <td>{$goods.price_crane|price:%s}</td>
+      <td>{$goods.price_retail|price:%s}</td>
+      <td>{$goods.price_wholesale|price:%s}</td>
+      <td>{$goods.price_purchase|price:%s}</td>
+      <td>{$goods.purchase_discount}</td>
+      <td class="table-center">
+        <a href="index.php?app=goods&amp;act=edit&amp;id={$goods.goods_id}">{$lang.edit}</a>
+      </td>
+    </tr>
+    <!--{foreachelse}-->
+    <tr class="no_data info">
+      <td colspan="18">{$lang.no_data}</td>
+    </tr>
+    <!--{/foreach}-->
+    </tbody>
+  </table>
+  <!--{if $goods_list}-->
+  <div id="dataFuncs">
+    <div id="batchAction" class="left paddingT15" style="padding-left:25px;">
+      <input class="formbtn batchButton" type="button" value="{$lang.drop}" name="id" uri="index.php?app=goods&act=drop" presubmit="confirm('{$lang.drop_confirm}')" />
+    </div>
+    <div class="pageLinks">{include file=page.bottom.html}</div>
+  </div>
+  <!--{/if}-->
+  <div class="clear"></div>
+</div>
+{include file="footer.html"}

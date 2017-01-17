@@ -1,0 +1,93 @@
+{include file="header.html"}
+<script type="text/javascript">
+$(function(){
+	change_background();
+});
+
+function change_background() {
+    $("tbody tr").hover(
+		function() {
+			$(this).css({background:"#EAF8DB"});
+		},
+		function(){
+			$(this).css({background:"#FBFDFF"});
+		}
+	);
+}
+</script>
+<div id="rightTop">
+  <p>{$lang.admin}</p>
+  <ul class="subnav">
+    <li><span>{$lang.manage}</span></li>
+    <li><a class="btn1" href="index.php?app=admin&amp;act=add">{$lang.add}</a></li>
+  </ul>
+</div>
+
+<div class="mrightTop">
+  <div class="fontr">{include file=page.top.html}</div>
+</div>
+<div class="tdare">
+  <form method=get>
+  <table width="100%" cellspacing="0" class="dataTable">
+  	<thead>
+    <!--{if $admins}-->
+    <tr class="tatr1">
+      <td width="5%" class="firstCell"><input type="checkbox" class="checkall" /></td>
+      <td width="8%"><span ectype="order_by" fieldname="user_name">{$lang.user_name}</span></td>
+      <td width="8%"><span ectype="order_by" fieldname="real_name">{$lang.real_name}</span></td>
+      <td><span ectype="order_by" fieldname="email">{$lang.email}</span></td>
+      <td width="5%" class="table-center"><span ectype="order_by" fieldname="gender">{$lang.gender}</span></td>
+      <td width="15%" class="table-center"><span ectype="order_by" fieldname="last_login">{$lang.last_login}</span></td>
+      <td><span ectype="order_by" fieldname="last_ip">{$lang.last_ip}</span></td>
+      <td width="8%"><span ectype="order_by" fieldname="logins">{$lang.logins}</span></td>
+      <td width="12%" class="table-center">{$lang.handler}</td>
+    </tr>
+    <!--{/if}-->
+    </thead>
+    <tbody>
+    <!--{foreach from=$admins item=admin}-->
+    <tr class="tatr2">
+      <td class="firstCell"><input type="checkbox" class="checkitem" value="{$admin.user_id}" /></td>
+      <td>{$admin.user_name|escape}</td>
+      <td>{$admin.real_name|escape|default:-}</td>
+      <td>{$admin.email|escape|default:-}</td>
+      <td class="table-center">
+      <!--{if $admin.gender eq 1}-->{$lang.male}
+      <!--{elseif $admin.gender eq 2}-->{$lang.female}
+      <!--{else}-->{$lang.unknown}
+      <!--{/if}-->
+      </td>
+      <td class="table-center">{$admin.last_login|date:complete|default:-}</td>
+      <td>{if $admin.last_ip}<a href="http://www.ip138.com/ips.asp?ip={$admin.last_ip}" target="_blank"><strong>{$admin.last_ip}</strong></a>({$admin.ip_area}){else}-{/if}</td>
+      <td>{$admin.logins|default:-}</td>
+      <td class="table-center">
+      <!--{if $admin.privs eq all}-->
+      {$lang.system_manager} | 
+      <a href="index.php?app=admin&amp;act=edit_user&amp;id={$admin.user_id}">{$lang.edit_user}</a>
+      </td>
+      <!--{else}-->
+      <a href="index.php?app=admin&amp;act=edit&amp;id={$admin.user_id}">{$lang.edit}</a> | 
+      <a href="index.php?app=admin&amp;act=edit_user&amp;id={$admin.user_id}">{$lang.edit_user}</a> | 
+      <a href="javascript:drop_confirm('{$lang.drop_confirm}', 'index.php?app=admin&amp;act=drop&amp;id={$admin.user_id}');">{$lang.drop_admin}</a>
+      </td>
+      <!--{/if}-->
+    </tr>
+    <!--{foreachelse}-->
+    <tr class="no_data">
+      <td colspan="10">{$lang.no_data}</td>
+    </tr>
+    <!--{/foreach}-->
+    </tr>
+  </table>
+  </form>
+  <!--{if $admins}-->
+  <div id="dataFuncs">
+    <div id="batchAction" class="left paddingT15" style="padding-left:25px;">
+      <input class="formbtn batchButton" type="button" value="{$lang.drop}" name="id" uri="index.php?app=admin&act=drop" presubmit="confirm('{$lang.drop_confirm}');" />
+    </div>
+    <div class="pageLinks">{include file=page.bottom.html}</div>
+    <div class="clear"></div>
+  </div>
+  <!--{/if}-->
+</div>
+{include file="footer.html"} 

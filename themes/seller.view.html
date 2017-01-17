@@ -1,0 +1,42 @@
+{include file="header.html"}
+<div id="rightTop">
+    <p><b>{$lang.seller_info}</b></p>
+</div>
+<div class="info">
+    <div class="order_form">
+        <h2>{$lang.seller_info}</h2>
+        <ul>
+            <li><b>{$lang.seller_name}:</b> {$seller.seller_name|escape}</li>
+            <li><b>{$lang.real_name}:</b> {$seller.real_name|escape}</li>
+            <li><b>{$lang.store_name}:</b> {$seller.store_name|escape}</li>
+            <li><b>{$lang.seller_brand}:</b> {$seller.seller_brand|escape}</li>
+            <li><b>{$lang.seller_type}:</b> {if $seller.seller_type eq '1'}{$lang.type_worldmall}{elseif $seller.seller_type eq '2'}{$lang.type_taobao}{elseif $seller.seller_type eq '0'}{$lang.type_other}{/if}</li>
+            <li><b>{$lang.gender}:</b> {if $seller.gender eq 1}{$lang.male}{elseif $seller.gender eq 2}{$lang.female}{else}{$lang.unknown}{/if}</li>
+            <li><b>{$lang.region_name}:</b> {$seller.region_name|escape}</li>
+            <li><b>{$lang.address}:</b> {$seller.address|escape}</li>
+            <li><b>{$lang.birthday}:</b> {$seller.birthday|escape}</li>
+            <li><b>{$lang.email}:</b> {$seller.email|escape}</li>
+            <li><b>{$lang.phone_fax}:</b> {$seller.phone_fax|escape}</li>
+            <li><b>{$lang.phone_tel}:</b> {$seller.phone_tel|escape}</li>
+            <li><b>{$lang.phone_mob}:</b> {$seller.phone_mob|escape}</li>
+            <li><b>{$lang.im_qq}:</b> {$seller.im_qq|escape}</li>
+            <li><b>{$lang.im_msn}:</b> {$seller.im_msn|escape}</li>
+            <li><b>{$lang.im_skype}:</b> {$seller.im_skype|escape}</li>
+            <li><b>{$lang.im_yahoo}:</b> {$seller.im_yahoo|escape}</li>
+            <li><b>{$lang.im_aliww}:</b> {$seller.im_aliww|escape}</li>
+            <li><b>{$lang.trademark_code}:</b> {$seller.trademark_code|escape}</li>
+            <li><b>{$lang.contractor}:</b> {$seller.contractor|escape}</li>
+            <li><b>{$lang.contractor_card}:</b> {$seller.contractor_card|escape}</li>
+            <li><b>{$lang.settlement_account}:</b> {$seller.settlement_account|escape}</li>
+            <li><b>{$lang.taxpayer_qualification}:</b> {$seller.taxpayer_qualification|escape}</li>
+            <li><b>{$lang.business_license}:</b> {$seller.business_license|escape}</li>
+            <li><b>{$lang.add_time}:</b> {$seller.add_time|date:complete}</li>
+            <li><b>{$lang.update_time}:</b> {$seller.update_time|date:complete}</li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+    <div class="order_form" align="center">
+    	<input class="formbtn1" type="button" name="Submit" value="{$lang.go_back}" onclick="javascript:history.go(-1);" />
+    </div>
+</div>
+{include file="footer.html"}

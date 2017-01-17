@@ -1,0 +1,41 @@
+Fri, 01 Jun 2012 09:26:44 +0800	[256]MySQL Error[1054]: Unknown column 'll20120517' in 'where clause'
+MySQL Query:SELECT *,sell.sell_id FROM ecm_sell sell WHERE order_sn=ll20120517 AND is_void =0
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[533]	/eccore/model/mysql.php	285
+Fri, 01 Jun 2012 09:40:28 +0800	[256]MySQL Error[1054]: Unknown column 'll20120517' in 'where clause'
+MySQL Query:SELECT *,sell.sell_id FROM ecm_sell sell WHERE order_sn=ll20120517 AND is_void =0
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[533]	/eccore/model/mysql.php	285
+Fri, 01 Jun 2012 09:57:04 +0800	[256]MySQL Error[1054]: Unknown column 'LL20120517' in 'where clause'
+MySQL Query:SELECT *,sell.sell_id FROM ecm_sell sell WHERE order_sn=LL20120517 AND is_void =0
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[533]	/eccore/model/mysql.php	285
+Mon, 11 Jun 2012 14:35:02 +0800	[2]Division by zero	/app/purchase.app.php	581
+Tue, 12 Jun 2012 13:02:52 +0800	[256]MySQL Error[1054]: Unknown column 'C012012060210' in 'where clause'
+MySQL Query:SELECT *,sell.sell_id FROM ecm_sell sell WHERE order_sn=C012012060210 AND is_void =0
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[533]	/eccore/model/mysql.php	285
+Tue, 12 Jun 2012 13:03:09 +0800	[256]MySQL Error[1054]: Unknown column 'C012012060210' in 'where clause'
+MySQL Query:SELECT *,sell.sell_id FROM ecm_sell sell WHERE order_sn=C012012060210 AND is_void =0
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[533]	/eccore/model/mysql.php	285
+Tue, 12 Jun 2012 13:03:33 +0800	[256]MySQL Error[1054]: Unknown column 'C012012060210' in 'where clause'
+MySQL Query:SELECT *,sell.sell_id FROM ecm_sell sell WHERE order_sn=C012012060210 AND is_void =0
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[533]	/eccore/model/mysql.php	285
+Tue, 12 Jun 2012 13:05:00 +0800	[256]MySQL Error[1054]: Unknown column 'C012012060210' in 'where clause'
+MySQL Query:SELECT *,sell.sell_id FROM ecm_sell sell WHERE order_sn=C012012060210 AND is_void =0
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[533]	/eccore/model/mysql.php	285
+Tue, 12 Jun 2012 13:05:12 +0800	[256]MySQL Error[1054]: Unknown column 'C012012060210' in 'where clause'
+MySQL Query:SELECT *,sell.sell_id FROM ecm_sell sell WHERE order_sn=C012012060210 AND is_void =0
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[533]	/eccore/model/mysql.php	285
+Thu, 14 Jun 2012 17:11:17 +0800	[256]MySQL Error[1054]: Unknown column 'weipinhuizengpin20120505' in 'where clause'
+MySQL Query:SELECT *,sell.sell_id FROM ecm_sell sell WHERE order_sn=weipinhuizengpin20120505 AND is_void =0
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[533]	/eccore/model/mysql.php	285
+Thu, 14 Jun 2012 17:15:42 +0800	[256]MySQL Error[1054]: Unknown column 'wys20120505' in 'where clause'
+MySQL Query:SELECT *,sell.sell_id FROM ecm_sell sell WHERE order_sn=wys20120505 AND is_void =0
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[533]	/eccore/model/mysql.php	285
+Thu, 14 Jun 2012 17:32:41 +0800	[256]MySQL Error[1054]: Unknown column 'liu20120505' in 'where clause'
+MySQL Query:SELECT *,sell.sell_id FROM ecm_sell sell WHERE order_sn=liu20120505 AND is_void =0
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[533]	/eccore/model/mysql.php	285
+Wed, 20 Jun 2012 15:40:03 +0800	[256]MySQL Error[1064]: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '\xE6\xB1\xA4\xE6\x96\x87\xE7\x90\xAA AND is_void =0' at line 1
+MySQL Query:SELECT *,sell.sell_id FROM ecm_sell sell WHERE order_sn=汤文琪 AND is_void =0
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[533]	/eccore/model/mysql.php	285
+Fri, 29 Jun 2012 16:04:39 +0800	[256]MySQL Error[1064]: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '\xE8\x8A\x92\xE6\x9E\x9C\xE8\x89\xB2' at line 1
+MySQL Query:SELECT *,g.goods_id FROM ecm_goods g WHERE barcode=695438960264 芒果色 
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[533]	/eccore/model/mysql.php	285
+Sat, 30 Jun 2012 13:15:03 +0800	[2]Division by zero	/app/purchase.app.php	581

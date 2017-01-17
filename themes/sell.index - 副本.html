@@ -1,0 +1,203 @@
+{include file="header.html"}
+<script language="javascript" type="text/javascript"> 
+$(function(){
+	$('#add_time_from').datepicker({dateFormat: 'yy-mm-dd'});
+	$('#add_time_to').datepicker({dateFormat: 'yy-mm-dd'});
+	
+	$("tbody tr").hover(
+		function() {
+			$(this).css({background:"#EAF8DB"});
+		},
+		function(){
+			$(this).css({background:"#FBFDFF"});
+		}
+	);
+});
+
+function collection(id){
+	$('#received_'+id).slideDown('slow');
+}
+function slideUp_fn(id){
+	$('#received_'+id).slideUp('slow');
+}
+
+//收款
+function sub_collection(o, id){
+	var warning = $('#received_'+id+' .warning');
+	var obj = $('#money_'+id);
+	var money = parseFloat(obj.val());
+	var amount_uncollected = parseFloat(obj.attr('amount_uncollected'));
+	
+	money = isNaN(money) ? 0 : money;
+	amount_uncollected = isNaN(amount_uncollected) ? 0 : amount_uncollected;
+	
+	if(money <= 0){
+		return;
+	}
+	
+	//已收金额大于应收金额
+	if (money > amount_uncollected) {
+		if(!confirm('{$lang.amount_uncollected_lt}')) {
+			return;
+		}
+	}
+	
+	$(o).attr('disabled', true);
+	obj.attr('disabled', true);
+	warning.html('{$lang.submit_warning}');
+	$.getJSON("index.php?app=sell&act=collection", {id: id, money: money}, function(data){
+		if (data.done){
+			warning.html('{$lang.ok_warning}');
+			location.reload();
+		}
+	});
+}
+
+//作废
+function subInvalid(id) {
+	if(!confirm('{$lang.confirm_is_void}')){
+		return false;
+    }
+	$.getJSON("index.php?app=sell&act=invalid", {id: id}, function(data){
+		if (data.done){
+			location.reload();
+		}
+	});
+}
+</script>
+<div id="rightTop">
+    <p>{$lang.sell_manage}</p>
+    <ul class="subnav">
+        <li><span>{$lang.manage}</span></li>
+        <li><a class="btn1" href="index.php?app=sell&amp;act=add">{$lang.sell_manage}</a></li>
+        <li><a class="btn4" href="index.php?app=sell&amp;act=import">{$lang.import_sell}</a></li>
+    </ul>
+</div>
+<div class="mrightTop">
+    <div class="fontl">
+        <form method="get">
+             <div class="left">
+                <input type="hidden" name="app" value="sell" />
+                <select class="querySelect" name="field">
+                {html_options options=$search_options selected=$smarty.get.field}
+                </select>
+                <input class="queryInput" type="text" name="search_name" value="{$query.search_name|escape}" />
+                {$lang.add_time_from}:<input class="queryInput pick_date" type="text" value="{$query.add_time_from}" id="add_time_from" name="add_time_from" />
+                {$lang.add_time_to}:<input class="queryInput pick_date" type="text" value="{$query.add_time_to}" id="add_time_to" name="add_time_to" />
+                {$lang.sell_type}:
+                <select class="querySelect" name="sell_type">
+                <option value="">{$lang.type_all}</option>
+                {html_options options=$sell_type selected=$smarty.get.sell_type}
+                </select>
+                {$lang.status}:
+                <select class="querySelect" name="status">
+                <option value="">{$lang.type_all}</option>
+                {html_options options=$status selected=$smarty.get.status}
+                </select>
+                <input type="submit" class="formbtn" value="{$lang.query}" />
+                <input type="submit" class="formbtn" name="export_all" value="{$lang.export}" />
+            </div>
+        </form>
+    </div>
+    <div class="fontr">
+        {if $data_list}{include file=page.top.html}{/if}
+    </div>
+</div>
+<div class="tdare">
+    <table width="100%" cellspacing="0" class="dataTable">
+    	<thead>
+        <!--{if $data_list}-->
+        <tr class="tatr1">
+            <td width="11%" class="firstCell">{$lang.sell_sn}</td>
+            <td width="6%" class="table-center">{$lang.sell_time}</td>
+            <td width="6%" class="table-center">{$lang.sell_type}</td>
+        	<td width="10%">{$lang.order_sn}</td>
+            <td>{$lang.buyer_name}</td>
+            <td width="4%">{$lang.shipping_fee}</td>
+            <td width="6%">{$lang.sell_amount}</td>
+            <td width="6%">{$lang.discount}</td>
+            <td width="6%">{$lang.sell_money}</td>
+            <td width="6%">{$lang.total_money}</td>
+            <td width="6%">{$lang.amount_received}</td>
+            <td width="6%">{$lang.amount_uncollected}</td>
+            <td width="6%" class="table-center">{$lang.status}</td>
+            <td width="4%" class="table-center">{$lang.status_invalid}</td>
+            <td width="6%" class="table-center">{$lang.add_time}</td>
+            <td width="6%" class="table-center">{$lang.handler}</td>
+        </tr>
+        <!--{/if}-->
+        </thead>
+        <tbody>
+        <!--{foreach from=$data_list item=order}-->
+        <tr class="tatr2"{if $order.is_void eq '1'} style="color:#F00;"{/if}>
+            <td class="firstCell">{$order.sell_sn|escape}</td>
+            <td class="table-center">{$order.sell_time|escape}</td>
+            <td class="table-center">{if $order.sell_type eq '0'}{$lang.type_other}{elseif $order.sell_type eq '1'}{$lang.type_worldmall}{elseif $order.sell_type eq '2'}{$lang.type_taobao}{elseif $order.sell_type eq '3'}{$lang.type_network}{/if}</td>
+            <td>{$order.order_sn|escape}</td>
+            <td>{$order.buyer_name|escape|default:-}</td>
+            <td>{$order.shipping_fee|escape|default:-}</td>
+            <td>{$order.sell_amount|escape|default:-}</td>
+            <td>{$order.discount|escape|default:-}</td>
+            <td>{$order.sell_money|escape|default:-}</td>
+            <td>{$order.total_money|escape|default:-}</td>
+            <td>{if $order.gt}<span style="color:#090; font-weight:bold;">{$order.amount_received|escape|default:-}</span>{else}{$order.amount_received|escape|default:-}{/if}</td>
+            <td>{$order.amount_uncollected|escape|default:-}</td>
+            <td class="table-center">{if $order.status}{$lang.completed}{else}{$lang.unfinished}{/if}</td>
+            <td class="table-center">{if $order.is_void eq '1'}{$lang.is_void}{else}{$lang.normal}{/if}</td>
+            <td class="table-center">{$order.add_time|date:complete}</td>
+            <td class="table-center" style="width:100px;position:relative;">
+              <a href="index.php?app=sell&amp;act=view&amp;id={$order.sell_id}">{$lang.view}</a>
+              {if $order.invalid eq '1'}
+              <a href="javascript:void(0);" onclick="subInvalid({$order.sell_id});">{$lang.is_void}</a>
+              {/if}
+              {if $order.status neq '1' and $order.is_void eq '0'}
+              <a href="javascript:collection({$order.sell_id});">{$lang.collection}</a>
+                <div class="sell_received_money" id="received_{$order.sell_id}">
+                    <a href="javascript:slideUp_fn({$order.sell_id});" class="close"></a>
+                    <p><span>{$lang.received_money}:</span><input name="money" id="money_{$order.sell_id}" type="text" value="" amount_uncollected="{$order.amount_uncollected}" />{$lang.yuan}</p>
+                   <!--  <p><input type="button" class="submit" value="{$lang.submit}" onclick="sub_collection(this,{$order.sell_id});" /></p> -->
+                    <p class="warning"></p>
+                </div>
+              {/if}
+              
+              	<a href="index.php?app=returned&amp;act=add&amp;sid={$order.sell_id}">{$lang.reutrned}</a>
+              {if $order.status eq 1}{/if}
+            </td>
+        </tr>
+        <!--{foreachelse}-->
+        <tr class="no_data">
+            <td colspan="16">{$lang.no_data}</td>
+        </tr>
+        <!--{/foreach}-->
+        </tbody>
+    </table>
+    <!--{if $data_list}-->
+    <table width="100%" cellspacing="0" class="dataTable">
+    	<thead>
+        <tr class="tatr1">
+            <td width="18%" class="firstCell">{$lang.sell_amount}</td>
+            <td width="16%">{$lang.sell_money}</td>
+            <td width="16%">{$lang.total_money}</td>
+            <td width="16%">{$lang.amount_received}</td>
+            <td>{$lang.amount_uncollected}</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="tatr2">
+            <td class="firstCell"><span class="total_text">{$total.sell_amount|price:%s}</span></td>
+            <td><span class="total_text">{$total.sell_money|price:%s}</span></td>
+            <td><span class="total_text">{$total.total_money|price:%s}</span></td>
+            <td><span class="total_text">{$total.amount_received|price:%s}</span></td>
+            <td><span class="total_text">{$total.amount_uncollected|price:%s}</span></td>
+        </tr>
+        </tbody>
+    </table>
+    <div id="dataFuncs">
+        <div class="pageLinks">
+            {include file=page.bottom.html}
+        </div>
+    </div>
+    <!--{/if}-->
+    <div class="clear"></div>
+</div>
+{include file="footer.html"}

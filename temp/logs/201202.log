@@ -1,0 +1,13 @@
+Wed, 01 Feb 2012 11:28:54 +0800	[2]Division by zero	/app/report.app.php	178
+Wed, 01 Feb 2012 11:28:59 +0800	[2]Division by zero	/app/report.app.php	178
+Wed, 01 Feb 2012 11:32:01 +0800	[2]Division by zero	/app/report.app.php	178
+Thu, 02 Feb 2012 09:11:46 +0800	[2]Division by zero	/app/report.app.php	178
+Thu, 02 Feb 2012 09:12:41 +0800	[2]Division by zero	/app/report.app.php	178
+Thu, 02 Feb 2012 09:27:29 +0800	[2]Division by zero	/app/report.app.php	178
+Sat, 04 Feb 2012 15:29:18 +0800	[2]Division by zero	/app/report.app.php	178
+Sat, 04 Feb 2012 15:29:35 +0800	[2]Division by zero	/app/report.app.php	178
+Wed, 08 Feb 2012 16:25:44 +0800	[2]Division by zero	/app/report.app.php	178
+Wed, 08 Feb 2012 17:17:55 +0800	[2]Invalid argument supplied for foreach()	/includes/models/goods.model.php	42
+Wed, 08 Feb 2012 17:25:25 +0800	[256]MySQL Error[1054]: Unknown column 's.goods_name' in 'order clause'
+MySQL Query:SELECT * FROM ecm_goods where 1 = 1 ORDER BY s.goods_name DESC
+Wrong File:  /var/local/worldmall/erp.worldmall.cn/eccore/model/mysql.php[507]	/eccore/model/mysql.php	285

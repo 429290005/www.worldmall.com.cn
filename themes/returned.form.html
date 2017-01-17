@@ -1,0 +1,198 @@
+{include file="header.html"}
+<script type="text/javascript" src="{lib file=jquery.plugins/jquery.AddIncSearch-min.js}" charset="utf-8"></script>
+<script type="text/javascript">
+$(function(){
+	$('#refund_time').datepicker({dateFormat: 'yy-mm-dd'});
+	
+	//退货物品
+	$(".checkitem").click(function(){
+		if($(this).attr('checked')) {
+			$(this).parents('tr').find('td input[class="infoTableInput10"]').attr('disabled',false);
+		}else {
+			$(this).parents('tr').find('td input[class="infoTableInput10"]').attr('disabled',true);
+		}
+	});
+	
+	countMoney();
+});
+
+//计算
+function countMoney(){
+	$('input[name="price[]"], input[name="quantity[]"], input[name="money[]"]').unbind().keyup(function(){
+		var obj_p = $(this).parents('tr').find('td input[name="price[]"]');		    //销售单价对象
+		var obj_ps = $(this).parents('tr').find('td input[name="prices[]"]');		    //销售单价对象
+		var obj_q = $(this).parents('tr').find('td input[name="quantity[]"]');		//销售数量对象
+		var obj_m = $(this).parents('tr').find('td input[name="money[]"]');		    //销售金额对象
+		var obj_ms = $(this).parents('tr').find('td input[name="moneys[]"]');		    //销售金额对象
+		var obj_num = $(this).parents('tr').find('td input[name="num[]"]');		    //销售金额对象
+		
+		
+		//当在输入销售数量时进行检查是否合法
+		if ($(this).attr('name') == 'quantity[]'){
+			var re = /^[1-9]\d*$/;
+			if (!re.test($(this).val())){
+				$(this).val('');
+			}
+		}
+		
+		var price = isNaN(parseFloat(obj_p.val())) ? 0 : parseFloat(obj_p.val());    //销售单价
+		var prices = isNaN(parseFloat(obj_ps.val())) ? 0 : parseFloat(obj_ps.val());    //销售单价
+		var quantity = isNaN(parseInt(obj_q.val())) ? 0 : parseInt(obj_q.val());	 //销售数量
+		var money = isNaN(parseFloat(obj_m.val())) ? 0 : parseFloat(obj_m.val());	 //销售金额
+		var num = isNaN(parseInt(obj_num.val())) ? 0 : parseInt(obj_num.val());	 //销售数量
+		
+		//当输入销售金额时计算销售单价
+		if ($(this).attr('name') == 'money[]'){
+			if(quantity>num){
+				alert(lang.refund_num_min);
+				obj_q.val(num);
+				quantity.focus();
+				}
+			if (quantity > 0) {
+				price = Math.round(money / quantity * 100) / 100;
+				obj_p.val(price);
+			} else {
+				obj_p.val(0);
+			}
+		} else {
+			
+			if(quantity>num){					
+				alert(lang.refund_num_min);
+				obj_q.val(num);
+				quantity.focus();
+				}
+			//金额
+			obj_m.val(Math.round(price * quantity * 100) / 100);			
+		}
+		obj_ms.val(Math.round(prices * quantity * 100) / 100);
+	});
+}
+
+//提交
+function confirm_submit() {
+	
+	
+	if(!confirm('{$lang.confirm_submit}')){
+		return false;
+    }
+	$('#returned_form').submit();
+}
+</script>
+<div id="rightTop">
+  <p>{$lang.returned_manage}</p>
+  <ul class="subnav">
+    <li><a class="btn1" href="index.php?app=returned">{$lang.returned_list}</a></li>
+  </ul>
+</div>
+<form method="post" enctype="multipart/form-data" name="returned_form" id="returned_form">
+<input type="hidden" name="app" value="{$smarty.get.app}" />
+<input type="hidden" name="act" value="{$smarty.get.act}" />
+<input type="hidden" name="total_money" value="{$sell_info.total_money}" />
+<div class="tdare">
+    <table width="100%" cellspacing="0" class="dataTable">
+    	<thead>
+        <tr class="tatr1" style="background-color:#B9FFFF;">
+        	<td class="firstCell">{$lang.sell_sn}</td>
+            <td>{$lang.returned_time}</td>
+            <td>{$lang.returned_type}</td>
+        	<td>{$lang.order_sn}</td>
+            <td>{$lang.buyer_name}</td>
+            <td>{$lang.payment}</td>
+            <td>{$lang.shipping_name}</td>
+            <td>{$lang.shipping_sn}</td>
+            <td>{$lang.shipping_fee}</td>
+            <td>{$lang.buyer_remark}</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="tatr2" style="background-color:#E1FFF0;">
+            <td class="firstCell"><input name="sell_sn" type="text" class="infoTableInput4" id="sell_sn" value="{$sell_info.sell_sn|escape}" readonly="readonly" /></td>
+            <td><input class="infoTableInput3 pick_date" id="refund_time" type="text" name="refund_time" value="{$refund.refund_time|escape}" readonly="readonly" /></td>
+            <td>
+                <select class="querySelect" name="returned_type" id="returned_type" style="width:62px;">
+                	{html_options options=$returned_type selected=$sell_info.order_type}
+                </select>
+            </td>
+            <td><input class="infoTableInput3" id="order_sn" type="text" name="order_sn" value="{$sell_info.order_sn}" readonly="readonly" /></td>
+            <td>
+                <select class="infoTableInput4 querySelect" name="buyer_id" id="buyer_id" >
+                	{html_options options=$buyers selected=$sell_info.buyer_id}
+                </select>
+            </td>
+            <td><input class="infoTableInput3" id="payment" type="text" name="payment" value="{$sell_info.payment}" readonly="readonly" /></td>
+            <td><input class="infoTableInput3" id="shipping_name" type="text" name="shipping_name" value="{$sell_info.shipping_name}" readonly="readonly" /></td>
+            <td><input class="infoTableInput3" id="shipping_sn" type="text" name="shipping_sn" value="{$sell_info.shipping_sn}" readonly="readonly" /></td>
+            <td><input class="infoTableInput3" id="shipping_fee" type="text" name="shipping_fee" value="{$sell_info.shipping_fee}" readonly="readonly" /></td>
+            <td><input class="infoTableInput3" id="buyer_remark" type="text" name="buyer_remark" value="{$sell_info.remark}" /></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <table width="100%" cellspacing="0" class="dataTable">
+    	<thead>
+        <tr class="tatr1" style="background-color: #BDF;">
+            <td width="5%" class="firstCell"></td>
+            <td>{$lang.goods_sn}</td>
+            <td>{$lang.goods_name}</td>
+            <td>{$lang.brand_name}</td>
+        	<td>{$lang.store_goods_code}</td>
+            <td>{$lang.goods_colour}</td>
+            <td class="table-center">{$lang.unit}</td>
+            <td>{$lang.goods_specification}</td>
+            <td>{$lang.price}</td>
+            <td>{$lang.price_cost}</td>
+            <td>{$lang.quantity}</td>
+            <td>己退数量</td>
+            <td>{$lang.returned_quantity}</td>
+            <td>{$lang.returned_price}</td>
+             
+            <td>{$lang.returned_money}</td>
+            <td>成本总金额</td>
+            <td>{$lang.defective}</td>
+            <td>{$lang.remark}</td>
+        </tr>
+        </thead>
+        <tbody>
+        <!--{foreach from=$data.sd item=goods key=key}-->
+        <tr class="tatr2" style="background-color:#E1FFF0;">
+        	<td class="firstCell">{if $goods.refund_num ne $goods.watehouse_num}<input type="checkbox" class="checkitem" name="sell_detailed_id[]" value="{$key}" />{else}{/if}</td>
+            <td><input class="infoTableInput10" type="text" name="goods_sn[]" disabled="disabled" value="{$goods.goods_sn|escape|default:-}" style="width:85px;" readonly="readonly" /></td>
+            <td><input class="infoTableInput10" type="text" name="goods_name[]" disabled="disabled" value="{$goods.goods_name|escape|default:-}" style="width:85px;" readonly="readonly" /></td>
+            <td><input class="infoTableInput10" type="text" name="brand_name[]" disabled="disabled" value="{$goods.brand_name|escape|default:-}" readonly="readonly" style="width:45px;" /></td>
+            <td><input class="infoTableInput10" type="text" name="store_goods_code[]" disabled="disabled" value="{$goods.store_goods_code|escape|default:-}" readonly="readonly" style="width:45px;" /></td>
+            <td><input class="infoTableInput10" type="text" name="goods_colour[]" disabled="disabled" value="{$goods.goods_colour|escape|default:-}" style="width:45px;" readonly="readonly" /></td>
+            <td class="table-center"><input class="infoTableInput10" type="text" name="unit[]" disabled="disabled" value="{$goods.unit|escape|default:-}" style="width:30px;" readonly="readonly" /></td>
+            <td><input class="infoTableInput10" type="text" name="goods_specification[]" disabled="disabled" value="{$goods.goods_specification|escape|default:-}" style="width:50px;" readonly="readonly" /></td>
+            <td>{$goods.price|price:%s}</td>
+            <td>{$goods.price_cost|price:%s}<input class="" type="hidden" name="prices[]" value="{$goods.price_cost|price:%s}" /></td>
+            <td>{$goods.watehouse_num|escape|default:-}
+            
+            <input class="infoTableInput10" type="hidden" name="num[]" value="{$goods.min_num}" style="width:45px;" />
+            
+            </td>            
+          <td>{$goods.refund_num|escape|default:-}</td>
+            <td><input class="infoTableInput10" type="text" name="quantity[]" value="" style="width:45px;" disabled="disabled" /></td>
+            <td><input class="infoTableInput10" type="text" name="price[]" value="{$goods.price|price:%s}" style="width:50px;" disabled="disabled" /></td>
+            <td><input class="infoTableInput10" type="text" name="money[]" disabled="disabled" value="" style="width:60px;" readonly="readonly" /></td>
+            
+            <td><input class="infoTableInput10" type="text" name="moneys[]" disabled="disabled" value="" style="width:60px;" readonly="readonly" /></td>
+            
+            <td><input class="infoTableInput10" type="checkbox" name="defective[]"  disabled="disabled"value="{$goods.sell_detailed_id}" /></td>
+            <td><input class="infoTableInput10" type="text" name="remark[]" disabled="disabled" value="" style="width:50px;" /></td>
+        </tr>
+        <!--{/foreach}-->
+        </tbody>
+    </table>
+    
+    <div id="dataFuncs">
+    	<div class="printLinks">
+        </div>
+        <div class="submit-center">
+        	<input class="formbtn" type="button" name="Submit" value="{$lang.submit}" onclick="confirm_submit();" />
+            <input class="formbtn" type="reset" name="Reset" value="{$lang.reset}" />
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+</form>
+{include file="footer.html"}

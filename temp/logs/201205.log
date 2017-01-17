@@ -1,0 +1,137 @@
+Fri, 04 May 2012 13:32:09 +0800	[256]MySQL Error[1054]: Unknown column 'warehouse_states' in 'where clause'
+MySQL Query:SELECT COUNT(*) as c FROM ecm_sell sell WHERE 1 = 1  and warehouse_states=1 
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[457]	/eccore/model/mysql.php	285
+Fri, 04 May 2012 13:42:39 +0800	[256]MySQL Error[1146]: Table 'erps.ecm_sessions' doesn't exist
+MySQL Query:SELECT data, expiry, is_overflow FROM ecm_sessions WHERE sesskey = 'e6b805dde535bfd0c522c44521897edd'
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[588]	/eccore/model/mysql.php	285
+Fri, 04 May 2012 13:42:43 +0800	[256]MySQL Error[1146]: Table 'erps.ecm_sessions' doesn't exist
+MySQL Query:SELECT data, expiry, is_overflow FROM ecm_sessions WHERE sesskey = 'e6b805dde535bfd0c522c44521897edd'
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[588]	/eccore/model/mysql.php	285
+Fri, 04 May 2012 13:42:44 +0800	[256]MySQL Error[1146]: Table 'erps.ecm_sessions' doesn't exist
+MySQL Query:SELECT data, expiry, is_overflow FROM ecm_sessions WHERE sesskey = 'e6b805dde535bfd0c522c44521897edd'
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[588]	/eccore/model/mysql.php	285
+Fri, 04 May 2012 13:42:44 +0800	[256]MySQL Error[1146]: Table 'erps.ecm_sessions' doesn't exist
+MySQL Query:SELECT data, expiry, is_overflow FROM ecm_sessions WHERE sesskey = 'e6b805dde535bfd0c522c44521897edd'
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[588]	/eccore/model/mysql.php	285
+Fri, 04 May 2012 13:42:46 +0800	[256]MySQL Error[1146]: Table 'erps.ecm_sessions' doesn't exist
+MySQL Query:SELECT data, expiry, is_overflow FROM ecm_sessions WHERE sesskey = 'e6b805dde535bfd0c522c44521897edd'
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[588]	/eccore/model/mysql.php	285
+Fri, 04 May 2012 13:42:48 +0800	[256]MySQL Error[1146]: Table 'erps.ecm_sessions' doesn't exist
+MySQL Query:SELECT data, expiry, is_overflow FROM ecm_sessions WHERE sesskey = 'e6b805dde535bfd0c522c44521897edd'
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[588]	/eccore/model/mysql.php	285
+Fri, 04 May 2012 13:42:48 +0800	[256]MySQL Error[1146]: Table 'erps.ecm_sessions' doesn't exist
+MySQL Query:SELECT data, expiry, is_overflow FROM ecm_sessions WHERE sesskey = 'e6b805dde535bfd0c522c44521897edd'
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[588]	/eccore/model/mysql.php	285
+Fri, 04 May 2012 13:42:50 +0800	[256]MySQL Error[1146]: Table 'erps.ecm_sessions' doesn't exist
+MySQL Query:SELECT data, expiry, is_overflow FROM ecm_sessions WHERE sesskey = 'e6b805dde535bfd0c522c44521897edd'
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[588]	/eccore/model/mysql.php	285
+Fri, 04 May 2012 13:42:50 +0800	[256]MySQL Error[1146]: Table 'erps.ecm_sessions' doesn't exist
+MySQL Query:SELECT data, expiry, is_overflow FROM ecm_sessions WHERE sesskey = 'e6b805dde535bfd0c522c44521897edd'
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[588]	/eccore/model/mysql.php	285
+Fri, 04 May 2012 13:42:50 +0800	[256]MySQL Error[1146]: Table 'erps.ecm_sessions' doesn't exist
+MySQL Query:SELECT data, expiry, is_overflow FROM ecm_sessions WHERE sesskey = 'e6b805dde535bfd0c522c44521897edd'
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[588]	/eccore/model/mysql.php	285
+Fri, 04 May 2012 13:42:50 +0800	[256]MySQL Error[1146]: Table 'erps.ecm_sessions' doesn't exist
+MySQL Query:SELECT data, expiry, is_overflow FROM ecm_sessions WHERE sesskey = 'e6b805dde535bfd0c522c44521897edd'
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[588]	/eccore/model/mysql.php	285
+Fri, 04 May 2012 13:42:50 +0800	[256]MySQL Error[1146]: Table 'erps.ecm_sessions' doesn't exist
+MySQL Query:SELECT data, expiry, is_overflow FROM ecm_sessions WHERE sesskey = 'e6b805dde535bfd0c522c44521897edd'
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[588]	/eccore/model/mysql.php	285
+Fri, 04 May 2012 13:42:50 +0800	[256]MySQL Error[1146]: Table 'erps.ecm_sessions' doesn't exist
+MySQL Query:SELECT data, expiry, is_overflow FROM ecm_sessions WHERE sesskey = 'e6b805dde535bfd0c522c44521897edd'
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[588]	/eccore/model/mysql.php	285
+Fri, 04 May 2012 13:42:51 +0800	[256]MySQL Error[1146]: Table 'erps.ecm_sessions' doesn't exist
+MySQL Query:SELECT data, expiry, is_overflow FROM ecm_sessions WHERE sesskey = 'e6b805dde535bfd0c522c44521897edd'
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[588]	/eccore/model/mysql.php	285
+Fri, 04 May 2012 13:42:51 +0800	[256]MySQL Error[1146]: Table 'erps.ecm_sessions' doesn't exist
+MySQL Query:SELECT data, expiry, is_overflow FROM ecm_sessions WHERE sesskey = 'e6b805dde535bfd0c522c44521897edd'
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[588]	/eccore/model/mysql.php	285
+Fri, 04 May 2012 13:42:54 +0800	[256]MySQL Error[1146]: Table 'erps.ecm_sessions' doesn't exist
+MySQL Query:SELECT data, expiry, is_overflow FROM ecm_sessions WHERE sesskey = 'e6b805dde535bfd0c522c44521897edd'
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[588]	/eccore/model/mysql.php	285
+Sat, 05 May 2012 14:15:08 +0800	[256]MySQL Error[1064]: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 3
+MySQL Query:SELECT s.*, g.barcode, g.unit FROM ecm_stock AS s 
+        		LEFT JOIN ecm_goods AS g ON g.goods_code = s.goods_sn 
+        		ORDER BY s.goods_name DESC limit
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[507]	/eccore/model/mysql.php	285
+Mon, 07 May 2012 16:34:26 +0800	[256]MySQL Error[1064]: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+MySQL Query:SELECT *,g.goods_id FROM ecm_goods g WHERE barcode=
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[533]	/eccore/model/mysql.php	285
+Mon, 07 May 2012 16:36:04 +0800	[256]MySQL Error[1064]: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+MySQL Query:SELECT *,g.goods_id FROM ecm_goods g WHERE barcode=
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[533]	/eccore/model/mysql.php	285
+Wed, 09 May 2012 15:51:29 +0800	[2]Division by zero	/app/sell.app.php	67
+Wed, 09 May 2012 15:52:04 +0800	[2]Division by zero	/app/sell.app.php	67
+Thu, 10 May 2012 13:40:16 +0800	[2]Division by zero	/app/sell.app.php	67
+Thu, 10 May 2012 14:29:35 +0800	[2]Division by zero	/app/sell.app.php	67
+Thu, 10 May 2012 15:07:58 +0800	[2]Division by zero	/app/inventory.app.php	559
+Thu, 10 May 2012 15:08:27 +0800	[2]Division by zero	/app/inventory.app.php	559
+Thu, 10 May 2012 16:31:31 +0800	[2]mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)	/eccore/model/mysql.php	94
+Thu, 10 May 2012 16:31:35 +0800	[2]mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)	/eccore/model/mysql.php	94
+Thu, 10 May 2012 16:31:37 +0800	[2]mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)	/eccore/model/mysql.php	94
+Thu, 10 May 2012 16:31:38 +0800	[2]mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)	/eccore/model/mysql.php	94
+Thu, 10 May 2012 16:31:39 +0800	[2]mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)	/eccore/model/mysql.php	94
+Thu, 10 May 2012 16:31:40 +0800	[2]mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)	/eccore/model/mysql.php	94
+Thu, 10 May 2012 16:31:41 +0800	[2]mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)	/eccore/model/mysql.php	94
+Thu, 10 May 2012 16:31:43 +0800	[2]mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)	/eccore/model/mysql.php	94
+Thu, 10 May 2012 16:31:43 +0800	[2]mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)	/eccore/model/mysql.php	94
+Thu, 10 May 2012 16:31:44 +0800	[2]mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)	/eccore/model/mysql.php	94
+Thu, 10 May 2012 16:31:49 +0800	[2]mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)	/eccore/model/mysql.php	94
+Thu, 10 May 2012 16:31:50 +0800	[2]mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)	/eccore/model/mysql.php	94
+Thu, 10 May 2012 16:31:51 +0800	[2]mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)	/eccore/model/mysql.php	94
+Thu, 10 May 2012 16:32:20 +0800	[2]mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)	/eccore/model/mysql.php	94
+Thu, 10 May 2012 16:32:21 +0800	[2]mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)	/eccore/model/mysql.php	94
+Thu, 10 May 2012 16:32:22 +0800	[2]mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)	/eccore/model/mysql.php	94
+Thu, 10 May 2012 16:32:25 +0800	[2]mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)	/eccore/model/mysql.php	94
+Thu, 10 May 2012 16:37:48 +0800	[2]mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)	/eccore/model/mysql.php	94
+Thu, 10 May 2012 16:38:29 +0800	[2]mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)	/eccore/model/mysql.php	94
+Thu, 10 May 2012 16:38:45 +0800	[2]mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)	/eccore/model/mysql.php	94
+Thu, 10 May 2012 16:38:47 +0800	[2]mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)	/eccore/model/mysql.php	94
+Thu, 10 May 2012 16:41:05 +0800	[2]mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)	/eccore/model/mysql.php	94
+Thu, 10 May 2012 17:03:02 +0800	[2]Division by zero	/app/inventory.app.php	561
+Fri, 11 May 2012 12:40:57 +0800	[2]Division by zero	/app/sell.app.php	67
+Fri, 11 May 2012 12:41:15 +0800	[2]Division by zero	/app/sell.app.php	67
+Fri, 11 May 2012 12:53:20 +0800	[2]Division by zero	/app/sell.app.php	67
+Fri, 11 May 2012 12:53:57 +0800	[2]Division by zero	/app/sell.app.php	67
+Fri, 11 May 2012 13:54:45 +0800	[2]Division by zero	/app/inventory.app.php	566
+Fri, 11 May 2012 13:56:10 +0800	[2]Division by zero	/app/sell.app.php	60
+Fri, 11 May 2012 13:56:43 +0800	[2]Division by zero	/app/sell.app.php	60
+Fri, 11 May 2012 13:58:21 +0800	[2]Division by zero	/app/sell.app.php	60
+Fri, 11 May 2012 14:08:27 +0800	[2]Division by zero	/app/sell.app.php	60
+Fri, 11 May 2012 16:55:02 +0800	[2]Division by zero	/app/sell.app.php	63
+Fri, 11 May 2012 16:55:15 +0800	[2]Division by zero	/app/sell.app.php	63
+Fri, 11 May 2012 16:55:53 +0800	[2]Division by zero	/app/sell.app.php	63
+Fri, 11 May 2012 16:56:26 +0800	[2]Division by zero	/app/sell.app.php	63
+Sat, 12 May 2012 09:06:07 +0800	[2]Invalid argument supplied for foreach()	/app/inventory.app.php	742
+Sat, 12 May 2012 09:06:13 +0800	[2]Invalid argument supplied for foreach()	/app/inventory.app.php	742
+Sat, 12 May 2012 09:15:21 +0800	[2]Invalid argument supplied for foreach()	/app/inventory.app.php	742
+Sat, 12 May 2012 09:22:56 +0800	[2]Invalid argument supplied for foreach()	/app/inventory.app.php	742
+Sat, 12 May 2012 09:27:54 +0800	[2]Division by zero	/app/inventory.app.php	566
+Sat, 12 May 2012 10:54:50 +0800	[2]Division by zero	/app/sell.app.php	63
+Sat, 12 May 2012 10:55:29 +0800	[2]Division by zero	/app/sell.app.php	63
+Sat, 12 May 2012 10:57:20 +0800	[2]Division by zero	/app/sell.app.php	63
+Sat, 12 May 2012 11:46:19 +0800	[2]Division by zero	/app/sell.app.php	63
+Sat, 12 May 2012 12:48:13 +0800	[2]Division by zero	/app/sell.app.php	63
+Sat, 12 May 2012 13:06:38 +0800	[2]Division by zero	/app/sell.app.php	63
+Wed, 16 May 2012 14:29:39 +0800	[2]Division by zero	/app/sell.app.php	63
+Fri, 18 May 2012 17:14:11 +0800	[256]MySQL Error[1054]: Unknown column 'hlm20120517' in 'where clause'
+MySQL Query:SELECT *,sell.sell_id FROM ecm_sell sell WHERE order_sn=hlm20120517
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[533]	/eccore/model/mysql.php	285
+Fri, 18 May 2012 17:20:53 +0800	[256]MySQL Error[1054]: Unknown column 'hlm20120517' in 'where clause'
+MySQL Query:SELECT *,sell.sell_id FROM ecm_sell sell WHERE order_sn=hlm20120517
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[533]	/eccore/model/mysql.php	285
+Fri, 18 May 2012 17:24:07 +0800	[256]MySQL Error[1054]: Unknown column 'XS20120517' in 'where clause'
+MySQL Query:SELECT *,sell.sell_id FROM ecm_sell sell WHERE order_sn=XS20120517
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[533]	/eccore/model/mysql.php	285
+Sat, 19 May 2012 08:51:19 +0800	[2]Division by zero	/app/sell.app.php	62
+Sat, 19 May 2012 08:51:57 +0800	[2]Division by zero	/app/sell.app.php	62
+Sat, 19 May 2012 08:52:29 +0800	[2]Division by zero	/app/sell.app.php	62
+Sat, 19 May 2012 08:52:43 +0800	[2]Division by zero	/app/sell.app.php	62
+Sat, 19 May 2012 08:52:47 +0800	[2]Division by zero	/app/sell.app.php	62
+Sat, 19 May 2012 08:53:03 +0800	[2]Division by zero	/app/sell.app.php	62
+Sat, 19 May 2012 09:13:42 +0800	[256]MySQL Error[1064]: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '\xE6\xB5\x8B\xE8\xAF\x95' at line 1
+MySQL Query:SELECT *,sell.sell_id FROM ecm_sell sell WHERE order_sn=测试
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[533]	/eccore/model/mysql.php	285
+Wed, 23 May 2012 10:19:50 +0800	[256]MySQL Error[1064]: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '\xE5\xB1\xB1\xE4\xB8\x9C\xE7\x9C\x81 \xE9\x9D\x92\xE5\xB2\x9B\xE5\xB8\x82 \xE5\x' at line 1
+MySQL Query:SELECT *,sell.sell_id FROM ecm_sell sell WHERE order_sn=山东省 青岛市 市南区 漳州一路35号国泰公寓1单元1804室 韩国凯尔希有限公司青岛办事处 
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[533]	/eccore/model/mysql.php	285

@@ -1,0 +1,119 @@
+{include file="header.html"}
+<script type="text/javascript">
+$(function(){
+    $("tbody tr").hover(
+		function() {
+			$(this).css({background:"#EAF8DB"});
+		},
+		function(){
+			$(this).css({background:"#FBFDFF"});
+		}
+	);
+});
+
+$(function(){
+	$('#refund_time_from').datepicker({dateFormat: 'yy-mm-dd'});
+	$('#refund_time_to').datepicker({dateFormat: 'yy-mm-dd'});
+	
+	$("tbody tr").hover(
+		function() {
+			$(this).css({background:"#EAF8DB"});
+		},
+		function(){
+			$(this).css({background:"#FBFDFF"});
+		}
+	);
+});
+
+function collection(id){
+	$('#received_'+id).slideDown('slow');
+}
+function slideUp_fn(id){
+	$('#received_'+id).slideUp('slow');
+}
+
+</script>
+<div id="rightTop">
+  <p>{$lang.returned_manage}</p>
+  <ul class="subnav">
+    <li><span>{$lang.returned_list}</span></li>
+    <!-- <li><a class="btn1" href="index.php?app=returned&amp;act=add">{$lang.add}</a></li> -->
+  </ul>
+</div>
+<div class="mrightTop">
+    <div class="fontl">
+        <form method="get">
+             <div class="left">
+                <input type="hidden" name="app" value="returned" />
+                <select class="querySelect" name="field">
+                {html_options options=$search_options selected=$smarty.get.field}
+                </select>
+                <input class="queryInput" type="text" name="search_name" value="{$query.search_name|escape}" />
+                {$lang.refund_time_from}:<input class="queryInput pick_date" type="text" value="{$query.refund_time_from}" id="refund_time_from" name="refund_time_from" />
+                {$lang.refund_time_to}:<input class="queryInput pick_date" type="text" value="{$query.refund_time_to}" id="refund_time_to" name="refund_time_to" />
+                {$lang.returned_type}:
+                <select class="querySelect" name="returned_type">
+                <option value="">{$lang.type_all}</option>
+                {html_options options=$returned_type selected=$smarty.get.returned_type}
+                </select>
+                <input type="submit" class="formbtn" value="{$lang.query}" />
+                <input type="submit" class="formbtn" name="export_all" value="{$lang.export}" />
+            </div>
+            <!--{if $filtered}-->
+            <a class="left formbtn1" href="index.php?app=sell">{$lang.cancel_query}</a>
+            <!--{/if}-->
+        </form>
+    </div>
+    <div class="fontr">
+        {if $data_list}{include file=page.top.html}{/if}
+    </div>
+</div>
+<div class="tdare">
+    <table width="100%" cellspacing="0" class="dataTable">
+    	<thead>
+        <!--{if $data_list}-->
+        <tr class="tatr1">
+            <td class="firstCell">{$lang.sell_sn}</td>
+            <td class="table-center">{$lang.returned_time}</td>
+            <td class="table-center">{$lang.returned_type}</td>
+        	<td>{$lang.order_sn}</td>
+            <td>{$lang.buyer_name}</td>
+            <td>{$lang.total_money}</td>
+            <td>{$lang.amount_received}</td>
+            <td class="table-center">{$lang.add_time}</td>
+            <td class="table-center">{$lang.handler}</td>
+        </tr>
+        <!--{/if}-->
+        </thead>
+        <tbody>
+        <!--{foreach from=$data_list item=order}-->
+        <tr class="tatr2"{if $order.is_void eq '1'} style="color:#F00;"{/if}>
+            <td class="firstCell">{$order.sell_sn|escape}</td>
+            <td class="table-center">{$order.refund_time|escape}</td>
+            <td class="table-center">{if $order.refund_type eq '0'}{$lang.type_other}{elseif $order.refund_type eq '1'}{$lang.type_worldmall}{elseif $order.refund_type eq '2'}{$lang.type_taobao}{elseif $order.refund_type eq '3'}{$lang.type_network}{/if}</td>
+            <td>{$order.order_sn|escape}</td>
+            <td>{$order.buyer_name|escape|default:-}</td>
+            <td>{$order.total_money|escape|default:-}</td>
+            <td>{if $order.gt}<span style="color:#090; font-weight:bold;">{$order.refund_amount|escape|default:-}</span>{else}{$order.refund_amount|escape|default:-}{/if}</td>
+            <td class="table-center">{$order.add_time|date:complete}</td>
+            <td class="table-center" style="width:100px;position:relative;">
+              <a href="index.php?app=returned&amp;act=view&amp;id={$order.refund_id}">{$lang.view}</a>
+              <!--<a href="index.php?app=refund&amp;act=add&amp;id={$order.refund_id}">{$lang.returnedmoney}</a>
+            --></td>
+        </tr>
+        <!--{foreachelse}-->
+        <tr class="no_data">
+            <td colspan="16">{$lang.no_data}</td>
+        </tr>
+        <!--{/foreach}-->
+        </tbody>
+    </table>
+    <div id="dataFuncs">
+        <div class="pageLinks">
+            {include file=page.bottom.html}
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+{include file="footer.html"}

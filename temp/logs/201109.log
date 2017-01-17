@@ -1,0 +1,5 @@
+Wed, 28 Sep 2011 14:12:15 +0800	[2]mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Can't connect to MySQL server on 'localhost' (10061)	\eccore\model\mysql.php	94
+Wed, 28 Sep 2011 14:14:03 +0800	[2]mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Can't connect to MySQL server on 'localhost' (10061)	\eccore\model\mysql.php	94
+Wed, 28 Sep 2011 14:14:04 +0800	[2]mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Can't connect to MySQL server on 'localhost' (10061)	\eccore\model\mysql.php	94
+Wed, 28 Sep 2011 14:14:07 +0800	[2]mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Can't connect to MySQL server on 'localhost' (10061)	\eccore\model\mysql.php	94
+Wed, 28 Sep 2011 14:14:12 +0800	[2]mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Can't connect to MySQL server on 'localhost' (10061)	\eccore\model\mysql.php	94

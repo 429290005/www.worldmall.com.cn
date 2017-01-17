@@ -1,0 +1,188 @@
+{include file="header.html"}
+<style type="text/css">
+#select_color span{}
+#select_color span a{color:#666; text-decoration:none;}
+#select_color span a:hover{color:#333; text-decoration:blink;}
+</style>
+<script type="text/javascript">
+$(function(){
+    $('#goods_form').validate({
+        errorPlacement: function(error, element){
+            $(element).next('.field_notice').hide();
+            $(element).after(error);
+        },
+        success       : function(label){
+            label.addClass('right').text('OK!');
+        },
+        onkeyup    : false,
+        rules : {
+            goods_name : {
+                required : true
+            },
+            store_goods_code: {
+                required : true
+            },
+			goods_colour: {
+                required : true
+            },
+			price_purchase: {
+                required : true
+            },
+        },
+        messages : {
+            goods_name : {
+                required : '{$lang.goods_name_not_empty}'
+            },
+            store_goods_code : {
+                required : '{$lang.store_goods_code_not_empty}'
+            },
+			goods_colour: {
+                required : '{$lang.store_goods_color_not_empty}'
+            },
+			price_purchase: {
+               required : '{$lang.store_goods_price_not_empty}'
+            },
+        }
+    });
+	
+	//折扣率计算
+	$('#price_crane, #price_purchase').keyup(function(){
+		var pc = parseFloat($('#price_crane').val());
+		var pp = parseFloat($('#price_purchase').val());
+		pc = isNaN(pc) ? 0 : pc;
+		pp = isNaN(pp) ? 0 : pp;		
+		if (pc != 0) {
+			$('#purchase_discount').val(Math.round(pp / pc * 100 * 100) / 100);
+		}
+	});
+	
+	var goods_colour = $("#goods_colour");	
+	$('#select_color>span>a').click(function(){
+		var thisText = $(this).text();
+		goods_colour.val(thisText);
+		});
+});
+</script>
+<div id="rightTop">
+  <p>{$lang.goods_manage}</p>
+  <ul class="subnav">
+    <li><a class="btn1" href="index.php?app=goods">{$lang.manage}</a></li>
+    <li><span>{$lang.add}</span></li>
+   <!-- <li><a class="btn1" href="index.php?app=goods&amp;act=import">{$lang.import}</a></li> -->
+  </ul>
+</div>
+<div class="info">
+  <form method="post" enctype="multipart/form-data" id="goods_form">
+  	<input type="hidden" name="app" value="{$smarty.get.app}" />
+    <input type="hidden" name="act" value="{$smarty.get.act}" />
+    <table class="infoTable">
+      <tr>
+        <th class="paddingT15"> {$lang.goods_name}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" id="goods_name" type="text" name="goods_name" value="{$goods.goods_name|escape}" /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.stock_type}:</th>
+        <td class="paddingT15 wordSpacing5">
+          <select name="stock_type">
+          {html_options options=$stock_type selected=$goods.stock_type}
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.store_goods_code}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="store_goods_code" type="text" id="store_goods_code" value="{$goods.store_goods_code|escape}" /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.barcode}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="barcode" type="text" id="barcode" value="{$goods.barcode|escape}" /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.goods_code}:</th>
+        <td class="paddingT15 wordSpacing5"><input name="goods_code" type="text" class="infoTableInput2" id="goods_code" value="{$goods.goods_code|escape}" readonly="readonly" /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.goods_category}:</th>
+        <td class="paddingT15 wordSpacing5">
+          <select name="goods_category">
+          {html_options options=$goods_category selected=$goods.goods_category}
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.goods_brand}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="goods_brand" type="text" id="goods_brand" value="{$goods.goods_brand|escape}" /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.goods_colour}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="goods_colour" type="text" id="goods_colour" value="{$goods.goods_colour|escape}" />
+        <div id="select_color" style="margin-top:10px;">
+        	<span><a href="javascript:;">红色</a></span>
+            <span><a href="javascript:;">黑色</a></span>
+            <span><a href="javascript:;">橙色</a></span>
+            <span><a href="javascript:;">克色</a></span>
+            <span><a href="javascript:;">啡色</a></span>            
+            <span><a href="javascript:;">粉色</a></span>
+            <span><a href="javascript:;">紫色</a></span>
+            <span><a href="javascript:;">杏色</a></span>
+            <span><a href="javascript:;">梅色</a></span>
+            <span><a href="javascript:;">粉色</a></span>
+            <span><a href="javascript:;">蓝色</a></span>
+            <span><a href="javascript:;">棕色</a></span>            
+            <span><a href="javascript:;">玫红色</a></span>
+            <span><a href="javascript:;">芒果黄</a></span>
+            <span><a href="javascript:;">深上黄</a></span>
+            <span><a href="javascript:;">双色橙</a></span>
+            <span><a href="javascript:;">双色紫</a></span> 
+            <span><a href="javascript:;">双色杏</a></span>           
+            <span><a href="javascript:;">咖啡色</a></span>
+            <span><a href="javascript:;">军绿色</a></span>            
+            <span><a href="javascript:;">卡其色</a></span>
+            <span><a href="javascript:;">土黄色</a></span>
+            <span><a href="javascript:;">米白色</a></span>
+            
+        </div>
+        </td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.goods_weight}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="goods_weight" type="text" id="goods_weight" value="{$goods.goods_weight}" />(KG)</td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.goods_specification}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="goods_specification" type="text" id="goods_specification" value="{$goods.goods_specification|escape}" />(CM)</td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.unit}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="unit" type="text" id="unit" value="{$goods.unit|escape}" /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.price_crane}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="price_crane" type="text" id="price_crane" value="{$goods.price_crane}" /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.price_retail}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="price_retail" type="text" id="price_retail" value="{$goods.price_retail}" /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.price_wholesale}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="price_wholesale" type="text" id="price_wholesale" value="{$goods.price_wholesale}" /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.price_purchase}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="price_purchase" type="text" id="price_purchase" value="{$goods.price_purchase}" /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.purchase_discount}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="purchase_discount" type="text" id="purchase_discount" value="{$goods.purchase_discount}" />(%)</td>
+      </tr>
+      <tr>
+        <th></th>
+        <td class="ptb20">
+        	<input class="formbtn" type="submit" name="Submit" value="{$lang.submit}" />
+            <input class="formbtn" type="reset" name="Reset" value="{$lang.reset}" />
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>
+{include file="footer.html"}

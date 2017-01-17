@@ -1,0 +1,74 @@
+{include file="header.html"}
+<script type="text/javascript">
+$(function(){
+    $("tbody tr").hover(
+		function() {
+			$(this).css({background:"#EAF8DB"});
+		},
+		function(){
+			$(this).css({background:"#FBFDFF"});
+		}
+	);
+});
+</script>
+<div id="rightTop">
+  <p>{$lang.logistics_manage}</p>
+  <ul class="subnav">
+    <li><span>{$lang.manage}</span></li>
+    <li><a class="btn1" href="index.php?app=buyer&amp;act=logistics_add&amp;buyer_id={$buyer_id}">{$lang.add}</a></li>
+  </ul>
+</div>
+<div class="mrightTop info">
+  <div class="fontl"></div>
+  <div class="fontr">{include file=page.top.html}</div>
+</div>
+<div class="tdare">
+  <table width="100%" cellspacing="0" class="dataTable">
+  	<thead>
+    <!--{if $data_list}-->
+    <tr class="tatr1">
+      <td width="20" class="firstCell"><input type="checkbox" class="checkall" /></td>
+      <td width="8%">{$lang.consignee}</td>
+      <td width="12%">{$lang.ls_region_name}</td>
+      <td>{$lang.ls_address}</td>
+      <td width="8%" class="table-center">{$lang.zipcode}</td>
+      <td width="12%">{$lang.phone_tel}</td>
+      <td width="12%">{$lang.phone_mob}</td>
+      <td width="12%" class="table-center">{$lang.add_time}</td>
+      <td width="8%" class="table-center">{$lang.handler}</td>
+    </tr>
+    <!--{/if}-->
+    </thead>
+    <tbody>
+    <!--{foreach from=$data_list item=logistics}-->
+    <tr class="tatr2">
+      <td class="firstCell"><input type="checkbox" class="checkitem" value="{$logistics.logistics_id}"/></td>
+      <td>{$logistics.consignee|escape}</td>
+      <td>{$logistics.region_name|escape}</td>
+      <td>{$logistics.address|escape}</td>
+      <td class="table-center">{$logistics.zipcode|escape}</td>
+      <td>{$logistics.phone_tel|escape}</td>
+      <td>{$logistics.phone_mob|escape}</td>
+      <td class="table-center">{$logistics.add_time|date:complete}</td>
+      <td class="table-center">
+        <a href="index.php?app=buyer&amp;act=logistics_edit&amp;id={$logistics.logistics_id}">{$lang.edit}</a>
+      </td>
+    </tr>
+    <!--{foreachelse}-->
+    <tr class="no_data info">
+      <td colspan="9">{$lang.no_data}</td>
+    </tr>
+    <!--{/foreach}-->
+    </tbody>
+  </table>
+  <!--{if $data_list}-->
+  <div id="dataFuncs">
+    <div id="batchAction" class="left paddingT15">
+      <input class="formbtn batchButton" type="button" value="{$lang.drop}" name="id" uri="index.php?app=buyer&amp;act=logistics_drop&amp;buyer_id={$buyer_id}" presubmit="confirm('{$lang.logistics_drop_confirm}')" />
+    </div>
+    <div class="pageLinks">{include file=page.bottom.html}</div>
+  </div>
+  <!--{/if}-->
+  <div class="clear"></div>
+</div>
+{include file="footer.html"}

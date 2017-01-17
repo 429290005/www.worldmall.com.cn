@@ -1,0 +1,87 @@
+{include file="header.html"}
+<script type="text/javascript">
+$(function(){
+    $('#pandian_form').validate({
+        errorPlacement: function(error, element){
+            $(element).next('.field_notice').hide();
+            $(element).after(error);
+        },
+        success       : function(label){
+            label.addClass('right').text('OK!');
+        },
+        onkeyup    : false,
+        rules : {
+        	pandian_num : {
+                required : true
+            },
+            price_purchase : {
+                required : true
+            }
+        },
+        messages : {
+        	pandian_num : {
+                required : '{$lang.pd_num_not_empty}'
+            },
+            price_purchase : {
+                required : '{$lang.price_purchase_not_empty}'
+            }
+        }
+    });
+	
+});
+</script>
+<div id="rightTop">
+  <p>{$lang.pandian_manage}</p>
+  <ul class="subnav">
+    <li><a class="btn1" href="index.php?app=pandian">{$lang.pandian_list}</a></li>
+    <li><a class="btn4" href="index.php?app=pandian&amp;act=import">{$lang.import_pandian}</a></li>
+  </ul>
+</div>
+<div class="info">
+  <form method="post" enctype="multipart/form-data" id="pandian_form">
+  	<input type="hidden" name="app" value="{$smarty.get.app}" />
+    <input type="hidden" name="act" value="{$smarty.get.act}" />
+    <table class="infoTable">
+      <tr>
+        <th class="paddingT15"> {$lang.goods_name}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" id="goods_name" type="text" name="goods_name" value="{$pandian.goods_name|escape}" disabled /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.goods_sn}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="goods_sn" type="text" id="goods_sn" value="{$pandian.goods_sn|escape}" disabled /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.price_purchase}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="price_purchase" type="text" id="price_purchase" value="{$pandian.price_purchase|escape}" /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.pandian_num}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="pandian_num" type="text" id="pandian_num" value="{$pandian.pd_num|escape}" /></td>
+      </tr>
+      <!-- <tr>
+        <th class="paddingT15"> {$lang.goods_colour}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="goods_colour" type="text" id="goods_colour" value="{$goods.goods_colour|escape}" /></td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.goods_weight}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="goods_weight" type="text" id="goods_weight" value="{$goods.goods_weight}" />(KG)</td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.goods_specification}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="goods_specification" type="text" id="goods_specification" value="{$goods.goods_specification|escape}" />(CM)</td>
+      </tr>
+      <tr>
+        <th class="paddingT15"> {$lang.unit}:</th>
+        <td class="paddingT15 wordSpacing5"><input class="infoTableInput2" name="unit" type="text" id="unit" value="{$goods.unit|escape}" /></td>
+      </tr> -->
+      <tr>
+        <th></th>
+        <td class="ptb20">
+        	<input class="formbtn" type="submit" name="Submit" value="{$lang.submit}" />
+            <input class="formbtn" type="reset" name="Reset" value="{$lang.reset}" />
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>
+{include file="footer.html"}

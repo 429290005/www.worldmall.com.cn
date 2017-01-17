@@ -1,0 +1,99 @@
+{include file="header.html"}
+<script language="javascript" type="text/javascript"> 
+$(function(){
+	$('#pandian_date').datepicker({dateFormat: 'yy-mm'});
+	
+	$("tbody tr").hover(
+		function() {
+			$(this).css({background:"#EAF8DB"});
+		},
+		function(){
+			$(this).css({background:"#FBFDFF"});
+		}
+	);
+});
+</script>
+<div id="rightTop">
+    <p>{$lang.pandian_manage}</p>
+    <ul class="subnav">
+        <li><a class="btn4" href="index.php?app=pandian&amp;act=import">{$lang.import_pandian}</a></li>
+    </ul>
+</div>
+<div class="mrightTop">
+    <div class="fontl">
+        <form method="get">
+             <div class="left">
+                <input type="hidden" name="app" value="pandian" />
+                <select class="querySelect" name="field">
+                {html_options options=$search_options selected=$smarty.get.field}
+                </select>
+                <input class="queryInput" type="text" name="search_name" value="{$query.search_name|escape}" />
+                {$lang.pandian_date}:<input class="queryInput pick_date" type="text" value="{$query.pandian_date}" id="pandian_date" name="pandian_date" />
+                <input type="submit" class="formbtn" value="{$lang.query}" />
+                <!--<input type="submit" class="formbtn" name="export_all" value="{$lang.export}" />
+                onclick="confirm_submit();" />-->
+            </div>
+        </form>
+    </div>
+    <div class="fontr">
+        {if $data_list}{include file=page.top.html}{/if}
+    </div>
+</div>
+<div class="tdare">
+    <table width="100%" cellspacing="0" class="dataTable">
+    	<thead>
+        <!--{if $data_list}-->
+        <tr class="tatr1">
+            <td class="firstCell">{$lang.pandian_date}</td>
+            <td class="table-center">{$lang.goods_name}</td>
+            <td>{$lang.goods_sn}</td>
+        	<td>{$lang.goods_category}</td>
+            <td>{$lang.goods_specification}</td>
+            <td>{$lang.goods_colour}</td>
+            <td>{$lang.unit}</td>
+            <td>{$lang.price_purchase}</td>
+            <td>{$lang.stock_num}</td>
+            <td>{$lang.pandian_num}</td>
+            <td>{$lang.pandiancha}</td>
+            <td>{$lang.remark}</td>
+            <td class="table-center">{$lang.handler}</td>
+        </tr>
+        <!--{/if}-->
+        </thead>
+        <tbody>
+        <!--{foreach from=$data_list item=order}-->
+        <tr class="tatr2">
+            <td width="60px;" class="firstCell">{$order.pd_date|escape}</td>
+            <td width="150px;" class="table-center">{$order.goods_name|escape}</td>
+            <td width="100px;">{$order.goods_sn|escape}</td>
+            <td width="100px;">{$order.goods_category|escape|default:-}</td>
+            <td width="50px;">{$order.goods_specification|escape|default:-}</td>
+            <td width="50px;">{$order.goods_colour}</td>
+            <td width="50px;">{$order.unit}</td>
+            <td width="50px;">{$order.price_purchase}</td>
+            <td width="80px;">{$order.stock_num}</td>
+            <td width="80px;">{$order.pd_num}</td>
+            <td width="80px;">{$order.pandiancha}</td>
+            <td>{$order.remark}</td>
+            <td class="table-center">
+              {if $is_admin}<a href="index.php?app=pandian&amp;act=edit&amp;id={$order.pd_id}">{$lang.edit}</a>{else}-{/if}
+            </td>
+        </tr>
+        <!--{foreachelse}-->
+        <tr class="no_data">
+            <td colspan="13">{$lang.no_data}</td>
+        </tr>
+        <!--{/foreach}-->
+        </tbody>
+    </table>
+    <!--{if $data_list}-->
+    <div id="dataFuncs">
+        <div class="pageLinks">
+            {include file=page.bottom.html}
+        </div>
+        
+    </div>
+    <!--{/if}-->
+    <div class="clear"></div>
+</div>
+{include file="footer.html"}

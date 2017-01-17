@@ -1,0 +1,30 @@
+@charset "utf-8";
+body{background:#426511;color:#456;font-family:Verdana,Arial,Helvetica,sans-serif;font-size:12px;line-height:16px;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td,img{margin:0;padding:0;}
+fieldset,img{border:none;margin:0;padding:0;vertical-align:top;}
+
+em{font-style:normal;}
+ul,li{list-style:none outside none;margin:0;padding:0;border:0;}
+button {cursor:pointer;}
+.display{display:inline-block;}
+
+
+/******************超文本链接*****************/
+a:link{color:#456;text-decoration:none;}a:visited{color:#456;text-decoration:none;}a:hover{color:#ff0000;text-decoration:underline;}
+a.blue:link{color:#36c;}a.blue:visited{color:#36c;}a.blue:hover{color:#ff0000;}
+
+
+/******************主体*****************/
+.main{height:820px;margin:0 auto;background:url(images/bg.jpg) -265px 0;}
+.contant{width:475px;margin:0 auto;padding-top:80px;}
+.logo{width:314px;height:88px;margin:0 auto 25px;}
+h1{color:#fff;text-align:center;font-family: "汉仪中圆简","微软雅黑", "幼圆"; font-size:36px;}
+.login{background:url(images/login.png);height:210px;margin-top:30px;padding:50px 0 0 120px;}
+.login dl{width:220px;}
+.login dt{float:left;margin-top:10px;line-height:22px;}
+.login dd{width:175px;float:right;margin-top:10px;}
+.login img{margin-right:5px;vertical-align:middle;}
+.login input{border:1px solid #cecece;height:20px;vertical-align:middle;margin:0 5px 0 0;float:left; width:150px;}
+
+.register input{border:none;width:12px;height:12px;vertical-align:middle;}
+input.btn{width:46px;height:22px;background:url(images/btn.jpg);border:none;color:#fff;margin-right:10px; cursor:pointer;}

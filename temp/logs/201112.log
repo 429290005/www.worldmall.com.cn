@@ -1,0 +1,3 @@
+Tue, 13 Dec 2011 17:41:05 +0800	[2]Memcache::connect() [<a href='memcache.connect'>memcache.connect</a>]: Can't connect to 127.0.0.1:11211, Connection refused (111)	/includes/libraries/cache.lib.php	183
+Tue, 13 Dec 2011 17:46:46 +0800	[2]Memcache::connect() [<a href='memcache.connect'>memcache.connect</a>]: Can't connect to 127.0.0.1:11211, Connection refused (111)	/includes/libraries/cache.lib.php	183
+Fri, 30 Dec 2011 09:04:00 +0800	[2]Invalid argument supplied for foreach()	/app/purchase.app.php	523

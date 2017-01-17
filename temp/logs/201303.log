@@ -1,0 +1,15 @@
+Fri, 01 Mar 2013 21:26:50 +0800	[256]MySQL Error[1054]: Unknown column '130301J5PQ82' in 'where clause'
+MySQL Query:SELECT *,sell.sell_id FROM ecm_sell sell WHERE order_sn=130301J5PQ82 AND is_void =0
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[533]	/eccore/model/mysql.php	285
+Fri, 01 Mar 2013 21:28:51 +0800	[256]MySQL Error[1054]: Unknown column '130301J5PQ82' in 'where clause'
+MySQL Query:SELECT *,sell.sell_id FROM ecm_sell sell WHERE order_sn=130301J5PQ82 AND is_void =0
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[533]	/eccore/model/mysql.php	285
+Fri, 01 Mar 2013 21:31:23 +0800	[256]MySQL Error[1054]: Unknown column '130301J5PQ82' in 'where clause'
+MySQL Query:SELECT *,sell.sell_id FROM ecm_sell sell WHERE order_sn=130301J5PQ82 AND is_void =0
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[533]	/eccore/model/mysql.php	285
+Fri, 01 Mar 2013 21:39:29 +0800	[256]MySQL Error[1054]: Unknown column '130301J5PQ82' in 'where clause'
+MySQL Query:SELECT *,sell.sell_id FROM ecm_sell sell WHERE order_sn=130301J5PQ82 AND is_void =0
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[533]	/eccore/model/mysql.php	285
+Wed, 13 Mar 2013 14:48:01 +0800	[256]MySQL Error[1064]: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '\xE5\x85\x8B' at line 1
+MySQL Query:SELECT *,g.goods_id FROM ecm_goods g WHERE barcode=9051210A-克
+Wrong File:  /var/local/worldmall/erps.worldmall.cn/eccore/model/mysql.php[533]	/eccore/model/mysql.php	285
